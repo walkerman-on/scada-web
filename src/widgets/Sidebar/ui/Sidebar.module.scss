@@ -1,0 +1,23 @@
+.Sidebar {
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+.sidebarMenu {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.inputMenu {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.textSCADA {
+    font-weight: 600;
+}

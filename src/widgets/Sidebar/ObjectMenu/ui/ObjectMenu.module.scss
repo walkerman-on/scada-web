@@ -1,0 +1,43 @@
+.ObjectMenu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.objectCountMenu {
+    display: flex;
+    justify-content: space-between;
+}
+
+.object {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 14px;
+    font-weight: 300;
+    cursor: pointer;
+}
+
+.objectLink {
+    padding: 5px 20px;
+    transition: background-color 0.25s;
+}
+
+.objectLink:hover {
+    background: var(--dark-color);
+    padding: 5px 20px;
+    border-radius: 5px;
+}
+
+.objectLinkActive {
+    background: var(--dark-color);
+    padding: 5px 20px;
+    border-radius: 5px;
+}
+
+.objectText {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--secondary-color)
+}
+

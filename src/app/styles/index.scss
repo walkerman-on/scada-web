@@ -10,9 +10,11 @@ body {
 }
 
 .app {
-    padding: 30px;
+    padding: 20px 30px 50px 30px;
     font: var(--font-m);
     background: var(--bg-color);
     color: var(--primary-color);
-    // min-height: 100vh;
+    display: grid;
+    grid-template-columns: 300px auto;
+    height: 100vh;
 }
