@@ -6,7 +6,7 @@ import { Sidebar } from "widgets/Sidebar";
 import { Header } from "widgets/Header";
 
 const App = () => {
-    const {theme, changeTheme} = useTheme()
+    const {theme} = useTheme()
 
     return (
         <div className={classNames("app", {}, [theme])}>

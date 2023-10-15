@@ -17,7 +17,7 @@ export const RoutePath: Record<AppRoutes, string> = {
     [AppRoutes.INFOGRAPHICS]: "/infographics",
     [AppRoutes.ACCOUNT]: "/account",
     [AppRoutes.LOGIN]: "/login",
-    [AppRoutes.OBJECT]: "/object",
+    [AppRoutes.OBJECT]: "/object/:id",
     [AppRoutes.TEST]: "/test",
 }
 

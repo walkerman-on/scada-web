@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cl from "./Sidebar.module.scss";
-import Search from 'antd/es/input/Search';
 import { ObjectMenu } from '../ObjectMenu';
 import Card from 'shared/ui/Card/Card';
+import { Button } from 'shared/ui/Button';
 
 interface SidebarProps {
     children?: React.ReactNode,
@@ -19,11 +19,14 @@ export const Sidebar:FC<SidebarProps> = ({children}) => {
             <div className = {cl.sidebarMenu}>
                 <div className = {cl.inputMenu}>
                     <span className = {cl.textSCADA}>SCADA Systems</span>
-                    <Search placeholder="Поиск..." allowClear onSearch={onSearch} style={{ width: "auto" }} />
+                    Поиск...
                 </div>
                 <ObjectMenu/>
             </div>
-            <Card padding='20px' width='180px'>Новый объект</Card>
+            <Card padding='10px 20px' width='180px' className = {classNames(cl.AddObjectMenu, {}, [])}>
+                <span className = {cl.textCard}>Новый объект</span>
+                <Button type = "primary" shape="default" size="small" color='red'>+</Button>
+            </Card>
         </div>
     );
 };

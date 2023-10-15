@@ -1,4 +1,4 @@
-* {
+*:not(svg *){
     all: unset;
     display: revert;
     list-style: none;

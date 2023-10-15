@@ -1,0 +1,15 @@
+.ThemeSwitcher {
+    cursor: pointer;
+    padding: 12px;
+    display: flex;
+    background: var(--dark-color);
+    border-radius: 100%;
+}
+
+.ThemeSwitcher:hover {
+    background: var(--dark-color);
+    border-radius: 100%;
+    transition: opacity 0.2s;
+    opacity: 0.6;
+
+}

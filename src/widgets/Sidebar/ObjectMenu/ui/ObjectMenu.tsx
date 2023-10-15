@@ -2,11 +2,12 @@ import { classNames } from "shared/lib/classNames/classNames";
 import cl from "./ObjectMenu.module.scss"
 import { FC, useState } from "react";
 import Card from "shared/ui/Card/Card";
-import { Link } from "react-router-dom";
+import { NavLink as Link, useLocation } from "react-router-dom";
 
 interface ObjectMenuProps {
     className?: string,
-    children?: React.ReactNode
+    children?: React.ReactNode,
+    activeClassName?: string
 }
 
 interface ObjectsProps {
@@ -29,6 +30,10 @@ export const ObjectMenu:FC<ObjectMenuProps> = () => {
     setIsActiveObject(current => !current);
     setActive(index + 1)
   };
+
+        const location = useLocation();
+        console.log(location)
+    
     return (
         <div className = {classNames(cl.ObjectMenu, {}, [])}>
             <div className = {cl.objectCountMenu}>
@@ -38,13 +43,15 @@ export const ObjectMenu:FC<ObjectMenuProps> = () => {
             <div className = {classNames(cl.object, {}, [])}>
                 {Objects.map((object, index) => 
                     <Link 
-                        to = {`/object/id${object.id}`} 
+                        to={`/object/${object.id}`} 
                         onClick={() => handleClick(index)} 
-                        className = {classNames(cl.objectLink, {objectLinkActive: active === index + 1 ? isActiveObject : false}, [])}
+                        className = {classNames(cl.objectLink, {}, [])}
+                        // activeClassName = "dcdc"
                     >
                         {object.name}
                     </Link>
-            )   }
+                    )
+                }
             </div>
         </div>
     );

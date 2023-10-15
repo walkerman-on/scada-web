@@ -1,5 +1,5 @@
 .Sidebar {
-    padding: 0 20px;
+    padding: 0 20px 0 0;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -20,4 +20,27 @@
 
 .textSCADA {
     font-weight: 600;
+}
+
+.AddObjectMenu {
+    display: flex;
+    gap: 50px;
+    justify-content: space-between;
+}
+
+.addObject {
+    display: inline;
+    // display: flex;
+    text-align: center;
+    // justify-content: space-between;
+    // align-items: center;
+    background: var(--secondary-color);
+    padding: 5px 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.textCard {
+    font-size: 12px;
 }
