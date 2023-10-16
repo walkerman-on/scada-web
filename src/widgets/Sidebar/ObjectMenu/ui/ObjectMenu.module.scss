@@ -35,6 +35,12 @@
     border-radius: 5px;
 }
 
+.objectLinkItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
 .objectText {
     font-size: 14px;
     font-weight: 700;

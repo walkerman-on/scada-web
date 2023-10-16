@@ -1,5 +1,5 @@
 import { classNames } from "shared/lib/classNames/classNames";
-import { Link, LinkProps } from "react-router-dom";
+import { NavLink as Link, LinkProps } from "react-router-dom";
 import cl from "./AppLink.module.scss"
 import { FC } from "react";
 
@@ -19,8 +19,10 @@ const AppLink: FC<AppLinkProps> = (props) => {
     return (
         <Link 
             to = {to} 
-            className = {classNames(cl.AppLink, {}, [className, cl[theme]])} 
+            // className = {classNames(cl.AppLink, {}, [className, cl[theme]])} 
             {...otherProps}
+            className = {({isActive}) => isActive ? cl.AppLinkActive : cl.AppLink}
+            
         >
             {children}
         </Link>

@@ -1,4 +1,3 @@
-
 const LightThemeIcon = ({
   color = "#66adec",
   width = 24,

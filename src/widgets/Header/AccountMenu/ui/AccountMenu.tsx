@@ -4,6 +4,7 @@ import { Avatar } from "antd";
 import { FC } from "react";
 import { UserOutlined } from '@ant-design/icons';
 import { ThemeSwitcher } from "shared/ui/ThemeSwitcher";
+import { Link } from "react-router-dom";
 
 interface AccountMenuProps {
     className?: string,
@@ -16,8 +17,9 @@ export const AccountMenu: FC<AccountMenuProps> = () => {
         <div className= {classNames(cl.AccountMenu, {}, [])} >
             <ThemeSwitcher/>
             <div className={cl.account}>
-                <span className={cl.accountText}>Алексей Грошев</span> 
-                <Avatar icon={<UserOutlined />}/>
+                <Link to ="/account">
+                    <UserOutlined/>
+                </Link>
             </div>
         </div>
     );

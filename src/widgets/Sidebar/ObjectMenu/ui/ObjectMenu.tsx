@@ -3,6 +3,7 @@ import cl from "./ObjectMenu.module.scss"
 import { FC, useState } from "react";
 import Card from "shared/ui/Card/Card";
 import { NavLink as Link, useLocation } from "react-router-dom";
+import LabelIcon from "shared/assets/icons/LabelIcon";
 
 interface ObjectMenuProps {
     className?: string,
@@ -45,10 +46,12 @@ export const ObjectMenu:FC<ObjectMenuProps> = () => {
                     <Link 
                         to={`/object/${object.id}`} 
                         onClick={() => handleClick(index)} 
-                        className = {classNames(cl.objectLink, {}, [])}
-                        // activeClassName = "dcdc"
+                        className = {({isActive}) => isActive ? cl.objectLinkActive : cl.objectLink}
                     >
-                        {object.name}
+                        <div className = {classNames(cl.objectLinkItem, {}, [])}>
+                            <LabelIcon color = {"var(--link-color)"}/>
+                            {object.name}
+                        </div>
                     </Link>
                     )
                 }

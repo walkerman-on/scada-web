@@ -6,10 +6,16 @@
     border-radius: 100%;
 }
 
-.ThemeSwitcher:hover {
-    background: var(--dark-color);
-    border-radius: 100%;
-    transition: opacity 0.2s;
-    opacity: 0.6;
+// .ThemeSwitcher:hover {
+//     background: var(--dark-color);
+//     border-radius: 100%;
+//     transition: opacity 0.2s;
+//     opacity: 0.6;
 
+// }
+
+.ThemeSwitcher:hover {
+    background: rgb(70, 70, 70);
+    border-radius: 100%;
+    transition: background-color 0.2s;
 }

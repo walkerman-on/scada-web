@@ -4,6 +4,7 @@ import cl from "./Sidebar.module.scss";
 import { ObjectMenu } from '../ObjectMenu';
 import Card from 'shared/ui/Card/Card';
 import { Button } from 'shared/ui/Button';
+import { Input } from 'shared/ui/Input';
 
 interface SidebarProps {
     children?: React.ReactNode,
@@ -19,7 +20,10 @@ export const Sidebar:FC<SidebarProps> = ({children}) => {
             <div className = {cl.sidebarMenu}>
                 <div className = {cl.inputMenu}>
                     <span className = {cl.textSCADA}>SCADA Systems</span>
-                    Поиск...
+                    <Input 
+                        placeholder='Поиск объекта'
+                        allowClear
+                    />
                 </div>
                 <ObjectMenu/>
             </div>
