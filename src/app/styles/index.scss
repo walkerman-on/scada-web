@@ -13,8 +13,9 @@ body {
     padding: 20px 30px 50px 30px;
     font: var(--font-m);
     background: var(--bg-color);
-    color: var(--primary-color);
+    color: var(--color-primary-200);
     display: grid;
     grid-template-columns: 300px auto;
+    box-sizing: border-box;
     height: 100vh;
 }

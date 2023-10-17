@@ -1,5 +1,5 @@
 const LabelIcon = ({
-  color = "black",
+  color = "var(--accent-color)",
   width = 24,
   height = 24,
 }: {

@@ -1,8 +1,13 @@
 .app.light {
     --bg-color: #f5f8fb;
 
-    --primary-color: #3a4956;
-    --secondary-color: #bdcacd;
-    --link-color: #66adec;
-    // --card-color: 
-}
+    --color-primary-200: #323f4a;
+    --color-primary-400: #8e989a;
+    --color-primary-500: rgb(211, 211, 211);
+    --color-primary-600: #e5e9e9;
+    --color-primary-800: #dbe9ec;
+
+    --accent-color: #ff642f;
+    // neutral
+    // feedback (error, warning, success)
+}   

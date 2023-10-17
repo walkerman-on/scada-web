@@ -1,7 +1,6 @@
 import { classNames } from "shared/lib/classNames/classNames";
 import cl from "./ObjectMenu.module.scss"
 import { FC, useState } from "react";
-import Card from "shared/ui/Card/Card";
 import { NavLink as Link, useLocation } from "react-router-dom";
 import LabelIcon from "shared/assets/icons/LabelIcon";
 
@@ -15,6 +14,7 @@ interface ObjectsProps {
     name: string,
     id: number
 }
+
 const Objects: ObjectsProps[] = [
     {name: "Резервуарный парк", id: 1},
     {name: "Установка по сжижению газа", id: 2},
@@ -23,17 +23,9 @@ const Objects: ObjectsProps[] = [
     {name: "Транспортировка нефти", id: 5},
 ]
 
-export const ObjectMenu:FC<ObjectMenuProps> = () => {
-    const [isActiveObject, setIsActiveObject] = useState(false);
-    const [active, setActive] = useState(1);
+export const ObjectMenu:FC<ObjectMenuProps> = (props) => {
+    // const {className, children, theme = AppLinkTheme.LIGHT, ...otherProps} = props
 
-    const handleClick = (index:number) => {
-    setIsActiveObject(current => !current);
-    setActive(index + 1)
-  };
-
-        const location = useLocation();
-        console.log(location)
     
     return (
         <div className = {classNames(cl.ObjectMenu, {}, [])}>
@@ -42,14 +34,13 @@ export const ObjectMenu:FC<ObjectMenuProps> = () => {
                 <span className = {classNames(cl.objectText, {}, [])}>{Objects.length}</span>
             </div>
             <div className = {classNames(cl.object, {}, [])}>
-                {Objects.map((object, index) => 
+                {Objects.map((object) => 
                     <Link 
                         to={`/object/${object.id}`} 
-                        onClick={() => handleClick(index)} 
                         className = {({isActive}) => isActive ? cl.objectLinkActive : cl.objectLink}
                     >
                         <div className = {classNames(cl.objectLinkItem, {}, [])}>
-                            <LabelIcon color = {"var(--link-color)"}/>
+                            <LabelIcon />
                             {object.name}
                         </div>
                     </Link>

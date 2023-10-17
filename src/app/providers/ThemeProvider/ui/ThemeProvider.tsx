@@ -8,7 +8,7 @@ const ThemeProvider: FC = ({children}) => {
     
     const defaultProps = useMemo(() => ({
         theme: theme,
-            setTheme: setTheme,
+        setTheme: setTheme,
     }), [theme])
     
     return (

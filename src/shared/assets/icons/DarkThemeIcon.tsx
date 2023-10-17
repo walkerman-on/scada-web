@@ -1,5 +1,5 @@
 const DarkThemeIcon = ({
-  color = "#e27d60",
+  color = "var(--accent-color)",
   width = 24,
   height = 24,
 }: {

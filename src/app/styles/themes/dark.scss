@@ -1,10 +1,14 @@
 .app.dark {
-    --bg-color: #141414;
+    --bg-color: #1a1a1a;
 
-    --primary-color: #d3d0d0;
-    --secondary-color: #696868;
-    --link-color: #e27d60;
-    --dark-color: #282828;
-    --card-color: #1e1e1e;
-    
+    --color-primary-200: #d3d0d0;
+    --color-primary-400: #787777;
+    --color-primary-500: rgb(58, 57, 57);
+    --color-primary-600: #282828;
+    --color-primary-800: #1e1e1e;
+
+    --accent-color: #66adec;  
+    // neutral
+    // feedback (error, warning, success)
 }
+

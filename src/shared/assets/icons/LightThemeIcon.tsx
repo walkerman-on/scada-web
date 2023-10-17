@@ -1,5 +1,5 @@
 const LightThemeIcon = ({
-  color = "#66adec",
+  color = "var(--accent-color)",
   width = 24,
   height = 24,
 }: {

@@ -29,7 +29,6 @@ export const NavigationMenu = ({className}: NavigationMenuProps) => {
                         {link.name}
                     </AppLink>
                 )}
-            {/* <button style={{background: "white", padding: "5px"}} onClick={changeTheme}>Theme toggle</button>      */}
         </div>
     );
 };
