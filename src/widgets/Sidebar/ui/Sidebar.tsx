@@ -1,11 +1,12 @@
 import React, { FC, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cl from "./Sidebar.module.scss";
-import { ObjectMenu } from '../ObjectMenu';
+import { ObjectMenu } from './ObjectMenu/index';
 import Card from 'shared/ui/Card/Card';
 import { Button } from 'shared/ui/Button';
 import { Input } from 'shared/ui/Input';
 import { Modal } from 'shared/ui/Modal';
+import ImportIcon from 'shared/assets/icons/ImportIcon';
 
 interface SidebarProps {
     children?: React.ReactNode,
@@ -44,8 +45,16 @@ export const Sidebar:FC<SidebarProps> = ({children}) => {
                 <ObjectMenu/>
             </div>
             <Card className = {classNames(cl.AddObjectMenu, {}, [])}>
-                <span className = {cl.textCard}>Новый объект</span>
-                <Button type = "primary" shape="default" size="small" color='red' onClick={showModal}>+</Button>
+                <p className={cl.AddObjectMenuItem}>
+                    <span className = {cl.textCard}>Новый объект</span>
+                    <Button type = "primary" shape="default" size="small" color='red' onClick={showModal}>+</Button>
+                </p>
+                <p className={cl.AddObjectMenuItem}>
+                    <span className = {cl.textCard}>Импортировать объект</span>
+                    <Button type = "primary" shape="default" size="small" color='red' onClick={showModal}>
+                        +
+                    </Button>
+                </p>
             </Card>
             <Modal 
                 title="Basic" 

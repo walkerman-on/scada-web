@@ -1,11 +1,11 @@
 import { FC, memo } from 'react';
 import { IButtonProps } from './IProps';
-import { Button as ANTButton } from 'antd';
+import {Button as StyledButton} from "./styles"
 
 
 export const Button:FC<IButtonProps> = memo((props) => {
     return (
-        <ANTButton {...props}>{props.children}</ANTButton> 
+        <StyledButton {...props}>{props.children}</StyledButton> 
     );
 });
 

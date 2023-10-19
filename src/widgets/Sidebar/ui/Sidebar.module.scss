@@ -24,6 +24,12 @@
 
 .AddObjectMenu {
     display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.AddObjectMenuItem {
+    display: flex;
     gap: 50px;
     justify-content: space-between;
 }

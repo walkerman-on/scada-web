@@ -4,7 +4,9 @@ import { FC } from "react";
 import { ICardProps } from "./IProps";
 
 
-const Card:FC<ICardProps> = ({children, width, className}) => {
+const Card:FC<ICardProps> = (props) => {
+    const {children, width, className} = props
+
     return (
         <div className = {classNames(cl.Card, {}, [className])} style = {{width: width}}>
             {children}
