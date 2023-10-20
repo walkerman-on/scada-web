@@ -17,7 +17,7 @@ interface ObjectsProps {
 
 const Objects: ObjectsProps[] = [
     {name: "Резервуарный парк", id: 1},
-    {name: "Установка по сжижению газа", id: 2},
+    {name: "Установка по сжижению газа (СПГ Портовая)", id: 2},
     {name: "Трубчатые печи", id: 3},
     {name: "Компрессорная станция", id: 4},
     {name: "Транспортировка нефти", id: 5},
@@ -41,7 +41,7 @@ export const ObjectMenu:FC<ObjectMenuProps> = (props) => {
                     >
                         <div className = {classNames(cl.objectLinkItem, {}, [])}>
                             <LabelIcon />
-                            {object.name}
+                            <span className={cl.objectName}> {object.name} </span>
                         </div>
                     </Link>
                     )

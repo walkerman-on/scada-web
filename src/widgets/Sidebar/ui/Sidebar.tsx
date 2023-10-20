@@ -14,10 +14,6 @@ interface SidebarProps {
 }
 
 export const Sidebar:FC<SidebarProps> = ({children}) => {
-    const onSearch = () => {
-        console.log("search")
-    }
-
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const showModal = () => {

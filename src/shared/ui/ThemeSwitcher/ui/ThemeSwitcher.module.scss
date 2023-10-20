@@ -2,12 +2,12 @@
     cursor: pointer;
     padding: 12px;
     display: flex;
-    background: var(--color-primary-600);
+    background: var(--color-primary-900);
     border-radius: 100%;
 }
 
 .ThemeSwitcher:hover {
-    background: var(--color-primary-500);
+    background: var(--color-primary-600);
     border-radius: 100%;
     transition: background-color 0.2s;
 }

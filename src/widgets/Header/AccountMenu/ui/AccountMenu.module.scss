@@ -11,7 +11,7 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
-    background: var(--color-primary-600);
+    background: var(--color-primary-900);
     border-radius: 100%;
     cursor: pointer;
     padding: 8px;
@@ -20,7 +20,7 @@
 .account:hover {
     height: 32px;
     width: 32px;
-    background: var(--color-primary-500);
+    background: var(--color-primary-600);
     border-radius: 100%;
     transition: background-color 0.2s;
     cursor: pointer;

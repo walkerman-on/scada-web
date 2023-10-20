@@ -1,13 +1,13 @@
-import {Modal as ANTModal} from "antd"
-import { FC } from "react";
+import {Modal as StyledModal} from "./styles"
+import { FC, memo } from "react";
 import { IModalProps } from "./IProps";
 
-export const Modal:FC<IModalProps> = (props) => {
+export const Modal:FC<IModalProps> = memo((props) => {
     const {children, ...otherProps} = props
 
     return (
-        <ANTModal {...otherProps}>
+        <StyledModal {...otherProps}>
             {children}
-        </ANTModal>
+        </StyledModal>
     );
-};
+})
