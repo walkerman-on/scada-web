@@ -6,7 +6,6 @@ import Card from 'shared/ui/Card/Card';
 import { Button } from 'shared/ui/Button';
 import { Input } from 'shared/ui/Input';
 import { Modal } from 'shared/ui/Modal';
-import ImportIcon from 'shared/assets/icons/ImportIcon';
 
 interface SidebarProps {
     children?: React.ReactNode,
@@ -29,7 +28,7 @@ export const Sidebar:FC<SidebarProps> = ({children}) => {
   };
 
     return (
-        <div className = {classNames(cl.Sidebar, {}, [])}>
+        <div className = {cl.Sidebar}>
             <div className = {cl.sidebarMenu}>
                 <div className = {cl.inputMenu}>
                     <span className = {cl.textSCADA}>SCADA Systems</span>
@@ -40,7 +39,7 @@ export const Sidebar:FC<SidebarProps> = ({children}) => {
                 </div>
                 <ObjectMenu/>
             </div>
-            <Card className = {classNames(cl.AddObjectMenu, {}, [])}>
+            <Card className = {cl.AddObjectMenu}>
                 <p className={cl.AddObjectMenuItem}>
                     <span className = {cl.textCard}>Новый объект</span>
                     <Button type = "primary" shape="default" size="small" color='red' onClick={showModal}>+</Button>
@@ -53,14 +52,13 @@ export const Sidebar:FC<SidebarProps> = ({children}) => {
                 </p>
             </Card>
             <Modal 
-                title="Basic" 
+                title="Создание нового объекта" 
                 open={isModalOpen} 
                 onOk={handleOk} 
                 onCancel={handleCancel}
             >
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
+                <Input placeholder='Название объекта'/>
+                <Input placeholder='Id объекта'/>
             </Modal>
         </div>
     );

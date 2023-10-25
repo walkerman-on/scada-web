@@ -1,7 +1,6 @@
-import { classNames } from "shared/lib/classNames/classNames";
 import cl from "./ObjectMenu.module.scss"
-import { FC, useState } from "react";
-import { NavLink as Link, useLocation } from "react-router-dom";
+import { FC } from "react";
+import { NavLink as Link } from "react-router-dom";
 import LabelIcon from "shared/assets/icons/LabelIcon";
 
 interface ObjectMenuProps {
@@ -23,23 +22,20 @@ const Objects: ObjectsProps[] = [
     {name: "Транспортировка нефти", id: 5},
 ]
 
-export const ObjectMenu:FC<ObjectMenuProps> = (props) => {
-    // const {className, children, theme = AppLinkTheme.LIGHT, ...otherProps} = props
-
-    
+export const ObjectMenu:FC<ObjectMenuProps> = () => {
     return (
-        <div className = {classNames(cl.ObjectMenu, {}, [])}>
+        <div className = {cl.ObjectMenu}>
             <div className = {cl.objectCountMenu}>
-                <span className = {classNames(cl.objectText, {}, [])}>Объекты</span>
-                <span className = {classNames(cl.objectText, {}, [])}>{Objects.length}</span>
+                <span className = {cl.objectText}>Объекты</span>
+                <span className = {cl.objectText}>{Objects.length}</span>
             </div>
-            <div className = {classNames(cl.object, {}, [])}>
+            <div className = {cl.object}>
                 {Objects.map((object) => 
                     <Link 
                         to={`/object/${object.id}`} 
                         className = {({isActive}) => isActive ? cl.objectLinkActive : cl.objectLink}
                     >
-                        <div className = {classNames(cl.objectLinkItem, {}, [])}>
+                        <div className = {cl.objectLinkItem}>
                             <LabelIcon />
                             <span className={cl.objectName}> {object.name} </span>
                         </div>

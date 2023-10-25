@@ -19,10 +19,8 @@ const AppLink: FC<AppLinkProps> = (props) => {
     return (
         <Link 
             to = {to} 
-            // className = {classNames(cl.AppLink, {}, [className, cl[theme]])} 
-            {...otherProps}
             className = {({isActive}) => isActive ? cl.AppLinkActive : cl.AppLink}
-            
+            {...otherProps}
         >
             {children}
         </Link>

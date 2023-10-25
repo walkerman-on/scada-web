@@ -1,13 +1,27 @@
-import {Modal as StyledModal} from "./styles"
+import { ConfigProvider, Modal as ANTModal } from "antd"
 import { FC, memo } from "react";
 import { IModalProps } from "./IProps";
-
+import { useTheme } from 'app/providers/ThemeProvider';
+import { color } from "app/styles/themes/theme"
 export const Modal:FC<IModalProps> = memo((props) => {
     const {children, ...otherProps} = props
+    const {theme} = useTheme()
 
     return (
-        <StyledModal {...otherProps}>
-            {children}
-        </StyledModal>
+        <ConfigProvider
+            theme={{
+              components: {
+                Modal: {
+                  colorBgElevated: color[theme]['--color-primary-600'],
+                  colorTextHeading: color[theme]['--color-primary-200'],
+                }
+              }
+            }}
+        >
+            <ANTModal {...otherProps}>
+                {children}
+            </ANTModal>
+        </ConfigProvider>
+      
     );
 })

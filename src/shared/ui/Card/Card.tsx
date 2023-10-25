@@ -5,10 +5,10 @@ import { ICardProps } from "./IProps";
 
 
 const Card:FC<ICardProps> = (props) => {
-    const {children, width, className} = props
+    const {children, width} = props
 
     return (
-        <div className = {classNames(cl.Card, {}, [className])} style = {{width: width}}>
+        <div className = {cl.Card} style = {{width: width}}>
             {children}
         </div>
     );
