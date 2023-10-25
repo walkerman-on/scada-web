@@ -11,10 +11,10 @@ const App = () => {
     return (
         <div className={classNames("app", {}, [theme])}>
                 <Sidebar/>
-            <div>
+            <section>
                 <Header/>
                 <AppRouter/>
-            </div>
+            </section>
         </div>
     );
 };

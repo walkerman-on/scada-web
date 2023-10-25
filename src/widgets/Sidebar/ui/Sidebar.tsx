@@ -1,5 +1,4 @@
 import React, { FC, useState } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
 import cl from "./Sidebar.module.scss";
 import { ObjectMenu } from './ObjectMenu/index';
 import Card from 'shared/ui/Card/Card';
@@ -12,7 +11,7 @@ interface SidebarProps {
     className?: string
 }
 
-export const Sidebar:FC<SidebarProps> = ({children}) => {
+export const Sidebar:FC<SidebarProps> = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const showModal = () => {
@@ -28,12 +27,12 @@ export const Sidebar:FC<SidebarProps> = ({children}) => {
   };
 
     return (
-        <div className = {cl.Sidebar}>
+        <aside className = {cl.Sidebar}>
             <div className = {cl.sidebarMenu}>
                 <div className = {cl.inputMenu}>
                     <span className = {cl.textSCADA}>SCADA Systems</span>
                     <Input 
-                        placeholder='Поиск объекта'
+                        text='Поиск объекта'
                         allowClear
                     />
                 </div>
@@ -42,13 +41,11 @@ export const Sidebar:FC<SidebarProps> = ({children}) => {
             <Card className = {cl.AddObjectMenu}>
                 <p className={cl.AddObjectMenuItem}>
                     <span className = {cl.textCard}>Новый объект</span>
-                    <Button type = "primary" shape="default" size="small" color='red' onClick={showModal}>+</Button>
+                    <Button type = "primary" size="small" onClick={showModal}>+</Button>
                 </p>
                 <p className={cl.AddObjectMenuItem}>
                     <span className = {cl.textCard}>Импортировать объект</span>
-                    <Button type = "primary" shape="default" size="small" color='red' onClick={showModal}>
-                        +
-                    </Button>
+                    <Button type = "primary" size="small">+</Button>
                 </p>
             </Card>
             <Modal 
@@ -57,9 +54,11 @@ export const Sidebar:FC<SidebarProps> = ({children}) => {
                 onOk={handleOk} 
                 onCancel={handleCancel}
             >
-                <Input placeholder='Название объекта'/>
-                <Input placeholder='Id объекта'/>
+                <div className={cl.modal}>
+                    <Input text='Название объекта' allowClear/>
+                    <Input text='Id объекта' allowClear/>
+                </div>
             </Modal>
-        </div>
+        </aside>
     );
 };

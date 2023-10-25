@@ -1,18 +1,15 @@
-.AppLinkActive {
-    padding: 0 2px 4px 2px;
-    border-bottom: 1.5px solid var(--color-accent-800);
-    cursor: pointer; 
-}
-
 .AppLink {
     padding: 0 2px 4px 2px;
     color: var(--color-primary-400);
-    cursor: pointer;
     transition: color 0.25s;
+    cursor: pointer;
+}
+
+.AppLinkActive {
+    border-bottom: 1.5px solid var(--color-accent-800);
+    color: var(--color-primary-200);
 }
 
 .AppLink:hover {
-    padding: 0 2px 4px 2px;
     color: var(--color-primary-200);
-    cursor: pointer;
 }

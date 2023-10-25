@@ -2,9 +2,9 @@ import React from 'react';
 
 const TestPage = () => {
     return (
-        <div>
+        <main>
             <p style = {{fontWeight: "700"}}>Тестирование</p>
-        </div>
+        </main>
     );
 };
 

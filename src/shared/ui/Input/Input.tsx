@@ -20,7 +20,7 @@ export const Input:FC<IInputProps> = memo((props) => {
               }
             }}
         >
-          <ANTInput placeholder="Поиск объекта..." allowClear></ANTInput>
+          <ANTInput placeholder={props.text} allowClear></ANTInput>
         </ConfigProvider>
     );
 });

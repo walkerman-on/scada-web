@@ -33,7 +33,7 @@ export const ObjectMenu:FC<ObjectMenuProps> = () => {
                 {Objects.map((object) => 
                     <Link 
                         to={`/object/${object.id}`} 
-                        className = {({isActive}) => isActive ? cl.objectLinkActive : cl.objectLink}
+                        className = {({isActive}) => `${cl.objectLink} ${isActive ? cl.objectLinkActive : ""}`}
                     >
                         <div className = {cl.objectLinkItem}>
                             <LabelIcon />

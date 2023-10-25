@@ -1,6 +1,6 @@
 import { Theme } from "app/providers/ThemeProvider";
 
-interface ColorThemeInt {
+interface IColorTheme {
     
 }
 

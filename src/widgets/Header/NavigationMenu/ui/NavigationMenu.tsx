@@ -14,7 +14,7 @@ const Links: LinksProps[] = [
 
 export const NavigationMenu = () => {
     return (
-        <div className = {cl.NavigationMenu}>
+        <nav className = {cl.NavigationMenu}>
             {Links.map((link) => 
                 <AppLink 
                     to ={link.to}
@@ -24,6 +24,6 @@ export const NavigationMenu = () => {
                     {link.name}
                 </AppLink>
                 )}
-        </div>
+        </nav>
     );
 };

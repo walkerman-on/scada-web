@@ -2,9 +2,9 @@ import React from 'react';
 
 const InfographicsPage = () => {
     return (
-        <div>
+        <main>
              <p style = {{fontWeight: "700"}}>Инфографика процесса</p>
-        </div>
+        </main>
     );
 };
 

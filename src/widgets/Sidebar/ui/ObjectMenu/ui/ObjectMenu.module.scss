@@ -21,18 +21,15 @@
 .objectLink {
     padding: 5px 20px;
     transition: background-color 0.25s;
+    border-radius: 5px;
 }
 
 .objectLink:hover {
-    background: var(--color-primary-600);
-    padding: 5px 20px;
-    border-radius: 5px;
+    background: var(--color-primary-900);
 }
 
 .objectLinkActive {
     background: var(--color-primary-900);
-    padding: 5px 20px;
-    border-radius: 5px;
 }
 
 .objectLinkItem {

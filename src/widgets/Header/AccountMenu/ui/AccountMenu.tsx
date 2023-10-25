@@ -2,7 +2,7 @@ import cl from "./AccountMenu.module.scss"
 import { FC } from "react";
 import { UserOutlined } from '@ant-design/icons';
 import { ThemeSwitcher } from "shared/ui/ThemeSwitcher";
-import { Link } from "react-router-dom";
+import { NavLink as Link } from "react-router-dom";
 
 interface AccountMenuProps {
     className?: string,

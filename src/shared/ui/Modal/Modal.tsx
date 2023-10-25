@@ -3,6 +3,7 @@ import { FC, memo } from "react";
 import { IModalProps } from "./IProps";
 import { useTheme } from 'app/providers/ThemeProvider';
 import { color } from "app/styles/themes/theme"
+
 export const Modal:FC<IModalProps> = memo((props) => {
     const {children, ...otherProps} = props
     const {theme} = useTheme()
@@ -12,8 +13,8 @@ export const Modal:FC<IModalProps> = memo((props) => {
             theme={{
               components: {
                 Modal: {
-                  colorBgElevated: color[theme]['--color-primary-600'],
-                  colorTextHeading: color[theme]['--color-primary-200'],
+                  colorBgElevated: color[theme]['--color-primary-200'],
+                  colorTextHeading: color[theme]['--color-primary-400'],
                 }
               }
             }}
