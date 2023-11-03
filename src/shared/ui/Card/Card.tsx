@@ -1,4 +1,3 @@
-import { classNames } from "shared/lib/classNames/classNames";
 import cl from "./Card.module.scss"
 import { FC } from "react";
 import { ICardProps } from "./IProps";
