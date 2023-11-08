@@ -2,6 +2,7 @@ import { Theme } from "app/providers/ThemeProvider";
 
 interface IColorTheme {
     
+    
 }
 
 export const color = {
