@@ -3,6 +3,7 @@ import { InfographicsPage } from "pages/InfographicsPage"
 import { LoginPage } from "pages/LoginPage"
 import { NotFoundPage } from "pages/NotFoundPage"
 import { ObjectPage } from "pages/ObjectPage"
+import { RegisterPage } from "pages/RegisterPage"
 import { TestPage } from "pages/TestPage"
 import { RouteProps } from "react-router-dom"
 
@@ -10,6 +11,7 @@ export enum AppRoutes {
     INFOGRAPHICS = "infographics",
     ACCOUNT = "account",
     LOGIN = "login",
+    REGISTER = "register",
     OBJECT = "object",
     TEST = "test",
     NOT_FOUND = "not_found"
@@ -19,6 +21,7 @@ export const RoutePath: Record<AppRoutes, string> = {
     [AppRoutes.INFOGRAPHICS]: "/infographics",
     [AppRoutes.ACCOUNT]: "/account",
     [AppRoutes.LOGIN]: "/login",
+    [AppRoutes.REGISTER]: "/register",
     [AppRoutes.OBJECT]: "/object/:id",
     [AppRoutes.TEST]: "/test",
     [AppRoutes.NOT_FOUND]: "*",
@@ -36,6 +39,10 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
     [AppRoutes.LOGIN]: {
         path: RoutePath.login,
         element: <LoginPage/>
+    },
+    [AppRoutes.REGISTER]: {
+        path: RoutePath.register,
+        element: <RegisterPage/>
     },
     [AppRoutes.OBJECT]: {
         path: RoutePath.object,

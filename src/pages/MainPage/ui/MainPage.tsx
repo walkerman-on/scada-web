@@ -2,7 +2,7 @@ import React from 'react';
 import AppLink from 'shared/ui/AppLink/AppLink';
 import { Button } from 'shared/ui/Button';
 
-const AccountPage = () => {
+const MainPage = () => {
     return (
         <div>
             <p style = {{fontWeight: "700"}}>Личный кабинет диспетчера</p>
@@ -13,4 +13,4 @@ const AccountPage = () => {
     );
 };
 
-export default AccountPage;
+export default MainPage;

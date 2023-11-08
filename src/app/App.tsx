@@ -10,7 +10,7 @@ const App = () => {
 
     return (
         <div className={classNames("app", {}, [theme])}>
-                <Sidebar/>
+            <Sidebar/>
             <section>
                 <Header/>
                 <AppRouter/>
