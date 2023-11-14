@@ -1,9 +1,12 @@
-import { Input } from "shared/ui/Input";
 import cl from "./LoginPage.module.scss"
-import { Button } from "shared/ui/Button";
 import AppLink from "shared/ui/AppLink/AppLink";
+import Form from "widgets/Form/Form";
 
 const LoginPage = () => {
+    const handleClick = () => {
+        
+    }
+
     return (
         <div className={cl.LoginPage}>
             <span style = {{fontWeight: "700"}}>Личный кабинет</span>
@@ -12,15 +15,10 @@ const LoginPage = () => {
                     <span >Вход</span>
                 </AppLink>
                 <AppLink to='/register'>
-                <span >Регистрация</span>
-
+                    <span >Регистрация</span>
                 </AppLink>
             </div>
-                <Input text="Логин"/>
-                <Input type="password" text="Пароль"/>
-                <AppLink to='/'>
-                    <Button>Войти</Button>
-                </AppLink>
+            <Form title={'Войти'} handleClick={handleClick}/>
         </div>
     );
 };
