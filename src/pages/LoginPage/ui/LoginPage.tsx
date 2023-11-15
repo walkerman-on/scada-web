@@ -1,25 +1,22 @@
 import cl from "./LoginPage.module.scss"
-import AppLink from "shared/ui/AppLink/AppLink";
-import Form from "widgets/Form/Form";
+import AuthForm from "widgets/AuthForm/AuthForm";
+import { useDispatch } from "react-redux";
+import {getAuth, signInWithEmailAndPassword} from "firebase/auth"
+import {setUser} from "entities/Auth/model/slice/userSlice"
 
 const LoginPage = () => {
-    const handleClick = () => {
-        
+    const dispatch = useDispatch();
+
+    const handleLogin = (email:string, password:string) => {
+        const auth = getAuth()
+        signInWithEmailAndPassword(auth, email, password)
+            .then(console.log)
+            .catch(console.error)
+
     }
 
     return (
-        <div className={cl.LoginPage}>
-            <span style = {{fontWeight: "700"}}>Личный кабинет</span>
-            <div className={cl.titleSection}>
-                <AppLink to='/login'>
-                    <span >Вход</span>
-                </AppLink>
-                <AppLink to='/register'>
-                    <span >Регистрация</span>
-                </AppLink>
-            </div>
-            <Form title={'Войти'} handleClick={handleClick}/>
-        </div>
+        <AuthForm title='Войти' handleClick={handleLogin}/>
     );
 };
 

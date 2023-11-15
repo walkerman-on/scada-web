@@ -20,7 +20,7 @@ export const Input:FC<IInputProps> = memo((props) => {
               }
             }}
         >
-          <ANTInput placeholder={props.text} allowClear></ANTInput>
+          <ANTInput {...props} placeholder={props.text} allowClear></ANTInput>
         </ConfigProvider>
     );
 });

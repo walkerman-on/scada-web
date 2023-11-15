@@ -1,25 +1,28 @@
-import { Input } from "shared/ui/Input";
 import cl from "./RegisterPage.module.scss"
-import { Button } from "shared/ui/Button";
-import AppLink from "shared/ui/AppLink/AppLink";
+import { useDispatch } from "react-redux";
+import {getAuth, createUserWithEmailAndPassword} from "firebase/auth"
+import {setUser} from "entities/Auth/model/slice/userSlice"
+
+import AuthForm from "widgets/AuthForm/AuthForm";
 
 const RegisterPage = () => {
-    return (
-        <div className={cl.LoginPage}>
-            <span style = {{fontWeight: "700"}}>Личный кабинет</span>
-            <div className={cl.titleSection}>
-                <AppLink to='/login'>
-                    <span >Вход</span>
-                </AppLink>
-                <AppLink to='/register'>
-                <span >Регистрация</span>
+   const dispatch = useDispatch();
 
-                </AppLink>
-            </div>
-                <Input text="Логин"/>
-                <Input text="Пароль"/>
-                <Button>Зарегистрироваться</Button>
-        </div>
+    const handleSignUp = (email:string, password:string) => {
+        const auth = getAuth()
+        createUserWithEmailAndPassword(auth, email, password)
+            .then(({user}) => {
+                console.log(user)
+                dispatch(setUser({
+                    email: user.email,
+                    id: user.uid,
+                }))
+            })
+            .catch(console.error)
+    }
+
+    return (
+        <AuthForm title='Зарегистрироваться' handleClick={handleSignUp}/>
     );
 };
 
