@@ -37,6 +37,7 @@ const AuthForm: FC<IForm> = ({title, handleClick}) => {
             />
             <AppLink to='/'>
                 <Button 
+                    type = "primary"
                     onClick={() => handleClick(userData.login, userData.password)}
                 >
                     {title}

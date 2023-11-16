@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit"
 
-const initialState = {
+const initialState:any = {
 	email: null,
 	token: null,
 	id: null,

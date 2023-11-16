@@ -1,6 +1,7 @@
 import { AccountPage } from "pages/AccountPage"
 import { InfographicsPage } from "pages/InfographicsPage"
 import { LoginPage } from "pages/LoginPage"
+import { MainPage } from "pages/MainPage"
 import { NotFoundPage } from "pages/NotFoundPage"
 import { ObjectPage } from "pages/ObjectPage"
 import { RegisterPage } from "pages/RegisterPage"
@@ -14,6 +15,7 @@ export enum AppRoutes {
     REGISTER = "register",
     OBJECT = "object",
     TEST = "test",
+    MAIN = "main",
     NOT_FOUND = "not_found"
 }
 
@@ -24,6 +26,7 @@ export const RoutePath: Record<AppRoutes, string> = {
     [AppRoutes.REGISTER]: "/register",
     [AppRoutes.OBJECT]: "/object/:id",
     [AppRoutes.TEST]: "/test",
+    [AppRoutes.MAIN]: "/",
     [AppRoutes.NOT_FOUND]: "*",
 }
 
@@ -51,6 +54,10 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
     [AppRoutes.TEST]: {
         path: RoutePath.test,
         element: <TestPage/>
+    },
+    [AppRoutes.MAIN]: {
+        path: RoutePath.main,
+        element: <MainPage/>
     },
     [AppRoutes.NOT_FOUND]: {
         path: RoutePath.not_found,

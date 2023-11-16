@@ -1,16 +1,20 @@
-import React from 'react';
-import AppLink from 'shared/ui/AppLink/AppLink';
-import { Button } from 'shared/ui/Button';
-
+import { Navigate } from "react-router-dom";
+import { useAuth } from "entities/Auth/hooks/useAuth";
+import { Button } from "shared/ui/Button/Button";
+import {deleteUser} from "entities/Auth/model/slice/userSlice"
+import { useAppDispatch } from "entities/Auth/hooks/auth-hooks";
 const AccountPage = () => {
-    return (
-        <div>
+ const {isAuth, email} = useAuth()
+    const dispatch = useAppDispatch();
+
+    return isAuth ? (
+          <div>
             <p style = {{fontWeight: "700"}}>Личный кабинет диспетчера</p>
-            <AppLink to='/login'>
-                <Button>Выйти</Button>
-            </AppLink>
+            <Button onClick = {() => dispatch(deleteUser())}>Выйти из профиля {email}</Button>
         </div>
-    );
+    ) : (
+         <Navigate to = '/login'/>
+    )
 };
 
 export default AccountPage;
