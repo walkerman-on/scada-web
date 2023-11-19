@@ -8,6 +8,9 @@ import { RegisterPage } from "pages/RegisterPage"
 import { TestPage } from "pages/TestPage"
 import { RouteProps } from "react-router-dom"
 
+export const getLogin = () => '/login'
+export const getRegister = () => '/register'
+
 export enum AppRoutes {
     INFOGRAPHICS = "infographics",
     ACCOUNT = "account",
@@ -30,34 +33,42 @@ export const RoutePath: Record<AppRoutes, string> = {
     [AppRoutes.NOT_FOUND]: "*",
 }
 
-export const routeConfig: Record<AppRoutes, RouteProps> = {
+export type AppRoutesProps = RouteProps & {
+    authOnly?: boolean;
+};
+
+export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.ACCOUNT]: {
         path: RoutePath.account,
-        element: <AccountPage/>
+        element: <AccountPage/>,
     },
     [AppRoutes.INFOGRAPHICS]: {
         path: RoutePath.infographics,
-        element: <InfographicsPage/>
+        element: <InfographicsPage/>,
+        authOnly: true,
     },
     [AppRoutes.LOGIN]: {
         path: RoutePath.login,
-        element: <LoginPage/>
+        element: <LoginPage />
     },
     [AppRoutes.REGISTER]: {
         path: RoutePath.register,
-        element: <RegisterPage/>
+        element: <RegisterPage />
     },
     [AppRoutes.OBJECT]: {
         path: RoutePath.object,
-        element: <ObjectPage/>
+        element: <ObjectPage/>,
+        authOnly: true,
     },
     [AppRoutes.TEST]: {
         path: RoutePath.test,
-        element: <TestPage/>
+        element: <TestPage/>,
+        authOnly: true,
     },
     [AppRoutes.MAIN]: {
         path: RoutePath.main,
-        element: <MainPage/>
+        element: <MainPage/>,
+        authOnly: true,
     },
     [AppRoutes.NOT_FOUND]: {
         path: RoutePath.not_found,

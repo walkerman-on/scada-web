@@ -1,30 +1,13 @@
-import cl from "./LoginPage.module.scss"
 import AuthForm from "widgets/AuthForm/AuthForm";
-import { useNavigate } from "react-router-dom";
-import {getAuth, signInWithEmailAndPassword} from "firebase/auth"
-import {setUser} from "entities/Auth/model/slice/userSlice"
-import { useAppDispatch } from "entities/Auth/hooks/auth-hooks";
+import { useLogin } from "entities/Auth/hooks/useLogin";
+import { useTheme } from "app/providers/ThemeProvider";
 
 const LoginPage = () => {
-   const dispatch = useAppDispatch();
-   const navigate = useNavigate()
-
-    const handleLogin = (email:string, password:string) => {
-        const auth = getAuth()
-        signInWithEmailAndPassword(auth, email, password)
-            .then(({user}) => {
-                dispatch(setUser({
-                    email: user.email,
-                    id: user.uid,
-                    token: user.refreshToken
-                }));
-                navigate('/')
-            })
-            .catch(() => alert('Несуществующий пользователь!'))
-    }
+   const { login } = useLogin() 
+   const { theme } = useTheme()
 
     return (
-        <AuthForm title='Войти' handleClick={handleLogin}/>
+        <AuthForm title='Войти' handleClick={login}/>
     );
 };
 

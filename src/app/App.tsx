@@ -1,21 +1,26 @@
-import "./styles/index.scss"
-import { useTheme } from "app/providers/ThemeProvider";
-import { classNames } from "shared/lib/classNames/classNames";
-import { AppRouter } from "./providers/router";
-import { Sidebar } from "widgets/Sidebar";
-import { Header } from "widgets/Header";
+import "./styles/index.scss";
+import { Page } from "widgets/Page/ui/Page";
 
 const App = () => {
-    const {theme} = useTheme()
-
     return (
-        <div className={classNames("app", {}, [theme])}>
-            <Sidebar/>
-            <section>
-                <Header/>
-                <AppRouter/>
-            </section>
-        </div>
+        <Page />
+        // <Suspense fallback = {<PageLoader />}>
+        //     <Routes>
+        //     <Route 
+        //             path='/'
+        //             element = {<Page />}
+        //         />
+        //         <Route 
+        //             path = {getLogin()} 
+        //             element = {<LoginPage />}
+        //         />
+        //         <Route 
+        //             path = {getRegister()} 
+        //             element = {<RegisterPage />}
+        //         />
+     
+        //     </Routes>
+        // </Suspense>
     );
 };
 

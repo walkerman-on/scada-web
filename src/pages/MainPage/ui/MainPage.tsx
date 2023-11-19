@@ -1,20 +1,28 @@
-import { Navigate } from "react-router-dom";
-import { useAuth } from "entities/Auth/hooks/useAuth";
 import { Button } from "shared/ui/Button/Button";
-import {deleteUser} from "entities/Auth/model/slice/userSlice"
-import { useAppDispatch } from "entities/Auth/hooks/auth-hooks";
+import { deleteUser } from "entities/Auth/model/slice/userSlice";
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { getAuth, signOut } from "firebase/auth";
+import { useAppSelector } from "shared/lib/hooks/useAppSelector/useAppSelector";
+import { getUserSelector } from "entities/Auth/model/selectors/userSelector";
 
 const MainPage = () => {
-    const {isAuth, email} = useAuth()
+    const { user } = useAppSelector(getUserSelector)
     const dispatch = useAppDispatch();
 
-    return isAuth ? (
-          <div>
+    // TODO: useLogout
+    const handle = () => {
+       const auth = getAuth();
+        signOut(auth).then(() => {
+            dispatch(deleteUser())
+        }).catch((error) => {
+            // An error happened.
+        });
+    }
+    return (
+        <div>
             <p style = {{fontWeight: "700"}}>Выбор завода</p>
-            <Button onClick = {() => dispatch(deleteUser())}>Выйти из профиля {email}</Button>
+            <Button onClick = {handle}>Выйти из профиля {user?.email}</Button>
         </div>
-    ) : (
-         <Navigate to = '/login'/>
     )
 };
 

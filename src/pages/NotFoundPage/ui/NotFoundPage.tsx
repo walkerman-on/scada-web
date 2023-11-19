@@ -1,4 +1,4 @@
-import cl from "./NotFoundPage.module.scss"
+import cl from "./NotFoundPage.module.scss";
 
 export const NotFoundPage = () => {
     return (

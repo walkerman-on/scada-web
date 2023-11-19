@@ -1,22 +1,22 @@
-import cl from "./RegisterPage.module.scss"
-import {getAuth, createUserWithEmailAndPassword} from "firebase/auth"
-import {setUser} from "entities/Auth/model/slice/userSlice"
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { setUser } from "entities/Auth/model/slice/userSlice";
 import { useNavigate } from "react-router-dom";
 import AuthForm from "widgets/AuthForm/AuthForm";
-import { useAppDispatch } from "entities/Auth/hooks/auth-hooks";
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 
 const RegisterPage = () => {
    const dispatch = useAppDispatch();
    const navigate = useNavigate()
 
+   // TODO: useSignup
     const handleSignUp = (email:string, password:string) => {
         const auth = getAuth()
         createUserWithEmailAndPassword(auth, email, password)
             .then(({user}) => {
                 dispatch(setUser({
-                    email: user.email,
                     id: user.uid,
-                    token: user.refreshToken
+                    email: user.email,
+                    // token: user.refreshToken
                 }));
                 navigate('/')
             })

@@ -1,4 +1,4 @@
-import cl from "./ObjectMenu.module.scss"
+import cl from "./ObjectMenu.module.scss";
 import { FC } from "react";
 import { NavLink as Link } from "react-router-dom";
 import LabelIcon from "shared/assets/icons/LabelIcon";
@@ -32,6 +32,7 @@ export const ObjectMenu:FC<ObjectMenuProps> = () => {
             <div className = {cl.object}>
                 {Objects.map((object) => 
                     <Link 
+                        key={object.id}
                         to={`/object/${object.id}`} 
                         className = {({isActive}) => `${cl.objectLink} ${isActive ? cl.objectLinkActive : ""}`}
                     >

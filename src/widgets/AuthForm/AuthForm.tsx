@@ -1,6 +1,6 @@
-import {FC, useState} from "react"
+import { FC, useCallback, useState } from "react";
 import { Input } from "shared/ui/Input";
-import cl from "./AuthForm.module.scss"
+import cl from "./AuthForm.module.scss";
 import { Button } from "shared/ui/Button";
 import AppLink from "shared/ui/AppLink/AppLink";
 
@@ -11,7 +11,19 @@ interface IForm {
 
 const AuthForm: FC<IForm> = ({title, handleClick}) => {
     const [userData, setUserData] = useState({login: '', password: ''})
-    console.log(userData)
+    // console.log(userData)
+
+    const onLoginHandle = useCallback((e: React.ChangeEvent<HTMLInputElement>): void => {
+        setUserData((prev) => ({...prev, login: e.target.value}))
+    }, [])
+
+    const onPasswordHandle = useCallback((e: React.ChangeEvent<HTMLInputElement>): void => {
+        setUserData((prev) => ({...prev, password: e.target.value}))
+    }, [])
+
+    const onBtnClick = useCallback((): void => {
+        handleClick(userData.login, userData.password)
+    }, [userData, handleClick])
 
     return (
         <div className={cl.Form}>
@@ -27,18 +39,18 @@ const AuthForm: FC<IForm> = ({title, handleClick}) => {
             <Input 
                 text="Логин"
                 value = {userData.login}
-                onChange = {(e) => setUserData({...userData, login: e.target.value})}
+                onChange = {onLoginHandle}
             />
             <Input 
                 text="Пароль"
                 type = "password"
                 value = {userData.password}
-                onChange = {(e) => setUserData({...userData, password: e.target.value})}
+                onChange = {onPasswordHandle}
             />
             <AppLink to='/'>
                 <Button 
                     type = "primary"
-                    onClick={() => handleClick(userData.login, userData.password)}
+                    onClick={onBtnClick}
                 >
                     {title}
                 </Button>
