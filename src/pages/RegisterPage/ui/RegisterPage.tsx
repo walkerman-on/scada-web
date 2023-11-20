@@ -3,10 +3,13 @@ import { setUser } from "entities/Auth/model/slice/userSlice";
 import { useNavigate } from "react-router-dom";
 import AuthForm from "widgets/AuthForm/AuthForm";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { classNames } from 'shared/lib/classNames/classNames';
+import { useTheme } from 'app/providers/ThemeProvider';
 
 const RegisterPage = () => {
    const dispatch = useAppDispatch();
    const navigate = useNavigate()
+   const { theme } = useTheme()
 
    // TODO: useSignup
     const handleSignUp = (email:string, password:string) => {
@@ -24,7 +27,9 @@ const RegisterPage = () => {
     }
 
     return (
-        <AuthForm title='Зарегистрироваться' handleClick={handleSignUp}/>
+        <div className={classNames("app", {}, [theme])}>
+            <AuthForm title='Зарегистрироваться' handleClick={handleSignUp}/>
+        </div>
     );
 };
 

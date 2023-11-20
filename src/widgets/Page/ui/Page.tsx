@@ -3,9 +3,9 @@ import { Header } from 'widgets/Header';
 import { AppRouter } from 'app/providers/router';
 import { useTheme } from 'app/providers/ThemeProvider';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { IProps } from './IProps';
 
-// TODO: тип
-export const Page = () => {
+export const Page = ({}: IProps) => {
     const {theme} = useTheme()
 
     return (
