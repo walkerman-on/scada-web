@@ -4,12 +4,13 @@ import { AppRouter } from 'app/providers/router';
 import { useTheme } from 'app/providers/ThemeProvider';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { IProps } from './IProps';
+import cl from "./Page.module.scss"
 
 export const Page = ({}: IProps) => {
     const {theme} = useTheme()
 
     return (
-        <div className={classNames("app", {}, [theme])}>
+        <div className={classNames("container app", {}, [theme])}>
             <Sidebar/>
             <section>
                 <Header/>

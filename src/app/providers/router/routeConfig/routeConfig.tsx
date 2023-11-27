@@ -35,6 +35,7 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.ACCOUNT]: {
         path: RoutePath.account,
         element: <AccountPage/>,
+        authOnly: true,
     },
     [AppRoutes.INFOGRAPHICS]: {
         path: RoutePath.infographics,

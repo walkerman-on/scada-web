@@ -2,10 +2,7 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { setUser } from "../model/slice/userSlice";
-
-export interface IUseLoginReturn {
-  login: (email: string, password: string) => void;
-}
+import { IUseLoginReturn } from "./types";
 
 export const useLogin = (): IUseLoginReturn => {
   const dispatch = useAppDispatch();
@@ -23,7 +20,7 @@ export const useLogin = (): IUseLoginReturn => {
         );
         navigate("/");
       })
-      .catch(() => alert("Несуществующий пользователь!"));
+      .catch(() => alert("Введены некорректные данные!"));
   };
 
   return { login: handleLogin };

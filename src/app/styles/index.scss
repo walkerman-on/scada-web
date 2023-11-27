@@ -10,12 +10,20 @@ body {
 }
 
 .app {
-    padding: 20px 30px 50px 30px;
-    height: 100vh;
     display: grid;
     grid-template-columns: 300px  auto;
+}
+
+.container {
     box-sizing: border-box;
+    height: 100vh;
+    padding: 20px 30px 50px 30px;
     background: var(--bg-color);
     font: var(--font-m);
     color: var(--color-primary-200);
+}
+
+.auth {
+    display: flex;
+    justify-content: center;
 }
