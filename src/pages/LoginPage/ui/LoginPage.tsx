@@ -8,7 +8,7 @@ const LoginPage = () => {
    const { theme } = useTheme()
 
     return (
-        <div className={classNames("auth container", {}, [theme])}>
+        <div className={classNames("app auth-container", {}, [theme])}>
             <AuthForm title='Войти' handleClick={login}/>
         </div>
     );

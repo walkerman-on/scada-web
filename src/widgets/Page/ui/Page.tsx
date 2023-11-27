@@ -10,7 +10,7 @@ export const Page = ({}: IProps) => {
     const {theme} = useTheme()
 
     return (
-        <div className={classNames("container app", {}, [theme])}>
+        <div className={classNames("app scada-container", {}, [theme])}>
             <Sidebar/>
             <section>
                 <Header/>

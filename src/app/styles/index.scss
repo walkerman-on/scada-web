@@ -10,11 +10,6 @@ body {
 }
 
 .app {
-    display: grid;
-    grid-template-columns: 300px  auto;
-}
-
-.container {
     box-sizing: border-box;
     height: 100vh;
     padding: 20px 30px 50px 30px;
@@ -23,7 +18,13 @@ body {
     color: var(--color-primary-200);
 }
 
-.auth {
+.scada-container {
+    display: grid;
+    grid-template-columns: 300px auto;
+}
+
+.auth-container {
     display: flex;
     justify-content: center;
+    align-items: center;
 }

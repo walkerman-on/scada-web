@@ -8,8 +8,8 @@ const RegisterPage = () => {
    const {signUp} = useSignUp();
 
     return (
-        <div className={classNames("app", {}, [theme])}>
-            <AuthForm title='Зарегистрироваться' handleClick={signUp}/>
+        <div className={classNames("app auth-container", {}, [theme])}>
+            <AuthForm title='Регистрация' handleClick={signUp}/>
         </div>
     );
 };
