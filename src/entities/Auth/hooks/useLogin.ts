@@ -8,6 +8,9 @@ import {message} from "antd"
 export const useLogin = (): IUseLoginReturn => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const showMessage = () => {
+    
+  }
 
   const handleLogin = (email: string, password: string) => {
     const auth = getAuth();

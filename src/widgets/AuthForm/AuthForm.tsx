@@ -3,6 +3,7 @@ import { Input } from "shared/ui/Input";
 import cl from "./AuthForm.module.scss";
 import { Button } from "shared/ui/Button";
 import AppLink from "shared/ui/AppLink/AppLink";
+import { Message } from "shared/ui/Message";
 
 interface IForm {
     title: string,
@@ -52,6 +53,8 @@ const AuthForm: FC<IForm> = ({title, handleClick}) => {
             />
             </section>
             <AppLink to='/'>
+            {/* <Message content={""} onClick = {onBtnClick}/> */}
+
                 <Button 
                     type = "primary"
                     onClick={onBtnClick}

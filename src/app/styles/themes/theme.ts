@@ -24,10 +24,11 @@ export const color = {
         [Theme.LIGHT] : {
             '--bg-color': '#f5f8fb',
             
-            '--color-primary-200': '#f5f8fb',
+            '--color-primary-200': '#323f4a',
             '--color-primary-400': '#8e989a',
             '--color-primary-500': '#d3d3d3',
             '--color-primary-600': '#e5e9e9',
+            '--color-primary-700': '#fbffff',
             '--color-primary-800': '#dbe9ec',
             '--color-primary-900': '#edf0f1',
 
