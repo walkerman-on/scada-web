@@ -3,19 +3,38 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 20px;
-    border-radius: 5px;
-    width: 400px;
+    gap: 15px;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    width: 500px;
 }
 
 .title {
     font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+.auth {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.text {
+    font-size: 18px;
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
 }
 
 .titleSection {
     display: flex;
+    justify-content: center;
     gap: 25px;
-    justify-content: space-between;
 }

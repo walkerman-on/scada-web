@@ -16,6 +16,7 @@ export const Input:FC<IInputProps> = memo((props) => {
                   activeShadow:'var(--color-primary-500)',
                   colorText: 'var(--color-primary-200)',
                   colorTextPlaceholder:'var(--color-primary-400)',
+                  activeBg: 'var(--color-primary-500)'
                 }
               }
             }}

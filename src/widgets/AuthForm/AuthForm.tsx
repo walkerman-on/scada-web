@@ -11,7 +11,6 @@ interface IForm {
 
 const AuthForm: FC<IForm> = ({title, handleClick}) => {
     const [userData, setUserData] = useState({login: '', password: ''})
-    // console.log(userData)
 
     const onLoginHandle = useCallback((e: React.ChangeEvent<HTMLInputElement>): void => {
         setUserData((prev) => ({...prev, login: e.target.value}))
@@ -28,25 +27,30 @@ const AuthForm: FC<IForm> = ({title, handleClick}) => {
     return (
         <div className={cl.Form}>
             <span className={cl.title}>Личный кабинет</span>
-            <div className={cl.titleSection}>
+            <section className = {cl.auth}>
+                  <div className={cl.titleSection}>
                 <AppLink to='/login'>
-                    <span>Вход</span>
+                    <span className={cl.text}>Вход</span>
                 </AppLink>
                 <AppLink to='/register'>
-                    <span>Регистрация</span>
+                    <span className={cl.text}>Регистрация</span>
                 </AppLink>
             </div>
-            <Input 
+            <section className={cl.input}>
+                <Input 
                 text="Логин"
                 value = {userData.login}
                 onChange = {onLoginHandle}
+                size="large"
             />
             <Input 
                 text="Пароль"
                 type = "password"
                 value = {userData.password}
                 onChange = {onPasswordHandle}
+                size="large"
             />
+            </section>
             <AppLink to='/'>
                 <Button 
                     type = "primary"
@@ -55,6 +59,7 @@ const AuthForm: FC<IForm> = ({title, handleClick}) => {
                     {title}
                 </Button>
             </AppLink>
+            </section>
         </div>
     );
 };

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { setUser } from "../model/slice/userSlice";
 import { IUseLoginReturn } from "./types";
+import {message} from "antd"
 
 export const useLogin = (): IUseLoginReturn => {
   const dispatch = useAppDispatch();
@@ -20,7 +21,7 @@ export const useLogin = (): IUseLoginReturn => {
         );
         navigate("/");
       })
-      .catch(() => alert("Введены некорректные данные!"));
+      .catch(() => message.error('Введены некорректные данные!'));
   };
 
   return { login: handleLogin };

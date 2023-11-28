@@ -3,6 +3,7 @@ import { FC } from "react";
 import { UserOutlined } from '@ant-design/icons';
 import { ThemeSwitcher } from "shared/ui/ThemeSwitcher";
 import { NavLink as Link } from "react-router-dom";
+import DefaultUserIcon from "shared/assets/icons/DefaultUserIcon";
 
 interface AccountMenuProps {
     className?: string,
@@ -16,7 +17,7 @@ export const AccountMenu: FC<AccountMenuProps> = () => {
             <ThemeSwitcher/>
             <div className={cl.account}>
                 <Link to ="/account">
-                    <UserOutlined/>
+                    <DefaultUserIcon/>
                 </Link>
             </div>
         </div>
