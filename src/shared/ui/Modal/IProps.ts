@@ -1,3 +1,3 @@
-import { ModalProps } from "antd";
+import { ModalProps } from 'antd';
 
 export interface IModalProps extends ModalProps {}

@@ -1,3 +1,3 @@
-import {ButtonProps} from "antd"
+import { ButtonProps } from 'antd';
 
 export interface IButtonProps extends ButtonProps {}

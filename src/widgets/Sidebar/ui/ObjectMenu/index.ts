@@ -1,1 +1,1 @@
-export {ObjectMenu} from "./ui/ObjectMenu"
+export { ObjectMenu } from './ui/ObjectMenu';

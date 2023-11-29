@@ -1,1 +1,1 @@
-export {TestPageAsync as TestPage} from "./ui/TestPage.async"
+export { TestPageAsync as TestPage } from './ui/TestPage.async';

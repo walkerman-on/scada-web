@@ -1,12 +1,12 @@
-import { User } from "../model/types/user";
-import { useEffect } from "react";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
-import { setUser } from "../model/slice/userSlice";
-import { useAppSelector } from "shared/lib/hooks/useAppSelector/useAppSelector";
-import { getUserSelector } from "../model/selectors/userSelector";
-import { useNavigate } from "react-router-dom";
-import { getLogin } from "app/providers/router/routeConfig/routeConfig";
+import { User } from '../model/types/user';
+import { useEffect } from 'react';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { setUser } from '../model/slice/userSlice';
+import { useAppSelector } from 'shared/lib/hooks/useAppSelector/useAppSelector';
+import { getUserSelector } from '../model/selectors/userSelector';
+import { useNavigate } from 'react-router-dom';
+import { getLogin } from 'app/providers/router/routeConfig/routes';
 
 export interface IUseAuthReturn {
   isAuth: boolean;

@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { User, UserSchema } from "../types/user";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { User, UserSchema } from '../types/user';
 
 const initialState: UserSchema = {
   isAuthorized: false,
@@ -7,7 +7,7 @@ const initialState: UserSchema = {
 };
 
 const userSlice = createSlice({
-  name: "user",
+  name: 'user',
   initialState,
   reducers: {
     setUser(state: UserSchema, { payload }: PayloadAction<User>) {

@@ -1,1 +1,1 @@
-export {ObjectPageAsync as ObjectPage} from "./ui/ObjectPage.async"
+export { ObjectPageAsync as ObjectPage } from './ui/ObjectPage.async';

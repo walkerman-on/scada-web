@@ -1,1 +1,1 @@
-export {InfographicsPageAsync as InfographicsPage} from "./ui/InfographicsPage.async"
+export { InfographicsPageAsync as InfographicsPage } from './ui/InfographicsPage.async';

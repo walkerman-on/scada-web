@@ -1,2 +1,2 @@
-export { store } from "./config/store";
-export * from "./config/types";
+export { store } from './config/store';
+export * from './config/types';

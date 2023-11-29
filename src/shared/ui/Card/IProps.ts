@@ -1,5 +1,5 @@
 export interface ICardProps {
-    className?: string,
-    children?: React.ReactNode,
-    width?: string
+  className?: string;
+  children?: React.ReactNode;
+  width?: string;
 }
