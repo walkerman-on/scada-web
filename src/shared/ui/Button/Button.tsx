@@ -13,6 +13,8 @@ export const Button:FC<IButtonProps> = memo((props) => {
             theme={{
               components: {
                 Button: {
+                  colorBorder: color[theme]['--color-accent-800'],
+                  colorBgContainer: color[theme]['--color-accent-800'],
                   colorPrimary: 'var(--color-accent-800)',
                   colorPrimaryHover: 'var(--color-accent-600)',
                   colorPrimaryActive: 'var(--color-accent-800)',

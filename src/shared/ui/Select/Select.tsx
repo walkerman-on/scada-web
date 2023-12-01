@@ -4,7 +4,7 @@ import { ConfigProvider, Select as ANTSelect } from "antd";
 import { useTheme } from "app/providers/ThemeProvider";
 import { color } from "app/styles/themes/theme"
 
-export const Select:FC<ISelectProps> = memo(({options}) => {
+export const Select:FC<ISelectProps> = memo(({options, defaultValue}, props) => {
     const {theme} = useTheme()
 
     const handleChange = (value: string) => {
@@ -33,8 +33,9 @@ console.log(options)
             }}
         >
         <ANTSelect
-            defaultValue = 'Завод по сжижению газа (СПГ Портовая)'
-            style={{ width: 400 }}
+            {...props}
+            defaultValue = {defaultValue}
+            style ={{width: 400}}
             onChange={handleChange}
             options={[
              { value: 'portovaya', label: 'Завод по сжижению газа (СПГ Портовая)'},
@@ -42,6 +43,7 @@ console.log(options)
     { value: 'Yiminghe', label: 'yiminghe' },
     { value: 'disabled', label: 'Disabled', disabled: true }, 
             ]}
+            size="large"
 
 
           

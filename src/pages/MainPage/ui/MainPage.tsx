@@ -1,12 +1,13 @@
 import { Button } from 'shared/ui/Button/Button';
 import { useLogout } from 'entities/Auth/hooks/useLogout';
-import { Message } from 'shared/ui/Message';
 import AppLink from 'shared/ui/AppLink/AppLink';
-import cl from 'widgets/AuthForm/AuthForm.module.scss';
 import { getScada } from 'app/providers/router/routeConfig/routes';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTheme } from 'app/providers/ThemeProvider';
 import { Select } from 'shared/ui/Select/index';
+import cl from './MainPage.module.scss'
+import LogoutIcon from 'shared/assets/icons/LogoutIcon';
+import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
 
 const MainPage = () => {
   const { logout, user } = useLogout();
@@ -25,15 +26,26 @@ const MainPage = () => {
     ]
 
   return (
-    <div className={classNames('app', {}, [theme])}>
+    <nav className={classNames('app', {}, [theme])}>
+      <header className={cl.header}>
+        <div onClick={logout} className={cl.logout}>
+          <LogoutIcon/>
+          <span className={cl.logoutText}>Выйти</span>
+        </div>
+        <div className={cl.account}>
+          <ThemeSwitcher />
+          <span className={cl.accountText}>{user?.email}</span>
+        </div>
+      </header>
       <p style={{ fontWeight: '700' }}>Выбор завода</p>
-      <Button onClick={logout}>Выйти из профиля {user?.email}</Button>
-      <AppLink to={getScada()}>
-        <Button className={cl.text}>B Scada</Button>
-      </AppLink>
+    
       {/* <Message content={''} /> */}
-      <Select options = {Factories}/>
-      </div>
+      <Select options = {Factories} defaultValue='Выбор завода/предприятия'/>
+      <Select options = {Factories} defaultValue='Выбор установки'/>
+        <AppLink to={getScada()}>
+        <Button className={cl.text}>перейти в SCADA</Button>
+      </AppLink>
+    </nav>
   );
 };
 
