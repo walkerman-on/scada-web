@@ -1,0 +1,25 @@
+.NotFoundPage {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.textBack {
+    color: var(--color-accent-600);
+}
+
+.textInfo {
+    font-weight: 700;
+    font-size: 30px;
+}
+

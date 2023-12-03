@@ -1,10 +1,10 @@
 import { AccountPage } from 'pages/AccountPage';
 import { InfographicsPage } from 'pages/InfographicsPage';
-import { NotFoundPage } from 'pages/NotFoundPage';
 import { ObjectPage } from 'pages/ObjectPage';
 import { TestPage } from 'pages/TestPage';
 import { AppRoutesProps } from './types';
 import { getMain, getNotFound } from 'app/providers/router/routeConfig/routes';
+import { NotFoundPageScada } from 'pages/NotFoundPageScada';
 
 export enum AppRoutes {
   INFOGRAPHICS = 'infographics',
@@ -47,6 +47,6 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   },
   [AppRoutes.NOT_FOUND]: {
     path: RoutePath.not_found,
-    element: <NotFoundPage />,
+    element: <NotFoundPageScada />,
   },
 };

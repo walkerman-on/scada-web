@@ -1,8 +1,8 @@
 import { LoginPage } from 'pages/LoginPage';
 import { MainPage } from 'pages/MainPage';
-import { NotFoundPage } from 'pages/NotFoundPage';
+import { NotFoundPageApp } from 'pages/NotFoundPageApp';
 import { RegisterPage } from 'pages/RegisterPage';
-import { Page } from 'widgets/Page/ui/Page';
+import { Scada } from 'widgets/Scada'
 import { AppRoutesProps } from './types';
 import { getLogin, getNotFound, getRegister } from './routes';
 import { getMain } from 'app/providers/router/routeConfig/routes';
@@ -39,11 +39,11 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   },
   [AppRoutes.SCADA]: {
     path: RoutePath.scada,
-    element: <Page />,
+    element: <Scada />,
     authOnly: true,
   },
   [AppRoutes.NOT_FOUND]: {
     path: RoutePath.not_found,
-    element: <NotFoundPage />,
+    element: <NotFoundPageApp />,
   },
 };

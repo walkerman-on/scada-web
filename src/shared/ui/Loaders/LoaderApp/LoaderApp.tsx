@@ -1,6 +1,6 @@
-import cl from "./Loader.module.scss"
+import cl from "./LoaderApp.module.scss"
 
-export const Loader = () => {
+export const LoaderApp = () => {
     return (
         <div className={cl.loader}>
              <div></div>
