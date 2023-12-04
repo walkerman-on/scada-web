@@ -18,6 +18,23 @@
     gap: 30px;
 }
 
+.scadaBlock {
+    display: flex;
+    gap: 10px;
+
+}
+
+.textBack {
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.textBack:hover {
+    color: var(--color-accent-600);
+    transition: color 0.2s;
+
+}
+
 .textSCADA {
     font-weight: 600;
 }

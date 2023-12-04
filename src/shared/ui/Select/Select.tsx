@@ -8,9 +8,8 @@ export const Select:FC<ISelectProps> = memo(({options, defaultValue}, props) => 
     const {theme} = useTheme()
 
     const handleChange = (value: string) => {
-  console.log(`selected ${value}`);
+  // console.log(`selected ${value}`);
 };
-console.log(options)
      return (
          <ConfigProvider
             theme={{

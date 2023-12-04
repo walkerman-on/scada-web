@@ -5,6 +5,8 @@ import Card from 'shared/ui/Card/Card';
 import { Button } from 'shared/ui/Button';
 import { Input } from 'shared/ui/Input';
 import { Modal } from 'shared/ui/Modal';
+import { getMain } from 'app/providers/router/routeConfig/routes';
+import { Link } from 'react-router-dom';
 
 interface SidebarProps {
     children?: React.ReactNode,
@@ -30,7 +32,13 @@ export const Sidebar:FC<SidebarProps> = () => {
         <aside className = {cl.Sidebar}>
             <div className = {cl.sidebarMenu}>
                 <div className = {cl.inputMenu}>
-                    <span className = {cl.textSCADA}>SCADA Systems</span>
+                    <p className = {cl.scadaBlock}>
+                        <Link to = {getMain()} >
+                            <span className={cl.textBack}>Главная</span>
+                        </Link>
+                        <span>-</span>
+                        <span className = {cl.textSCADA}>SCADA Systems</span>
+                    </p>
                     <Input 
                         text='Поиск объекта'
                         allowClear
