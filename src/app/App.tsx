@@ -8,7 +8,7 @@ const App = () => {
     <>
       {AppRouter(routeConfig)}
       {/* тут будет Notification */}
-      <Message content="" />
+      {/* <Message content="" /> */}
     </>
   );
 };

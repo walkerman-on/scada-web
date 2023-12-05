@@ -1,8 +1,10 @@
 import { getObject } from 'app/providers/router/routeConfig/routes';
 import cl from './ObjectMenu.module.scss';
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { NavLink as Link } from 'react-router-dom';
 import LabelIcon from 'shared/assets/icons/LabelIcon';
+import api from 'shared/API/api';
+import { Skeleton } from 'shared/ui/Skeleton';
 
 interface ObjectMenuProps {
   className?: string;
@@ -10,28 +12,37 @@ interface ObjectMenuProps {
   activeClassName?: string;
 }
 
-interface ObjectsProps {
-  name: string;
-  id: number;
+export const ObjectMenu: FC<ObjectMenuProps> = () => {
+
+const [facility, setFacility] = useState([
+])
+
+const [isFacilityLoading, setIsFacilityLoading] = useState(false)
+
+async function fetchFacilities() {
+  setIsFacilityLoading(true)
+  setTimeout(async() => {
+    const facility = await api.getAll()
+  setFacility(facility)
+  setIsFacilityLoading(false)
+  }, 1500)
 }
 
-const Objects: ObjectsProps[] = [
-  { name: 'Резервуарный парк', id: 1 },
-  { name: 'Установка по сжижению газа (СПГ Портовая)', id: 2 },
-  { name: 'Трубчатые печи', id: 3 },
-  { name: 'Компрессорная станция', id: 4 },
-  { name: 'Транспортировка нефти', id: 5 },
-];
+useEffect(() => {
+  fetchFacilities()
+}, [])
 
-export const ObjectMenu: FC<ObjectMenuProps> = () => {
+
   return (
     <div className={cl.ObjectMenu}>
       <div className={cl.objectCountMenu}>
         <span className={cl.objectText}>Объекты</span>
-        <span className={cl.objectText}>{Objects.length}</span>
+        {/* <span className={cl.objectText}>{Objects.length}</span> */}
       </div>
       <div className={cl.object}>
-        {Objects.map((object) => (
+        {isFacilityLoading
+          ? <Skeleton count = {5}/>
+          : facility.map((object) => (
           <Link
             key={object.id}
             to={getObject(object.id)}
@@ -39,10 +50,11 @@ export const ObjectMenu: FC<ObjectMenuProps> = () => {
           >
             <div className={cl.objectLinkItem}>
               <LabelIcon />
-              <span className={cl.objectName}> {object.name} </span>
+              <span className={cl.objectName}> {object.title} </span>
             </div>
           </Link>
-        ))}
+        ))
+        }
       </div>
     </div>
   );
