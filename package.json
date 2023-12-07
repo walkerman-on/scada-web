@@ -7,7 +7,7 @@
     "start": "webpack serve --env port=3000",
     "build:prod": "webpack --env mode=production",
     "build:dev": "webpack --env mode=development",
-    "server": "json-server -w src/shared/services/API/db.json -p 3001",
+    "server": "json-server -w src/shared/API/db.json -p 3001",
     "prettier": "npx prettier --write **/*.{ts,tsx}"
   },
   "keywords": [],

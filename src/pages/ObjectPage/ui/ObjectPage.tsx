@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import cl from './ObjectPage.module.scss'
 
 const ObjectPage = () => {
   const { id } = useParams();
@@ -8,6 +9,7 @@ const ObjectPage = () => {
       <p style={{ fontWeight: "700" }}>
         Технологическая схема объекта c id {id}
       </p>
+      <img src = {'/src/pages/ObjectPage/ui/schema.png'}/>
     </div>
   );
 };
