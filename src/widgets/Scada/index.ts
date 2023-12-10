@@ -1,1 +1,1 @@
-export {Scada} from './ui/Scada'
+export { Scada } from './ui/Scada';

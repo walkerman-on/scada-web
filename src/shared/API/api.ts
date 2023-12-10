@@ -1,12 +1,6 @@
-import axios from "axios";
+import axios from 'axios';
+const __API__ = 'http://localhost:3000';
 
-export default class api {
-    static async getAll() {
-        try {
-            const response = await axios.get("http://localhost:3001/facility")
-            return response.data
-        } catch (e) {
-            console.log(e)
-        }
-    }
-}
+export const $api = axios.create({
+  baseURL: __API__,
+});

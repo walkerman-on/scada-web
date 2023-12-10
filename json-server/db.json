@@ -1,0 +1,107 @@
+  {
+    "facility": [
+        {
+            "id": 1, 
+            "title": "Установка сжижжения газа", 
+            "description": "Это описание установки"
+        },
+        {
+            "id": 2, 
+            "title": "Блок осушки", 
+            "description": "Это описание установки"
+        },
+        {
+            "id": 3, 
+            "title": "Блок очистки", 
+            "description": "Это описание установки"
+        },
+        {
+            "id": 4, 
+            "title": "Мобильный компрессор", 
+            "description": "Это описание установки"
+        },
+        {
+            "id": 5, 
+            "title": "Компрессорная установка 1", 
+            "description": "Это описание установки"
+        },
+        {
+            "id": 6, 
+            "title": "Компрессорная установка 2", 
+            "description": "Это описание установки"
+        }
+    ],
+    "manufactory": [
+        { 
+            "id": 1,
+            "key": "portovaya", 
+            "title": "Завод по сжижению газа (СПГ Портовая)",
+            "enabled": true,
+            "visible": true
+        },
+        { 
+            "id": 2,
+            "key": "lucy", 
+            "title": "Завод по переработке нефти 'Киришинефтеоргсинтез'",
+            "enabled": false,
+            "visible": true
+        },
+        { 
+            "id": 3,
+            "key": "Yiminghe", 
+            "title": "Завод по сжижению газа 'Yiminghe'",
+            "enabled": false,
+            "visible": false
+        }
+    ],
+    "unit": [
+        { 
+            "id": 1,
+            "key": "portovaya", 
+            "title": "Установка сжижжения газа",
+            "enabled": true,
+            "visible": true,
+            "manufactoryId": 1
+        },
+        { 
+            "id": 2,
+            "key": "lucy", 
+            "title": "Компрессорная установка 1",
+            "enabled": false,
+            "visible": true,
+            "manufactoryId": 1
+        },
+        { 
+            "id": 3,
+            "key": "Yiminghe", 
+            "title": "Блок осушки",
+            "enabled": false,
+            "visible": false,
+            "manufactoryId": 2
+        },
+        { 
+            "id": 4,
+            "key": "fkfkfkf", 
+            "title": "Мобильный компрессор",
+            "enabled": true,
+            "visible": false,
+            "manufactoryId": 2
+        },
+        { 
+            "id": 5,
+            "key": "fghjkl", 
+            "title": "Компрессорная установка 2",
+            "enabled": true,
+            "visible": true,
+            "manufactoryId": 1
+        },
+        { 
+            "id": 6,
+            "key": "tyuiop", 
+            "title": "Блок очистки",
+            "enabled": true,
+            "visible": false,
+            "manufactoryId": 1
+        }
+    ]
+}
