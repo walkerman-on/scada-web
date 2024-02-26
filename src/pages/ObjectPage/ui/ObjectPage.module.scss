@@ -1,0 +1,13 @@
+.ObjectPage {
+    box-sizing: border-box, ;
+    height: 100%;
+    display: flex;
+}
+
+.scheme {
+    background: whitesmoke;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    flex-grow: 1;
+}

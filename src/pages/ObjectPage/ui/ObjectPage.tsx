@@ -5,7 +5,9 @@ import { useAppSelector } from 'shared/lib/hooks/useAppSelector/useAppSelector';
 import { getObjectsData } from 'entities/Object/model/selectors/object';
 import { fetchObjectById } from 'entities/Object/api/fetchObjectById';
 import { Spin } from 'antd';
-
+import cl from "./ObjectPage.module.scss"
+import scheme from "./scheme.svg"
+import { SchemeSidebar } from './SchemeSidebar';
 const ObjectPage = () => {
   const { id } = useParams();
   const dispatch = useAppDispatch();
@@ -16,17 +18,14 @@ const ObjectPage = () => {
   }, [id, dispatch]);
 
   return (
-    <div style={{ maxWidth: '100%', maxHeight: '100%' }}>
-      {isLoading ? (
-        <Spin />
-      ) : (
-        <>
-          <p style={{ fontWeight: '700' }}>{object?.title}</p>
-          <p>{object?.description}</p>
-          {/* <img src={'src/pages/ObjectPage/ui/schema.png'} /> */}
-          <img src="https://picsum.photos/1000?grayscale" alt="picture" />
-        </>
-      )}
+    <div className={cl.ObjectPage}>
+      {/* <p style={{ fontWeight: "700" }}>
+        Технологическая схема объекта c id {id}
+      </p> */}
+      <SchemeSidebar/>
+      <div className={cl.scheme} style={{backgroundImage: `url(${scheme})`}}>
+        Тут изображена схемка!
+      </div>
     </div>
   );
 };
