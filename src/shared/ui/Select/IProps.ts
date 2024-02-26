@@ -1,3 +1,3 @@
-import { SelectProps } from "antd";
+import { SelectProps } from 'antd';
 
 export interface ISelectProps extends SelectProps {}

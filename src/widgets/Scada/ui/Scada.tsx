@@ -5,13 +5,14 @@ import { useTheme } from 'app/providers/ThemeProvider';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { IProps } from './IProps';
 import { routeConfig } from 'app/providers/router/routeConfig/scadaRouteConfig';
+import cls from './Scada.module.scss';
 
 export const Scada = ({}: IProps) => {
   const { theme } = useTheme();
   return (
     <div className={classNames('app scada-container', {}, [theme])}>
       <Sidebar />
-      <section>
+      <section className={cls.mainContainer}>
         <Header />
         {AppRouter(routeConfig)}
       </section>
