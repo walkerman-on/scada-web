@@ -5,7 +5,7 @@
 <style type="text/css">
 	.st0{fill:none;stroke:#A5CCEE;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
 	.st1{fill:#A5CCEE;}
-	.st2{fill:#44AFE4;stroke:#44AFE4;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st2{fill:green;stroke:"var(--color-accent-800)";stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
 	.st3{fill:none;stroke:#A5CCEE;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
 	.st4{fill:#44AFE4;stroke:#44AFE4;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
 	.st5{fill:none;}

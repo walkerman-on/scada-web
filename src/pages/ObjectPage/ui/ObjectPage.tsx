@@ -8,6 +8,7 @@ import { Spin } from 'antd';
 import cl from "./ObjectPage.module.scss"
 import scheme from "./scheme.svg"
 import { SchemeSidebar } from './SchemeSidebar';
+
 const ObjectPage = () => {
   const { id } = useParams();
   const dispatch = useAppDispatch();
@@ -23,9 +24,7 @@ const ObjectPage = () => {
         Технологическая схема объекта c id {id}
       </p> */}
       <SchemeSidebar/>
-      <div className={cl.scheme} style={{backgroundImage: `url(${scheme})`}}>
-        Тут изображена схемка!
-      </div>
+        <div className={cl.scheme} style={{backgroundImage: `url(${scheme})`}}>dcd</div>
     </div>
   );
 };

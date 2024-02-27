@@ -14,13 +14,35 @@ export const SchemeSidebar = () => {
 
     return (
         <div className={classNames(cl.SchemeSidebar, {[cl.collapsed]: collapsed})}>
-            <div className={cl.sidearHeader}>
-                <span className={cl.sidearTitle}>Технологические параметры</span>
+            <div className={cl.sidebarHeader}>
                 <div className={cl.sidebarToggle} onClick={onToggle}>
                     {collapsed ?  <SidebarToggleIconRight />:  <SidebarToggleIconLeft />} 
                 </div>
             </div>
-            <Input/>
+            <div className={cl.sidebarMain}>
+                <div className={cl.features}>
+                    <span className={cl.textFirst}>
+                        <span className={cl.textFeatures}>Свойства:</span> Теплообменник</span>
+                    <Input/>
+                </div>
+                <div className={cl.features}>
+                    <span className={cl.textSecond}>Расчетные параметры</span>
+                    <div className={cl.inputValue}>
+                        <Input/>
+                        <Input/>
+                        <Input/>
+                    </div>
+                    
+                </div>
+                <div className={cl.features}>
+                    <span className={cl.textSecond}>Геометрические параметры</span>
+                    <div className={cl.inputValue}>
+                        <Input/>
+                        <Input/>
+                        <Input/>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };

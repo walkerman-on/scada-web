@@ -8,11 +8,17 @@
     // scroll-snap-type: y mandatory;
 }
 
-.sidearHeader {
+.sidebarHeader {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     gap: 10px
+}
+
+.sidebarMain {
+    display: flex;
+    flex-direction: column;
+    gap: 12px
 }
 
 .sidebarToggle {
@@ -36,9 +42,30 @@
 .collapsed {
     width: var(--schemeSidebar-width-collapsed);
 
-    .sidearTitle {
+    .sidebarMain {
         display: none;
         transition: 0.2s display;
     }
+}
+
+.features {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.inputValue {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.textFeatures {
+    font-weight: 800;
+}
+
+.textSecond {
+    font-weight: 800;
+    font-size: 14px;
 }
 
