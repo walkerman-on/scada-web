@@ -3,15 +3,11 @@
 <svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 560 288" style="enable-background:new 0 0 560 288;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:none;stroke:#A5CCEE;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
-	.st1{fill:#A5CCEE;}
-	.st2{fill:#44AFE4;stroke:"var(--color-accent-800)";stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-	.st3{fill:none;stroke:#A5CCEE;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-	.st4{fill:#44AFE4;stroke:#44AFE4;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-	.st5{fill:none;}
-	.st6{font-family:'MyriadPro-Regular';}
-	.st7{font-size:12px;}
-	.st8{fill:#EBF2F7;}
+	.st0{fill:none;stroke:#F1BEAE;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+	.st1{fill:#F1BEAE;}
+	.st2{fill:#FF642F;stroke:#FF642F;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st3{fill:none;stroke:#F1BEAE;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st4{fill:#FF642F;stroke:#FF642F;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
 </style>
 <g>
 	<g>
@@ -45,10 +41,7 @@
 	<polygon class="st4" points="193.5,213.4 185.7,208.9 185.7,217.9 	"/>
 	<polygon class="st4" points="193.8,213.4 201.5,208.9 201.5,217.9 	"/>
 </g>
-<rect x="185.2" y="196.3" class="st5" width="22.1" height="13"/>
-<text transform="matrix(1 0 0 1 185.2258 204.869)" class="st6 st7">30%</text>
 <line class="st3" x1="264" y1="180.4" x2="264" y2="168.4"/>
 <line class="st3" x1="204" y1="168.4" x2="264" y2="168.4"/>
 <line class="st3" x1="254" y1="180.4" x2="264" y2="180.4"/>
-<rect x="140" y="193" class="st8" width="32" height="36"/>
 </svg>

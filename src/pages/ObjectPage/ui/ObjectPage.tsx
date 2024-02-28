@@ -4,10 +4,12 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector/useAppSelector';
 import { getObjectsData } from 'entities/Object/model/selectors/object';
 import { fetchObjectById } from 'entities/Object/api/fetchObjectById';
-import { Spin } from 'antd';
 import cl from "./ObjectPage.module.scss"
-import scheme from "./scheme.svg"
+import schemeLight from "./schemeLight.svg"
+import schemeDark from "./schemeDark.svg"
 import { SchemeSidebar } from './SchemeSidebar';
+import { useTheme } from 'app/providers/ThemeProvider';
+import {Theme} from "app/providers/ThemeProvider/lib/ThemeContext"
 
 const ObjectPage = () => {
   const { id } = useParams();
@@ -18,13 +20,14 @@ const ObjectPage = () => {
     dispatch(fetchObjectById(id));
   }, [id, dispatch]);
 
+  const {theme} = useTheme()
+
+  const schemeURL = theme === Theme.LIGHT ? schemeLight : schemeDark;  
+
   return (
     <div className={cl.ObjectPage}>
-      {/* <p style={{ fontWeight: "700" }}>
-        Технологическая схема объекта c id {id}
-      </p> */}
       <SchemeSidebar/>
-        <div className={cl.scheme} style={{backgroundImage: `url(${scheme})`}}>dcd</div>
+      <div className={cl.scheme} style={{backgroundImage: `url(${schemeURL})`}}></div>
     </div>
   );
 };

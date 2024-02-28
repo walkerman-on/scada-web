@@ -39,7 +39,7 @@ export const ObjectMenu: FC<ObjectMenuProps> = () => {
               to={getObject(object.id)}
               className={({ isActive }) => `${cl.objectLink} ${isActive ? cl.objectLinkActive : ''}`}
             >
-              <div className={cl.objectLinkItem}>
+              <div title={object?.title} className={cl.objectLinkItem}>
                 <LabelIcon />
                 <span className={cl.objectName}> {object?.title} </span>
               </div>
