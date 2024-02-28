@@ -16,6 +16,11 @@
     font-size: 14px;
     font-weight: 300;
     cursor: pointer;
+    // background-color:red;
+    height: 380px; 
+        /* -- scroll -- */
+        overflow: auto;
+        scroll-snap-type: y mandatory;
 }
 
 .objectLink {
