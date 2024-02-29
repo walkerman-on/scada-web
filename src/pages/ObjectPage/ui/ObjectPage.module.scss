@@ -2,14 +2,42 @@
     box-sizing: border-box, ;
     height: 100%;
     display: flex;
+    justify-content: space-between;
+    position: relative;
 }
 
 
 .scheme {
-    // background: whitesmoke;
     height: 100%;
     width: 100%;
     background-repeat: no-repeat;
-    background-size: cover;
     flex-grow: 1;
+}
+
+.clapan {
+    position: relative;
+    left: 35%;
+    top: 70%;
+    cursor: pointer;
+    width: 100px;
+    height: 70px;
+    background: red
+}
+
+[data-title]::after {
+    content: attr(data-title);
+    /* Выводим текст из атрибута data-title */
+    position: absolute;
+    /* Абсолютное позиционирование */
+    left: 0;
+    top: 1em;
+    /* Положение подсказки */
+    transition: 0.5s;
+    opacity: 0;
+    /* Скрываем подсказку, делая её прозрачной */
+}
+
+[data-title]:hover::after {
+    opacity: 1;
+    /* Показываем подсказку */
 }

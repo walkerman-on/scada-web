@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector/useAppSelector';
 import { getObjectsData } from 'entities/Object/model/selectors/object';
@@ -27,7 +27,9 @@ const ObjectPage = () => {
   return (
     <div className={cl.ObjectPage}>
       <SchemeSidebar/>
-      <div className={cl.scheme} style={{backgroundImage: `url(${schemeURL})`}}></div>
+      <div className={cl.scheme} style={{backgroundImage: `url(${schemeURL})`}}>
+        <span title="Клапан 23ESV1084" className={cl.clapan}>clapan</span>
+      </div>
     </div>
   );
 };

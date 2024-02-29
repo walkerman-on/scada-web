@@ -5,9 +5,9 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import SidebarToggleIconLeft from 'shared/assets/icons/SidebarToggleIconLeft';
 import SidebarToggleIconRight from 'shared/assets/icons/SidebarToggleIconRight';
 
-
 export const SchemeSidebar = () => {
     const [collapsed, setCollapsed] = useState(false);
+    
     const onToggle = () => {
         setCollapsed(prev => !prev)
     }
