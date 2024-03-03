@@ -3,7 +3,249 @@
         {
             "id": 1, 
             "title": "Установка 23: Сжижжение газа", 
-            "description": "Это описание установки"
+            "description": "Это описание установки",
+            "technologicalParameters": [
+                {
+                    "pressure": [
+                        {
+                            "id": 1,
+                            "title": "P",
+ 				            "unit": "мПа",
+ 				            "value": 7.5
+                        },
+                          {
+                            "id": 2,
+                            "title": "P",
+ 				            "unit": "мПа",
+ 				            "value": 3.2
+                        },
+                          {
+                            "id": 3,
+                            "title": "P",
+ 				            "unit": "мПа",
+ 				            "value": 0.6
+                        },
+                          {
+                            "id": 4,
+                            "title": "P",
+ 				            "unit": "мПа",
+ 				            "value": 6.2
+                        }
+                    ]
+                },
+                {
+                    "pressureDrop": [
+                        {
+                            "id": 1,
+                            "title": "ΔP",
+ 				            "unit": "мПа",
+ 				            "value": 0.01
+                        },
+                         {
+                            "id": 2,
+                            "title": "ΔP",
+ 				            "unit": "мПа",
+ 				            "value": 0.2
+                        },
+                         {
+                            "id": 3,
+                            "title": "ΔP",
+ 				            "unit": "мПа",
+ 				            "value": 0.01
+                        },
+                         {
+                            "id": 4,
+                            "title": "ΔP",
+ 				            "unit": "мПа",
+ 				            "value": 0.01
+                        },
+                         {
+                            "id": 5,
+                            "title": "ΔP",
+ 				            "unit": "мПа",
+ 				            "value": 0.01
+                        },
+                          {
+                            "id": 6,
+                            "title": "ΔP",
+ 				            "unit": "мПа",
+ 				            "value": 0.01
+                        },
+                          {
+                            "id": 7,
+                            "title": "ΔP",
+ 				            "unit": "мПа",
+ 				            "value": 0.01
+                        },
+                          {
+                            "id": 8,
+                            "title": "ΔP",
+ 				            "unit": "мПа",
+ 				            "value": 0.01
+                        },
+                          {
+                            "id": 9,
+                            "title": "ΔP",
+ 				            "unit": "мПа",
+ 				            "value": 0.01
+                        },
+                          {
+                            "id": 10,
+                            "title": "ΔP",
+ 				            "unit": "мПа",
+ 				            "value": 0.01
+                        }
+                    ]
+                },
+                {
+                    "temperature": [
+                         {
+                            "id": 1,
+                            "title": "T",
+ 				            "unit": "°C",
+ 				            "value": 32
+                        },
+                         {
+                            "id": 2,
+                            "title": "T",
+ 				            "unit": "°C",
+ 				            "value": -50
+                        },
+                         {
+                            "id": 3,
+                            "title": "T",
+ 				            "unit": "°C",
+ 				            "value": -30
+                        },
+                         {
+                            "id": 4,
+                            "title": "T",
+ 				            "unit": "°C",
+ 				            "value": -35
+                        },
+                         {
+                            "id": 5,
+                            "title": "T",
+ 				            "unit": "°C",
+ 				            "value": -110
+                        },
+                         {
+                            "id": 6,
+                            "title": "T",
+ 				            "unit": "°C",
+ 				            "value": -150
+                        },
+                         {
+                            "id": 7,
+                            "title": "T",
+ 				            "unit": "°C",
+ 				            "value": -155
+                        },
+                         {
+                            "id": 8,
+                            "title": "T",
+ 				            "unit": "°C",
+ 				            "value": -30
+                        },
+                         {
+                            "id": 9,
+                            "title": "T",
+ 				            "unit": "°C",
+ 				            "value": -110
+                        }
+                    ]
+                },
+                {
+                    "flow": [
+                        {
+                            "id": 1,
+                            "title": "Q",
+ 				            "unit": "кг/ч",
+ 				            "value": 17500
+                        },
+                          {
+                            "id": 1,
+                            "title": "Q",
+ 				            "unit": "кг/ч",
+ 				            "value": 19500
+                        }
+                    ]
+                },
+                {
+                    "liquidLevel": [
+                         {
+                            "id": 1,
+                            "title": "H",
+ 				            "unit": "%",
+ 				            "value": 7
+                        },
+                          {
+                            "id": 2,
+                            "title": "H",
+ 				            "unit": "%",
+ 				            "value": 32.4
+                        }
+                    ]
+                },
+                {
+                      "valve": [
+                       {
+                            "id": 1,
+                            "title": "M",
+ 				            "unit": "%",
+ 				            "value": 30
+                        },
+                         {
+                            "id": 2,
+                            "title": "M",
+ 				            "unit": "%",
+ 				            "value": 30
+                        },
+                         {
+                            "id": 3,
+                            "title": "M",
+ 				            "unit": "%",
+ 				            "value": 30
+                        },
+                         {
+                            "id": 4,
+                            "title": "M",
+ 				            "unit": "%",
+ 				            "value": 30
+                        },
+                         {
+                            "id": 5,
+                            "title": "M",
+ 				            "unit": "%",
+ 				            "value": 30
+                        },
+                         {
+                            "id": 6,
+                            "title": "M",
+ 				            "unit": "%",
+ 				            "value": 30
+                        },
+                         {
+                            "id": 7,
+                            "title": "M",
+ 				            "unit": "%",
+ 				            "value": 30
+                        },
+                         {
+                            "id": 8,
+                            "title": "M",
+ 				            "unit": "%",
+ 				            "value": 30
+                        },
+                         {
+                            "id": 9,
+                            "title": "M",
+ 				            "unit": "%",
+ 				            "value": 30
+                        }
+                    ]
+                }
+            ]
         },
         {
             "id": 2, 
