@@ -10,4 +10,5 @@ export interface IFactoryState {
     list: IFactory[],
     error: string | null,
     loading: boolean,
+    currentFactory?: IFactory,
 }

@@ -6,6 +6,7 @@
             "description": "Это описание установки",
             "enabled": true,
             "visible": true,
+            "factoryId": 1,
             "technologicalParameters": [
                 {
                     "pressure": [
@@ -253,78 +254,105 @@
             "id": 2, 
             "title": "Установка 22: Удаление тяжелых углеводородов", 
             "description": "Это описание установки",
-            "enabled": false,
-            "visible": true
+            "enabled": true,
+            "visible": true,
+            "factoryId": 1
         },
         {
             "id": 3, 
             "title": "Установка 41: Охлаждение", 
             "description": "Это описание установки",
-            "enabled": false,
-            "visible": true
+            "enabled": true,
+            "visible": true,
+            "factoryId": 1
         },
         {
             "id": 4, 
             "title": "Установка 12: Удаление кислых газов и метанола", 
             "description": "Это описание установки",
             "enabled": false,
-            "visible": true
+            "visible": true,
+            "factoryId": 1
         },
         {
             "id": 5, 
             "title": "Установка 11: Удаление ртути", 
             "description": "Это описание установки",
             "enabled": false,
-            "visible": true
+            "visible": true,
+            "factoryId": 1
         },
         {
             "id": 6, 
             "title": "Установка 05: Отделение очистки газа", 
             "description": "Это описание установки",
             "enabled": false,
-            "visible": true
+            "visible": true,
+            "factoryId": 1
         },
         {
             "id": 7, 
             "title": "Установка 16: Отделение осушки газа", 
             "description": "Это описание установки",
             "enabled": false,
-            "visible": true
+            "visible": true,
+            "factoryId": 1
         },
         {
             "id": 8, 
             "title": "Установка 47: Отделение хранения, подачи и дозирования хладагентов", 
             "description": "Это описание установки",
             "enabled": false,
-            "visible": true
+            "visible": true,
+            "factoryId": 1
         },
         {
             "id": 9, 
             "title": "Установка 87: Система масла-теплоносителя", 
             "description": "Это описание установки",
             "enabled": false,
-            "visible": true
+            "visible": true,
+            "factoryId": 1
         },
         {
             "id": 10, 
             "title": "Установка 95: Система воздуха КИП и технического воздуха", 
             "description": "Это описание установки",
             "enabled": false,
-            "visible": true
+            "visible": true,
+            "factoryId": 1
         },
         {
             "id": 11, 
             "title": "Установка 97: Сбор сточной воды", 
             "description": "Это описание установки",
             "enabled": false,
-            "visible": true
+            "visible": true,
+            "factoryId": 1
         },
         {
             "id": 12, 
             "title": "Установка 94: Система азота", 
             "description": "Это описание установки",
             "enabled": false,
-            "visible": true
+            "visible": true,
+            "factoryId": 1
+        },
+        {
+            "id": 13, 
+            "title": "Установка #1: завод ПП Нефтеавтоматика", 
+            "description": "Это описание установки",
+            "enabled": false,
+            "visible": true,
+            "factoryId": 2
+        },
+        {
+            "id": 14, 
+            "title": "Установка #2: завод ПП Нефтеавтоматика", 
+            "description": "Это описание установки",
+            "enabled": false,
+            "visible": true,
+            "factoryId": 2
         }
     ],
     "factory": [
@@ -337,13 +365,13 @@
         { 
             "id": 2,
             "title": "ТПП Нефтеавтоматика",
-            "enabled": false,
+            "enabled": true,
             "visible": true
         },
         { 
             "id": 3,
             "title": "ООО «Транснефть – Балтика»",
-            "enabled": false,
+            "enabled": true,
             "visible": true
         },
          { 

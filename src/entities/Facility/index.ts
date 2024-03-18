@@ -1,3 +1,5 @@
 export {default as facilityReducer} from "./model/slice/facilitySlice"
 export * from "./types/types"
 export {fetchFacilities} from "./api/fetchFacilities"
+export {fetchFacilitiesById} from "./api/fetchFacilitiesById"
+export {fetchFacilitiesByFactoryId} from "./api/fetchFacilitiesByFactoryId"

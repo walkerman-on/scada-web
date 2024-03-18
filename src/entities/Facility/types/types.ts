@@ -3,14 +3,16 @@ export interface IFacility {
     title: string,
     description: string,
     enabled?: boolean,
-    visible?: boolean
+    visible?: boolean,
+    factoryId: number,
     technologicalParameters: []
 }
 
 export interface IFacilityState {
     list: IFacility[],
     error: string | null,
-    loading: boolean
+    loading: boolean,
+    currentFacility?: IFacility
 }
 
 export interface IParametrs {

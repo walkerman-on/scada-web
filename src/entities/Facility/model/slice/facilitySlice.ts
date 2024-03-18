@@ -1,11 +1,14 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { fetchFacilities } from "entities/Facility/api/fetchFacilities";
-import {IFacilityState} from "../../types/types"
+import { fetchFacilitiesById } from "entities/Facility/api/fetchFacilitiesById";
+import {fetchFacilitiesByFactoryId} from "entities/Facility/api/fetchFacilitiesByFactoryId"
+import {IFacility, IFacilityState} from "../../types/types"
 
 const initialState:IFacilityState = {
     list: [],
     error: null,
-    loading: false
+    loading: false,
+    currentFacility: null
 }
 
 export const facilitySlice = createSlice({
@@ -27,6 +30,35 @@ export const facilitySlice = createSlice({
                 state.loading = false
                 state.error = action.payload
             })
+
+            .addCase(fetchFacilitiesById.fulfilled, (state, action) => {
+                state.currentFacility = state?.list.find(item => item.id === action.payload.id)
+                state.loading = false
+                state.error = null
+            })
+            .addCase(fetchFacilitiesById.pending, (state) => {
+                state.loading = true
+                state.error = null
+            })
+            .addCase(fetchFacilitiesById.rejected, (state, action) => {
+                state.loading = false
+                state.error = action.payload
+            })
+
+            .addCase(fetchFacilitiesByFactoryId.fulfilled, (state, action: PayloadAction<IFacility>) => {
+                state.list = state.list?.filter(item => item.factoryId === action.payload.id)
+                state.loading = false
+                state.error = null
+            })
+            .addCase(fetchFacilitiesByFactoryId.pending, (state) => {
+                state.loading = true
+                state.error = null
+            })
+            .addCase(fetchFacilitiesByFactoryId.rejected, (state, action) => {
+                state.loading = false
+                state.error = action.payload
+            })
+
     }
 })
 

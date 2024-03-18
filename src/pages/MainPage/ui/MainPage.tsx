@@ -10,16 +10,17 @@ import LogoutIcon from 'shared/assets/icons/LogoutIcon';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector/useAppSelector';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import {fetchFactories} from "entities/Factory/index"
-import { fetchFacilities } from 'entities/Facility';
+import {fetchFactories, fetchFactoriesById} from "entities/Factory/index"
+import { fetchFacilities, fetchFacilitiesById, fetchFacilitiesByFactoryId } from 'entities/Facility';
 import { useEffect, useMemo } from 'react';
 import { ISelectProps } from 'shared/ui/Select/IProps';
 
 const MainPage = () => {
   const { logout, user } = useLogout();
   const { theme } = useTheme();
+
   const {list, error} = useAppSelector(state => state.factory)
-  const facility = useAppSelector(state => state.facility)
+  const facilityByFactoryId = useAppSelector(state => state.facility)
   const dispatch = useAppDispatch()
 
   const listFactories: ISelectProps['options'] = useMemo(
@@ -33,25 +34,38 @@ const MainPage = () => {
         })),
     [list],
   );
-  const listFacilities: ISelectProps['options'] = useMemo(
+  const listFacilitiesByFactoryId: ISelectProps['options'] = useMemo(
     () =>
-      facility.list
+      facilityByFactoryId.list
         ?.filter((elem) => elem.visible)
         ?.map((elem) => ({
           value: elem.id,
           label: elem.title,
           disabled: !elem.enabled,
         })),
-    [facility.list],
+    [facilityByFactoryId.list],
   );
 
   useEffect(() => {
     dispatch(fetchFactories())
   }, [dispatch])
 
-  useEffect(() => {
+  const FactoriesHandle = (id: number) => {
+    let factoryId = list?.find(item => item.id === id).id
+
     dispatch(fetchFacilities())
-  }, [dispatch])
+    dispatch(fetchFactoriesById(factoryId))
+    dispatch(fetchFacilitiesByFactoryId(id))
+  }
+  
+  const FacilitiesHandle = (id: number) => {
+    dispatch(fetchFacilitiesById(list.find(item => item.id === id).id))
+  }
+
+  const factoryId = useAppSelector(state => state.factory.currentFactory?.id)
+  const facilityIdByFactoryId = useAppSelector(state => state.facility.currentFacility?.id)
+
+
 
   return (
     <nav className={classNames('app', {}, [theme])}>
@@ -67,9 +81,9 @@ const MainPage = () => {
       </header>
       <p style={{ fontWeight: '700' }}>Выбор завода</p>
     
-      <Select options = {listFactories} defaultValue='Выбор завода/предприятия'/>
-      <Select options = {listFacilities} defaultValue='Выбор установки'/>
-        <AppLink to={getScada()}>
+      <Select options = {listFactories} defaultValue='Выбор завода/предприятия' onChange={FactoriesHandle}/>
+      <Select options = {listFacilitiesByFactoryId} defaultValue='Выбор установки' onChange={FacilitiesHandle}/>
+        <AppLink to={getScada(factoryId, facilityIdByFactoryId)}>
         <Button className={cl.text}>перейти в SCADA</Button>
       </AppLink>
     </nav>

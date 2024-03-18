@@ -9,6 +9,4 @@ const firebaseConfig = {
   appId: process.env.FIREBASE_API_APP_ID,
 };
 
-console.log(firebaseConfig);
-
 const app = initializeApp(firebaseConfig);
