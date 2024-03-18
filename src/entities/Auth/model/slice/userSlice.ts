@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { User, UserSchema } from '../types/user';
+import { User, UserState } from '../types/user';
 
-const initialState: UserSchema = {
+const initialState: UserState = {
   isAuthorized: false,
   user: null,
 };
@@ -10,7 +10,7 @@ const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    setUser(state: UserSchema, { payload }: PayloadAction<User>) {
+    setUser(state: UserState, { payload }: PayloadAction<User>) {
       state.user = payload;
       state.isAuthorized = true;
     },

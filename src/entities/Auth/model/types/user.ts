@@ -8,7 +8,7 @@ export interface User {
   avatar?: string;
 }
 
-export interface UserSchema {
+export interface UserState {
   user: User | null;
   isAuthorized: boolean;
 }

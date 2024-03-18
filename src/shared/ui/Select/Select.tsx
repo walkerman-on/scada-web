@@ -8,9 +8,7 @@ export const Select:FC<ISelectProps> = memo(({options, defaultValue}, props) => 
     const {theme} = useTheme()
 
     const handleChange = (value: string) => {
-  console.log(`selected ${value}`);
 };
-console.log(options)
      return (
          <ConfigProvider
             theme={{
@@ -37,16 +35,8 @@ console.log(options)
             defaultValue = {defaultValue}
             style ={{width: 400}}
             onChange={handleChange}
-            options={[
-             { value: 'portovaya', label: 'Завод по сжижению газа (СПГ Портовая)'},
-    { value: 'lucy', label: 'Завод по переработке нефти "Киришинефтеоргсинтез"' },
-    { value: 'Yiminghe', label: 'yiminghe' },
-    { value: 'disabled', label: 'Disabled', disabled: true }, 
-            ]}
+            options={options}
             size="large"
-
-
-          
         />
         </ConfigProvider>)
 })

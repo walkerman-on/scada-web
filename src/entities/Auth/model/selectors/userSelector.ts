@@ -1,3 +1,3 @@
-import { StateSchema } from 'app/providers/StoreProvider';
+import { IUserState } from 'app/providers/StoreProvider';
 
-export const getUserSelector = (state: StateSchema) => state.user;
+export const getUserSelector = (state: IUserState) => state.user;
