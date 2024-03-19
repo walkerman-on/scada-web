@@ -34,6 +34,7 @@ const MainPage = () => {
         })),
     [list],
   );
+
   const listFacilitiesByFactoryId: ISelectProps['options'] = useMemo(
     () =>
       facilityByFactoryId.list
@@ -59,13 +60,11 @@ const MainPage = () => {
   }
   
   const FacilitiesHandle = (id: number) => {
-    dispatch(fetchFacilitiesById(list.find(item => item.id === id).id))
+    dispatch(fetchFacilitiesById(list?.find(item => item.id === id).id))
   }
 
   const factoryId = useAppSelector(state => state.factory.currentFactory?.id)
   const facilityIdByFactoryId = useAppSelector(state => state.facility.currentFacility?.id)
-
-
 
   return (
     <nav className={classNames('app', {}, [theme])}>
@@ -84,7 +83,7 @@ const MainPage = () => {
       <Select options = {listFactories} defaultValue='Выбор завода/предприятия' onChange={FactoriesHandle}/>
       <Select options = {listFacilitiesByFactoryId} defaultValue='Выбор установки' onChange={FacilitiesHandle}/>
         <AppLink to={getScada(factoryId, facilityIdByFactoryId)}>
-        <Button className={cl.text}>перейти в SCADA</Button>
+        <Button disabled={facilityByFactoryId.currentFacility ? false : true} className={cl.text}>перейти в SCADA</Button>
       </AppLink>
     </nav>
   );

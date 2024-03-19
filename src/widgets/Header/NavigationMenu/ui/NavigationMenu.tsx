@@ -1,19 +1,24 @@
-import { getInfographics, getObject, getTest } from 'app/providers/router/routeConfig/routes';
+import { getInfographics, getFacility, getTest } from 'app/providers/router/routeConfig/routes';
 import cl from './NavigationMenu.module.scss';
 import AppLink, { AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { useAppSelector } from 'shared/lib/hooks/useAppSelector/useAppSelector';
 
 interface LinksProps {
   to: string;
   name: string;
 }
 
-const Links: LinksProps[] = [
-  { to: getObject(), name: 'Объект' },
+
+
+export const NavigationMenu = () => {
+  const {currentFacility} = useAppSelector(state => state.facility)
+
+  const Links: LinksProps[] = [
+  { to: getFacility(currentFacility?.id, currentFacility?.factoryId), name: 'Объект' },
   { to: getInfographics(), name: 'Инфографика' },
   { to: getTest(), name: 'Тестирование' },
 ];
 
-export const NavigationMenu = () => {
   return (
     <nav className={cl.NavigationMenu}>
       {Links.map((link) => (

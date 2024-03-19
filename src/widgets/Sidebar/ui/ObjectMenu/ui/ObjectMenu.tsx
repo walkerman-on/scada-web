@@ -1,8 +1,12 @@
-import { getObject } from 'app/providers/router/routeConfig/routes';
+import { getFacility, getScada } from 'app/providers/router/routeConfig/routes';
 import cl from './ObjectMenu.module.scss';
 import { FC } from 'react';
 import { NavLink as Link } from 'react-router-dom';
 import LabelIcon from 'shared/assets/icons/LabelIcon';
+import { useAppSelector } from 'shared/lib/hooks/useAppSelector/useAppSelector';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { fetchFacilitiesById } from 'entities/Facility/api/fetchFacilitiesById';
+import React from 'react';
 
 interface ObjectMenuProps {
   className?: string;
@@ -10,36 +14,32 @@ interface ObjectMenuProps {
   activeClassName?: string;
 }
 
-interface ObjectsProps {
-  name: string;
-  id: number;
-}
-
-const Objects: ObjectsProps[] = [
-  { name: 'Резервуарный парк', id: 1 },
-  { name: 'Установка по сжижению газа (СПГ Портовая)', id: 2 },
-  { name: 'Трубчатые печи', id: 3 },
-  { name: 'Компрессорная станция', id: 4 },
-  { name: 'Транспортировка нефти', id: 5 },
-];
-
 export const ObjectMenu: FC<ObjectMenuProps> = () => {
+  const {list} = useAppSelector(state => state?.facility)
+
+  const dispatch = useAppDispatch()
+  
+  const FacilitiesHandle = (id:number) => {
+    dispatch(fetchFacilitiesById(id))
+  }
+
   return (
     <div className={cl.ObjectMenu}>
       <div className={cl.objectCountMenu}>
-        <span className={cl.objectText}>Объекты</span>
-        <span className={cl.objectText}>{Objects.length}</span>
+        <span className={cl.objectText}>Установки</span>
+        <span className={cl.objectText}>{list?.length}</span>
       </div>
-      <div className={cl.object}>
-        {Objects.map((object) => (
+      <div className={cl.object} >
+        {list.map((item) => (
           <Link
-            key={object.id}
-            to={getObject(object.id)}
+            key={item.id}
+            to={getScada(item?.factoryId, item?.id)}
             className={({ isActive }) => `${cl.objectLink} ${isActive ? cl.objectLinkActive : ''}`}
+            onClick={() => FacilitiesHandle(item?.id)}
           >
             <div className={cl.objectLinkItem}>
               <LabelIcon />
-              <span className={cl.objectName}> {object.name} </span>
+              <span  className={cl.objectName}> {item?.title} </span>
             </div>
           </Link>
         ))}

@@ -4,21 +4,22 @@ import { NotFoundPage } from 'pages/NotFoundPage';
 import { ObjectPage } from 'pages/ObjectPage';
 import { TestPage } from 'pages/TestPage';
 import { AppRoutesProps } from './types';
-import { getMain, getNotFound } from 'app/providers/router/routeConfig/routes';
+import { getFacility, getMain, getNotFound } from 'app/providers/router/routeConfig/routes';
+
 
 export enum AppRoutes {
   INFOGRAPHICS = 'infographics',
   ACCOUNT = 'account',
-  OBJECT = 'object',
+  FACILITY = 'facility',
   TEST = 'test',
   MAIN = 'main',
   NOT_FOUND = 'not_found',
 }
 
 export const RoutePath: Record<AppRoutes, string> = {
-  [AppRoutes.INFOGRAPHICS]: 'infographics',
+  [AppRoutes.INFOGRAPHICS]: 'factory/:factoryId/facility/:facilityId/infographics',
   [AppRoutes.ACCOUNT]: 'account',
-  [AppRoutes.OBJECT]: 'object/:id',
+  [AppRoutes.FACILITY]: 'factory/:factoryId/facility/:facilityId',
   [AppRoutes.TEST]: 'test',
   [AppRoutes.MAIN]: getMain(),
   [AppRoutes.NOT_FOUND]: getNotFound(),
@@ -33,8 +34,8 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     path: RoutePath.infographics,
     element: <InfographicsPage />,
   },
-  [AppRoutes.OBJECT]: {
-    path: RoutePath.object,
+  [AppRoutes.FACILITY]: {
+    path: RoutePath.facility,
     element: <ObjectPage />,
   },
   [AppRoutes.TEST]: {
