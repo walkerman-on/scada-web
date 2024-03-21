@@ -4,9 +4,9 @@ import { $api } from "shared/api/api"
 
 export const fetchFacilitiesByFactoryId = createAsyncThunk<IFacility, number, {rejectValue: string}>(
 	"fetchFacilitiesByFactoryId",
-	async (facilityId, { rejectWithValue }) => {
+	async (factoryId, { rejectWithValue }) => {
 		try {
-			const res = await $api.get(`/facility/${facilityId}`)
+			const res = await $api.get(`/factory/${factoryId}`)
 
 			if (!res.data) {
 				throw new Error("Server Error!")

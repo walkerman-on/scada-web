@@ -45,8 +45,8 @@ export const facilitySlice = createSlice({
                 state.error = action.payload
             })
 
-            .addCase(fetchFacilitiesByFactoryId.fulfilled, (state, action: PayloadAction<IFacility>) => {
-                state.list = state.list?.filter(item => item.factoryId === action.payload.id)
+            .addCase(fetchFacilitiesByFactoryId.fulfilled, (state, action) => {
+                state.list = state.list?.filter(item => item.factoryId == action.payload.id)
                 state.loading = false
                 state.error = null
             })
@@ -58,7 +58,6 @@ export const facilitySlice = createSlice({
                 state.loading = false
                 state.error = action.payload
             })
-
     }
 })
 

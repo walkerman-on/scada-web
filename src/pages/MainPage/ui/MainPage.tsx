@@ -19,8 +19,8 @@ const MainPage = () => {
   const { logout, user } = useLogout();
   const { theme } = useTheme();
 
-  const {list, error} = useAppSelector(state => state.factory)
-  const facilityByFactoryId = useAppSelector(state => state.facility)
+  const {list, error, currentFactory} = useAppSelector(state => state.factory)
+  const facility = useAppSelector(state => state.facility)
   const dispatch = useAppDispatch()
 
   const listFactories: ISelectProps['options'] = useMemo(
@@ -37,14 +37,14 @@ const MainPage = () => {
 
   const listFacilitiesByFactoryId: ISelectProps['options'] = useMemo(
     () =>
-      facilityByFactoryId.list
+      facility.list
         ?.filter((elem) => elem.visible)
         ?.map((elem) => ({
           value: elem.id,
           label: elem.title,
           disabled: !elem.enabled,
         })),
-    [facilityByFactoryId.list],
+    [facility.list],
   );
 
   useEffect(() => {
@@ -52,15 +52,13 @@ const MainPage = () => {
   }, [dispatch])
 
   const FactoriesHandle = (id: number) => {
-    let factoryId = list?.find(item => item.id === id).id
-
     dispatch(fetchFacilities())
-    dispatch(fetchFactoriesById(factoryId))
+    dispatch(fetchFactoriesById(id))
     dispatch(fetchFacilitiesByFactoryId(id))
   }
   
   const FacilitiesHandle = (id: number) => {
-    dispatch(fetchFacilitiesById(list?.find(item => item.id === id).id))
+    dispatch(fetchFacilitiesById(id))
   }
 
   const factoryId = useAppSelector(state => state.factory.currentFactory?.id)
@@ -83,7 +81,7 @@ const MainPage = () => {
       <Select options = {listFactories} defaultValue='Выбор завода/предприятия' onChange={FactoriesHandle}/>
       <Select options = {listFacilitiesByFactoryId} defaultValue='Выбор установки' onChange={FacilitiesHandle}/>
         <AppLink to={getScada(factoryId, facilityIdByFactoryId)}>
-        <Button disabled={facilityByFactoryId.currentFacility ? false : true} className={cl.text}>перейти в SCADA</Button>
+        <Button disabled={facility.currentFacility ? false : true} className={cl.text}>перейти в SCADA</Button>
       </AppLink>
     </nav>
   );
