@@ -16,6 +16,10 @@
     font-size: 14px;
     font-weight: 300;
     cursor: pointer;
+    height: 380px;
+    /* -- scroll -- */
+    overflow: auto;
+    scroll-snap-type: y mandatory;
 }
 
 .objectLink {
@@ -51,3 +55,20 @@
     color: var(--color-primary-400);
 }
 
+div[title]::after {
+    content: attr(data-title);
+    /* Выводим текст из атрибута data-title */
+    position: absolute;
+    /* Абсолютное позиционирование */
+    left: 0;
+    top: 1em;
+    /* Положение подсказки */
+    transition: 0.5s;
+    opacity: 0;
+    /* Скрываем подсказку, делая её прозрачной */
+}
+
+div[title]:hover::after {
+    opacity: 1;
+    /* Показываем подсказку */
+}

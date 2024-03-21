@@ -1,5 +1,5 @@
 import { getFacility, getScada } from 'app/providers/router/routeConfig/routes';
-import cl from './ObjectMenu.module.scss';
+import cl from './FacilityMenu.module.scss';
 import { FC } from 'react';
 import { NavLink as Link } from 'react-router-dom';
 import LabelIcon from 'shared/assets/icons/LabelIcon';
@@ -8,13 +8,13 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { fetchFacilitiesById } from 'entities/Facility/api/fetchFacilitiesById';
 import React from 'react';
 
-interface ObjectMenuProps {
+interface FacilityMenuProps {
   className?: string;
   children?: React.ReactNode;
   activeClassName?: string;
 }
 
-export const ObjectMenu: FC<ObjectMenuProps> = () => {
+export const FacilityMenu: FC<FacilityMenuProps> = () => {
   const {list} = useAppSelector(state => state?.facility)
 
   const dispatch = useAppDispatch()
@@ -37,7 +37,7 @@ export const ObjectMenu: FC<ObjectMenuProps> = () => {
             className={({ isActive }) => `${cl.objectLink} ${isActive ? cl.objectLinkActive : ''}`}
             onClick={() => FacilitiesHandle(item?.id)}
           >
-            <div className={cl.objectLinkItem}>
+            <div title={item?.title} className={cl.objectLinkItem}>
               <LabelIcon />
               <span  className={cl.objectName}> {item?.title} </span>
             </div>

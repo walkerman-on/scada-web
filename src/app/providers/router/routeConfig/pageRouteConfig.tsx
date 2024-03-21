@@ -1,7 +1,7 @@
 import { AccountPage } from 'pages/AccountPage';
 import { InfographicsPage } from 'pages/InfographicsPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
-import { ObjectPage } from 'pages/ObjectPage';
+import { FacilityPage } from 'pages/FacilityPage';
 import { TestPage } from 'pages/TestPage';
 import { AppRoutesProps } from './types';
 import { getFacility, getMain, getNotFound } from 'app/providers/router/routeConfig/routes';
@@ -36,7 +36,7 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   },
   [AppRoutes.FACILITY]: {
     path: RoutePath.facility,
-    element: <ObjectPage />,
+    element: <FacilityPage />,
   },
   [AppRoutes.TEST]: {
     path: RoutePath.test,

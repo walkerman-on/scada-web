@@ -79,7 +79,7 @@ const MainPage = () => {
       <p style={{ fontWeight: '700' }}>Выбор завода</p>
     
       <Select options = {listFactories} defaultValue='Выбор завода/предприятия' onChange={FactoriesHandle}/>
-      <Select options = {listFacilitiesByFactoryId} defaultValue='Выбор установки' onChange={FacilitiesHandle}/>
+      <Select disabled={currentFactory ? false : true} options = {listFacilitiesByFactoryId} defaultValue='Выбор установки' onChange={FacilitiesHandle}/>
         <AppLink to={getScada(factoryId, facilityIdByFactoryId)}>
         <Button disabled={facility.currentFacility ? false : true} className={cl.text}>перейти в SCADA</Button>
       </AppLink>

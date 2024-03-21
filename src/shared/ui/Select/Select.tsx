@@ -4,7 +4,7 @@ import { ConfigProvider, Select as ANTSelect } from "antd";
 import { useTheme } from "app/providers/ThemeProvider";
 import { color } from "app/styles/themes/theme"
 
-export const Select:FC<ISelectProps> = memo(({options, defaultValue, onChange}, props) => {
+export const Select:FC<ISelectProps> = memo(({options, defaultValue, onChange, disabled} , props) => {
     const {theme} = useTheme()
 
      return (
@@ -35,6 +35,7 @@ export const Select:FC<ISelectProps> = memo(({options, defaultValue, onChange}, 
             onChange={onChange}
             options={options}
             size="large"
+            disabled={disabled}
         />
         </ConfigProvider>)
 })

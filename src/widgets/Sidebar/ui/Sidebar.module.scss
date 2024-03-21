@@ -6,7 +6,9 @@
     justify-content: space-between;
     align-items: center;
 }
+
 .sidebarMenu {
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -16,6 +18,23 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
+}
+
+.scadaBlock {
+    display: flex;
+    gap: 10px;
+
+}
+
+.textBack {
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.textBack:hover {
+    color: var(--color-accent-600);
+    transition: color 0.2s;
+
 }
 
 .textSCADA {
