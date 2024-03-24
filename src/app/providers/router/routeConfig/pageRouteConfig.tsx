@@ -19,7 +19,7 @@ export enum AppRoutes {
 export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.INFOGRAPHICS]: 'factory/:factoryId/facility/:facilityId/infographics',
   [AppRoutes.ACCOUNT]: 'account',
-  [AppRoutes.FACILITY]: 'factory/:factoryId/facility/:facilityId',
+  [AppRoutes.FACILITY]: ':factoryId/facility_ID/:facilityId',
   [AppRoutes.TEST]: 'test',
   [AppRoutes.MAIN]: getMain(),
   [AppRoutes.NOT_FOUND]: getNotFound(),

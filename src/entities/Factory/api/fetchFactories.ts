@@ -7,7 +7,7 @@ export const fetchFactories = createAsyncThunk<IFactory[] | null, void, {rejectV
 	"fetchFactories",
 	async (_, { rejectWithValue }) => {
 		try {
-			const querySnapshot = await getDocs(collection(db, "factory"));
+			const querySnapshot = await getDocs(collection(db, "factories"));
 			const factoriesData = querySnapshot.docs.map(doc => doc.data() as IFactory);
 
 			if (querySnapshot.empty) {

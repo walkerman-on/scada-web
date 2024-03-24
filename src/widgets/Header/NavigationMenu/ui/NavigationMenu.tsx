@@ -1,4 +1,4 @@
-import { getInfographics, getFacility, getTest } from 'app/providers/router/routeConfig/routes';
+import { getInfographics, getFacility, getTest, getScada } from 'app/providers/router/routeConfig/routes';
 import cl from './NavigationMenu.module.scss';
 import AppLink, { AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector/useAppSelector';
@@ -8,13 +8,12 @@ interface LinksProps {
   name: string;
 }
 
-
-
 export const NavigationMenu = () => {
   const {currentFacility} = useAppSelector(state => state.facility)
+  const {key} = useAppSelector(state => state.factory.currentFactory)
 
   const Links: LinksProps[] = [
-  { to: getFacility(currentFacility?.id, currentFacility?.factoryId), name: 'Объект' },
+  { to: getScada(key, currentFacility?.id), name: 'Объект' },
   { to: getInfographics(), name: 'Инфографика' },
   { to: getTest(), name: 'Тестирование' },
 ];

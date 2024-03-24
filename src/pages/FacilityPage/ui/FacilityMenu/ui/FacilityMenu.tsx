@@ -16,6 +16,7 @@ interface FacilityMenuProps {
 
 export const FacilityMenu: FC<FacilityMenuProps> = () => {
   const {list} = useAppSelector(state => state?.facility)
+  const {key} = useAppSelector(state => state.factory.currentFactory)
 
   const dispatch = useAppDispatch()
   
@@ -33,7 +34,7 @@ export const FacilityMenu: FC<FacilityMenuProps> = () => {
         {list.map((item) => (
           <Link
             key={item.id}
-            to={getScada(item?.factoryId, item?.id)}
+            to={getScada(key, item?.id)}
             className={({ isActive }) => `${cl.objectLink} ${isActive ? cl.objectLinkActive : ''}`}
             onClick={() => FacilitiesHandle(item?.id)}
           >

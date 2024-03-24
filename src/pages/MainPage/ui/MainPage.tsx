@@ -63,6 +63,7 @@ const MainPage = () => {
 
   const factoryId = useAppSelector(state => state.factory.currentFactory?.id)
   const facilityIdByFactoryId = useAppSelector(state => state.facility.currentFacility?.id)
+  const factoryKey = useAppSelector(state => state.factory.currentFactory?.key)
 
   return (
     <nav className={classNames('app', {}, [theme])}>
@@ -80,7 +81,7 @@ const MainPage = () => {
     
       <Select options = {listFactories} defaultValue='Выбор завода/предприятия' onChange={FactoriesHandle}/>
       <Select disabled={currentFactory ? false : true} options = {listFacilitiesByFactoryId} defaultValue='Выбор установки' onChange={FacilitiesHandle}/>
-        <AppLink to={getScada(factoryId, facilityIdByFactoryId)}>
+        <AppLink to={getScada(factoryKey, facilityIdByFactoryId)}>
         <Button disabled={facility.currentFacility ? false : true} className={cl.text}>перейти в SCADA</Button>
       </AppLink>
     </nav>

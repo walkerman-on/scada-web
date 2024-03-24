@@ -18,7 +18,7 @@ export enum AppRoutes {
 export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.LOGIN]: getLogin(),
   [AppRoutes.REGISTER]: getRegister(),
-  [AppRoutes.SCADA]: 'scada/*',
+  [AppRoutes.SCADA]: '/*',
   [AppRoutes.MAIN]: getMain(),
   [AppRoutes.NOT_FOUND]: getNotFound(),
 };

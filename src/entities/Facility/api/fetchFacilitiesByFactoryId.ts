@@ -8,7 +8,7 @@ export const fetchFacilitiesByFactoryId = createAsyncThunk<IFactory, number, {re
 	"fetchFacilitiesByFactoryId",
 	async (factoryId, { rejectWithValue }) => {
 		try {
-			const factoriesCollectionRef = collection(db, 'factory');
+			const factoriesCollectionRef = collection(db, 'factories');
 			const factoryQuery = query(factoriesCollectionRef, where('id', '==', factoryId));
 			const querySnapshot = await getDocs(factoryQuery);
 
