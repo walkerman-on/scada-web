@@ -5,7 +5,10 @@ import { SchemeSidebar } from 'widgets/SchemeSidebar/ui/SchemeSidebar';
 import { useTheme } from 'app/providers/ThemeProvider';
 import {Theme} from "app/providers/ThemeProvider/lib/ThemeContext"
 import cl from "./FacilityPage.module.scss"
-
+import { collection, getDocs } from "firebase/firestore"; 
+import { db } from "shared/services/firebase/firebase";
+import { useEffect } from "react";
+import { fetchFactories } from "entities/Factory";
 const FacilityPage = () => {
   const {theme} = useTheme()
 

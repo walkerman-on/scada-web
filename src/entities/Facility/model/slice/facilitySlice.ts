@@ -1,8 +1,8 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { fetchFacilities } from "entities/Facility/api/fetchFacilities";
 import { fetchFacilitiesById } from "entities/Facility/api/fetchFacilitiesById";
 import {fetchFacilitiesByFactoryId} from "entities/Facility/api/fetchFacilitiesByFactoryId"
-import {IFacility, IFacilityState} from "../../types/types"
+import {IFacilityState} from "../../types/types"
 
 const initialState:IFacilityState = {
     list: [],
@@ -46,7 +46,7 @@ export const facilitySlice = createSlice({
             })
 
             .addCase(fetchFacilitiesByFactoryId.fulfilled, (state, action) => {
-                state.list = state.list?.filter(item => item.factoryId == action.payload.id)
+                state.list = state.list?.filter(item => item.factoryId === action.payload.id)
                 state.loading = false
                 state.error = null
             })

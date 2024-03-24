@@ -1,18 +1,23 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
 import { IFacility } from "../types/types"
-import { $api } from "shared/api/api"
+import { collection, getDocs, query, where } from "firebase/firestore"; 
+import { db } from "shared/services/firebase/firebase";
 
 export const fetchFacilitiesById = createAsyncThunk<IFacility, number, {rejectValue: string}>(
 	"fetchFacilitiesById",
-	async (id, { rejectWithValue }) => {
+	async (facilityId, { rejectWithValue }) => {
 		try {
-			const res = await $api.get(`/facility/${id}`)
+			const facilitiesCollectionRef = collection(db, 'facilities');
+			const facilityQuery = query(facilitiesCollectionRef, where('id', '==', facilityId));
+			const querySnapshot = await getDocs(facilityQuery);
 
-			if (!res.data) {
-				throw new Error("Server Error!")
+			if (!querySnapshot.empty) {
+				const facilityData = querySnapshot.docs[0].data() as IFacility;
+       			return facilityData;		
+			} else {
+				throw new Error("Firebase server Error!")
 			}
 
-			return res.data
 		} catch (error) {
 			return rejectWithValue(error.message)
 		}
