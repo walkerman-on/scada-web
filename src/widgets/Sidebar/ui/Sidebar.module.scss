@@ -22,9 +22,21 @@
 
 .scadaBlock {
     display: flex;
-    gap: 10px;
-
+    gap: 1px;
 }
+
+.scadaBlockText {
+    padding-top: 5px;
+    color: var(--color-accent-800);
+    font-weight: 600;
+}
+
+.scadaBlockText:hover {
+    transition: background-color 0.2s;
+    color: var(--color-accent-600);
+    cursor: pointer;
+}
+        
 
 .textBack {
     cursor: pointer;

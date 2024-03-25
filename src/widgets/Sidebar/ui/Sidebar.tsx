@@ -7,6 +7,7 @@ import { Input } from 'shared/ui/Input';
 import { Modal } from 'shared/ui/Modal';
 import { getMain } from 'app/providers/router/routeConfig/routes';
 import { Link } from 'react-router-dom';
+import TurnLeftArrow from 'shared/assets/icons/TurnLeftArrow';
 
 interface SidebarProps {
   children?: React.ReactNode;
@@ -32,13 +33,12 @@ export const Sidebar: FC<SidebarProps> = () => {
     <aside className={cl.Sidebar}>
       <div className={cl.sidebarMenu}>
         <div className={cl.inputMenu}>
-          <p className={cl.scadaBlock}>
             <Link to={getMain()}>
-              <span className={cl.textBack}>Главная</span>
-            </Link>
-            <span>-</span>
-            <span className={cl.textSCADA}>SCADA Systems</span>
+          <p className={cl.scadaBlock}>
+              <TurnLeftArrow/>
+              <span className={cl.scadaBlockText}>Главная</span>
           </p>
+            </Link>
           <Input text="Поиск объекта" allowClear />
         </div>
         <FacilityMenu />
