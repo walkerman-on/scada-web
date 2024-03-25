@@ -1,4 +1,3 @@
-import axios from "axios"
 import { createAsyncThunk } from "@reduxjs/toolkit"
 import { IFacility } from "../types/types"
 import { collection, getDocs } from "firebase/firestore"; 
@@ -12,7 +11,7 @@ export const fetchFacilities = createAsyncThunk<IFacility[], void, {rejectValue:
 			const factoriesData = querySnapshot.docs.map(doc => doc.data() as IFacility);
 
 			if (querySnapshot.empty) {
-				throw new Error("Firebase server Error!")
+				throw new Error("Server Error! Can not GET facilities")
 			}
 
 			return factoriesData

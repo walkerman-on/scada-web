@@ -15,7 +15,7 @@ export const fetchFacilitiesById = createAsyncThunk<IFacility, number, {rejectVa
 				const facilityData = querySnapshot.docs[0].data() as IFacility;
        			return facilityData;		
 			} else {
-				throw new Error("Firebase server Error!")
+				throw new Error("Server Error! Can not GET facilities by ID")
 			}
 
 		} catch (error) {

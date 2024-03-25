@@ -15,7 +15,7 @@ export const fetchFactoriesById = createAsyncThunk<IFactory | null, number, {rej
 				const factoryData = querySnapshot.docs[0].data() as IFactory;
        			return factoryData;		
 			} else {
-				throw new Error("Firebase server Error!")
+				throw new Error("Server Error! Can not GET factories by ID")
 			}
 		} catch (error) {
 			return rejectWithValue(error.message)

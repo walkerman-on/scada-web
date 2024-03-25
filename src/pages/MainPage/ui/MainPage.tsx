@@ -14,13 +14,15 @@ import {fetchFactories, fetchFactoriesById} from "entities/Factory/index"
 import { fetchFacilities, fetchFacilitiesById, fetchFacilitiesByFactoryId } from 'entities/Facility';
 import { useEffect, useMemo } from 'react';
 import { ISelectProps } from 'shared/ui/Select/IProps';
-
+import { Alert, message } from 'antd';
+import { Message } from 'shared/ui/Message';
 const MainPage = () => {
   const { logout, user } = useLogout();
   const { theme } = useTheme();
 
   const {list, error, currentFactory} = useAppSelector(state => state.factory)
   const facility = useAppSelector(state => state.facility)
+  const facilityError = useAppSelector(state => state.facility.error)
   const dispatch = useAppDispatch()
 
   const listFactories: ISelectProps['options'] = useMemo(
@@ -61,10 +63,8 @@ const MainPage = () => {
     dispatch(fetchFacilitiesById(id))
   }
 
-  const factoryId = useAppSelector(state => state.factory.currentFactory?.id)
   const facilityIdByFactoryId = useAppSelector(state => state.facility.currentFacility?.id)
   const factoryKey = useAppSelector(state => state.factory.currentFactory?.key)
-
   return (
     <nav className={classNames('app', {}, [theme])}>
       <header className={cl.header}>
@@ -78,7 +78,8 @@ const MainPage = () => {
         </div>
       </header>
       <p style={{ fontWeight: '700' }}>Выбор завода</p>
-    
+      {error || facilityError && <Message content={error || facilityError}></Message>}
+      {facilityError && <Message content="dcc"></Message>}
       <Select options = {listFactories} defaultValue='Выбор завода/предприятия' onChange={FactoriesHandle}/>
       <Select disabled={currentFactory ? false : true} options = {listFacilitiesByFactoryId} defaultValue='Выбор установки' onChange={FacilitiesHandle}/>
         <AppLink to={getScada(factoryKey, facilityIdByFactoryId)}>

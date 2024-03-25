@@ -11,7 +11,7 @@ export const fetchFactories = createAsyncThunk<IFactory[] | null, void, {rejectV
 			const factoriesData = querySnapshot.docs.map(doc => doc.data() as IFactory);
 
 			if (querySnapshot.empty) {
-				throw new Error("Firebase server Error!")
+				throw new Error("Server Error! Can not GET factories")
 			}
 
 			return factoriesData
