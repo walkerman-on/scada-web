@@ -5,6 +5,8 @@ export interface IFacility {
     enabled?: boolean,
     visible?: boolean,
     factoryId: number,
+    schemeDarkURL: string,
+    schemeLightURL: string,
     technologicalParameters: []
 }
 

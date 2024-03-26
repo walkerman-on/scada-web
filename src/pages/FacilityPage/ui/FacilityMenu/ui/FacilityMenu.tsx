@@ -24,14 +24,16 @@ export const FacilityMenu: FC<FacilityMenuProps> = () => {
     dispatch(fetchFacilitiesById(id))
   }
 
+  const facilities = list?.filter((elem) => elem.enabled)
+
   return (
     <div className={cl.ObjectMenu}>
       <div className={cl.objectCountMenu}>
         <span className={cl.objectText}>Установки</span>
-        <span className={cl.objectText}>{list?.length}</span>
+        <span className={cl.objectText}>{facilities?.length}</span>
       </div>
       <div className={cl.object} >
-        {list.map((item) => (
+        {facilities.map((item) => (
           <Link
             key={item.id}
             to={getScada(key, item?.id)}
