@@ -9,7 +9,6 @@ import { getMain } from 'app/providers/router/routeConfig/routes';
 export const useLogin = (): IUseLoginReturn => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const showMessage = () => {};
 
   const handleLogin = (email: string, password: string) => {
     const auth = getAuth();
