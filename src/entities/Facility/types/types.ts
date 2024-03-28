@@ -14,7 +14,7 @@ export interface IFacilityState {
     list: IFacility[],
     error: string | null,
     loading: boolean,
-    currentFacility?: IFacility
+    currentFacility?: IFacility,
 }
 
 export interface IParametrs {

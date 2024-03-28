@@ -4,30 +4,30 @@ import { NotFoundPage } from 'pages/NotFoundPage';
 import { FacilityPage } from 'pages/FacilityPage';
 import { TestPage } from 'pages/TestPage';
 import { AppRoutesProps } from './types';
-import { getFacility, getMain, getNotFound } from 'app/providers/router/routeConfig/routes';
+import { getMain, getNotFound } from 'app/providers/router/routeConfig/routes';
 
 
 export enum AppRoutes {
   INFOGRAPHICS = 'infographics',
-  ACCOUNT = 'account',
+  ACCOUNT = 'user',
   FACILITY = 'facility',
-  TEST = 'test',
+  TEST = 'description',
   MAIN = 'main',
   NOT_FOUND = 'not_found',
 }
 
 export const RoutePath: Record<AppRoutes, string> = {
-  [AppRoutes.INFOGRAPHICS]: 'factory/:factoryId/facility/:facilityId/infographics',
-  [AppRoutes.ACCOUNT]: 'account',
-  [AppRoutes.FACILITY]: ':factoryId/facility_ID/:facilityId',
-  [AppRoutes.TEST]: 'test',
+  [AppRoutes.INFOGRAPHICS]: ':factoryKey/facility_ID/:facilityId/infographics',
+  [AppRoutes.ACCOUNT]: 'user/:userId',
+  [AppRoutes.FACILITY]: ':factoryKey/facility_ID/:facilityId',
+  [AppRoutes.TEST]: ':factoryKey/facility_ID/:facilityId/description',
   [AppRoutes.MAIN]: getMain(),
   [AppRoutes.NOT_FOUND]: getNotFound(),
 };
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   [AppRoutes.ACCOUNT]: {
-    path: RoutePath.account,
+    path: RoutePath.user,
     element: <AccountPage />,
   },
   [AppRoutes.INFOGRAPHICS]: {
@@ -39,7 +39,7 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     element: <FacilityPage />,
   },
   [AppRoutes.TEST]: {
-    path: RoutePath.test,
+    path: RoutePath.description,
     element: <TestPage />,
   },
   [AppRoutes.MAIN]: {

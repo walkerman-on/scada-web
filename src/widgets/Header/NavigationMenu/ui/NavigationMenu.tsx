@@ -1,4 +1,4 @@
-import { getInfographics, getFacility, getTest, getScada } from 'app/providers/router/routeConfig/routes';
+import { getInfographics, getTest, getFacility } from 'app/providers/router/routeConfig/routes';
 import cl from './NavigationMenu.module.scss';
 import AppLink, { AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector/useAppSelector';
@@ -13,10 +13,10 @@ export const NavigationMenu = () => {
   const {key} = useAppSelector(state => state.factory.currentFactory)
 
   const Links: LinksProps[] = [
-  { to: getScada(key, currentFacility?.id), name: 'Объект' },
-  { to: getInfographics(), name: 'Инфографика' },
-  { to: getTest(), name: 'Тестирование' },
-];
+    { to: getFacility(key, currentFacility?.id), name: 'Установка' },
+    { to: getInfographics(key, currentFacility?.id), name: 'Инфографика ТП' },
+    { to: getTest(key, currentFacility?.id), name: 'Описание ТП' },
+  ];
 
   return (
     <nav className={cl.NavigationMenu}>

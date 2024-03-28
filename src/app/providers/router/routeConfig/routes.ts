@@ -1,11 +1,12 @@
+import { IGetPath } from "./types";
+
 export const getLogin = () => '/login';
 export const getRegister = () => '/register';
 export const getMain = () => '/';
 export const getNotFound = () => '*';
 
-export const getScada = (factoryKey ?: string , facilityIdByFactoryId?: number) => `/${factoryKey}/facility_ID/${facilityIdByFactoryId}`;
-export const getFacility = (facilityId?: number, factoryKey?: string) => (facilityId && factoryKey ? `${`/${factoryKey}/facility_ID/${facilityId}`}` : `${getScada()}/facility`);
+export const getFacility: IGetPath = (factoryKey, facilityId) => `/${factoryKey}/facility_ID/${facilityId}`;
 
-export const getAccount = () => `${getScada()}/account`;
-export const getInfographics = () => `${getFacility()}/infographics`;
-export const getTest = () => `${getFacility()}/test`;
+export const getAccount = (userId: string) => `/user/${userId}`;
+export const getInfographics: IGetPath = (factoryKey, facilityId) => `${getFacility(factoryKey, facilityId)}/infographics`;
+export const getTest: IGetPath = (factoryKey, facilityId) => `${getFacility(factoryKey, facilityId)}/description`;

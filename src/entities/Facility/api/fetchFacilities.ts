@@ -8,13 +8,13 @@ export const fetchFacilities = createAsyncThunk<IFacility[], void, {rejectValue:
 	async (_, { rejectWithValue }) => {
 		try {
 			const querySnapshot = await getDocs(collection(db, "facilities"));
-			const factoriesData = querySnapshot.docs.map(doc => doc.data() as IFacility);
+			const facilitiesData = querySnapshot.docs.map(doc => doc.data() as IFacility);
 
 			if (querySnapshot.empty) {
 				throw new Error("Server Error! Can not GET facilities")
 			}
 
-			return factoriesData
+			return facilitiesData
 		} catch (error) {
 			return rejectWithValue(error.message)
 		}

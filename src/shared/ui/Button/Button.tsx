@@ -19,6 +19,8 @@ export const Button:FC<IButtonProps> = memo((props) => {
                   colorPrimaryHover: 'var(--color-accent-600)',
                   colorPrimaryActive: 'var(--color-accent-800)',
                   colorTextLightSolid: color[theme]['--color-primary-200'],
+                  colorTextDisabled: color[theme]['--color-primary-200'],
+                  borderColorDisabled: color[theme]['--color-primary-600'],
                 }
               }
             }}

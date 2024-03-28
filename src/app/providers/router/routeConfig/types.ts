@@ -5,3 +5,7 @@ export type AppRoutesProps = RouteProps & {
   element: JSX.Element;
   authOnly?: boolean;
 };
+
+export interface IGetPath {
+  (factoryKey: string, facilityId: number): string;
+}

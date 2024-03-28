@@ -1,7 +1,7 @@
 import { Button } from 'shared/ui/Button/Button';
 import { useLogout } from 'entities/Auth/hooks/useLogout';
 import AppLink from 'shared/ui/AppLink/AppLink';
-import { getScada } from 'app/providers/router/routeConfig/routes';
+import { getFacility } from 'app/providers/router/routeConfig/routes';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTheme } from 'app/providers/ThemeProvider';
 import { Select } from 'shared/ui/Select/index';
@@ -12,13 +12,14 @@ import { useAppSelector } from 'shared/lib/hooks/useAppSelector/useAppSelector';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {fetchFactories, fetchFactoriesById} from "entities/Factory/index"
 import { fetchFacilities, fetchFacilitiesById, fetchFacilitiesByFactoryId } from 'entities/Facility';
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { ISelectProps } from 'shared/ui/Select/IProps';
-import { Alert, message } from 'antd';
 import { Message } from 'shared/ui/Message';
+
 const MainPage = () => {
   const { logout, user } = useLogout();
   const { theme } = useTheme();
+  const [buttonValue, setButtonValue] = useState({factory: false, facility: false})
 
   const {list, error, currentFactory} = useAppSelector(state => state.factory)
   const facility = useAppSelector(state => state.facility)
@@ -57,10 +58,12 @@ const MainPage = () => {
     dispatch(fetchFacilities())
     dispatch(fetchFactoriesById(id))
     dispatch(fetchFacilitiesByFactoryId(id))
+    setButtonValue({...buttonValue, factory: true})
   }
   
   const FacilitiesHandle = (id: number) => {
-    dispatch(fetchFacilitiesById(id))
+    dispatch(fetchFacilitiesById(id));
+    setButtonValue({...buttonValue, facility: true})
   }
 
   const facilityIdByFactoryId = useAppSelector(state => state.facility.currentFacility?.id)
@@ -82,8 +85,8 @@ const MainPage = () => {
       {facilityError && <Message content="dcc"></Message>}
       <Select options = {listFactories} defaultValue='Выбор завода/предприятия' onChange={FactoriesHandle}/>
       <Select disabled={currentFactory ? false : true} options = {listFacilitiesByFactoryId} defaultValue='Выбор установки' onChange={FacilitiesHandle}/>
-        <AppLink to={getScada(factoryKey, facilityIdByFactoryId)}>
-        <Button disabled={facility.currentFacility ? false : true} className={cl.text}>перейти в SCADA</Button>
+        <AppLink to={getFacility(factoryKey, facilityIdByFactoryId)}>
+        <Button type="primary" disabled={buttonValue.facility && buttonValue.facility ? false : true} className={cl.text}>Запуск</Button>
       </AppLink>
     </nav>
   );

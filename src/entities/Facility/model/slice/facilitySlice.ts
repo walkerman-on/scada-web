@@ -1,14 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchFacilities } from "entities/Facility/api/fetchFacilities";
 import { fetchFacilitiesById } from "entities/Facility/api/fetchFacilitiesById";
-import {fetchFacilitiesByFactoryId} from "entities/Facility/api/fetchFacilitiesByFactoryId"
+import {fetchFacilitiesByFactoryId} from "entities/Facility/api/fetchFacilitiesByFactoryId";
 import {IFacilityState} from "../../types/types"
 
 const initialState:IFacilityState = {
     list: [],
     error: null,
     loading: false,
-    currentFacility: null
+    currentFacility: null,
 }
 
 export const facilitySlice = createSlice({
@@ -44,7 +44,7 @@ export const facilitySlice = createSlice({
                 state.loading = false
                 state.error = action.payload
             })
-
+            
             .addCase(fetchFacilitiesByFactoryId.fulfilled, (state, action) => {
                 state.list = state.list?.filter(item => item.factoryId === action.payload.id)
                 state.loading = false
