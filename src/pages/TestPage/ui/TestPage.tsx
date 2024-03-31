@@ -10,7 +10,7 @@ const TestPage = () => {
             </p>
             <p style = {{fontWeight: "700"}}>Описание ТП</p>
             <p style={{ fontWeight: "600" }}>
-                {currentFacility?.description} 
+                {/* {currentFacility?.description}  */}
             </p>
         </main>
     );

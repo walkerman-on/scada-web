@@ -32,7 +32,7 @@ export const facilitySlice = createSlice({
             })
 
             .addCase(fetchFacilitiesById.fulfilled, (state, action) => {
-                state.currentFacility = state?.list.find(item => item.id === action.payload.id)
+                state.currentFacility = action.payload
                 state.loading = false
                 state.error = null
             })
@@ -46,7 +46,7 @@ export const facilitySlice = createSlice({
             })
             
             .addCase(fetchFacilitiesByFactoryId.fulfilled, (state, action) => {
-                state.list = state.list?.filter(item => item.factoryId === action.payload.id)
+                state.list = action.payload
                 state.loading = false
                 state.error = null
             })

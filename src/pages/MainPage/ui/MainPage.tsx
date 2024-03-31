@@ -21,9 +21,8 @@ const MainPage = () => {
   const { theme } = useTheme();
   const [buttonValue, setButtonValue] = useState({factory: false, facility: false})
 
-  const {list, error, currentFactory} = useAppSelector(state => state.factory)
+  const {list} = useAppSelector(state => state.factory)
   const facility = useAppSelector(state => state.facility)
-  const facilityError = useAppSelector(state => state.facility.error)
   const dispatch = useAppDispatch()
 
   const listFactories: ISelectProps['options'] = useMemo(
@@ -31,7 +30,7 @@ const MainPage = () => {
       list
         ?.filter((elem) => elem.visible)
         ?.map((elem) => ({
-          value: elem.id,
+          value: elem.key,
           label: elem.title,
           disabled: !elem.enabled,
         })),
@@ -52,22 +51,23 @@ const MainPage = () => {
 
   useEffect(() => {
     dispatch(fetchFactories())
-  }, [dispatch])
+  }, [])
 
-  const FactoriesHandle = (id: number) => {
-    dispatch(fetchFacilities())
-    dispatch(fetchFactoriesById(id))
-    dispatch(fetchFacilitiesByFactoryId(id))
+  const [id, setId] = useState({factory: null, facility: null})
+
+  const FactoriesHandle = (factoryId: string) => {
+    // fetchFacilitiesByFactoryId - загрузка установок конкретного завода по (его ключу) factoryId 
+    dispatch(fetchFacilitiesByFactoryId(factoryId))
+    setId({...id, factory: factoryId})
     setButtonValue({...buttonValue, factory: true})
   }
   
-  const FacilitiesHandle = (id: number) => {
-    dispatch(fetchFacilitiesById(id));
+  const FacilitiesHandle = (facilityId: string) => {
+    dispatch(fetchFacilitiesById(facilityId))
+    setId({...id, facility: facilityId})
     setButtonValue({...buttonValue, facility: true})
   }
 
-  const facilityIdByFactoryId = useAppSelector(state => state.facility.currentFacility?.id)
-  const factoryKey = useAppSelector(state => state.factory.currentFactory?.key)
   return (
     <nav className={classNames('app', {}, [theme])}>
       <header className={cl.header}>
@@ -81,12 +81,11 @@ const MainPage = () => {
         </div>
       </header>
       <p style={{ fontWeight: '700' }}>Выбор завода</p>
-      {error || facilityError && <Message content={error || facilityError}></Message>}
-      {facilityError && <Message content="dcc"></Message>}
+      {facility.error && <Message content={facility.error}></Message>}
       <Select options = {listFactories} defaultValue='Выбор завода/предприятия' onChange={FactoriesHandle}/>
-      <Select disabled={currentFactory ? false : true} options = {listFacilitiesByFactoryId} defaultValue='Выбор установки' onChange={FacilitiesHandle}/>
-        <AppLink to={getFacility(factoryKey, facilityIdByFactoryId)}>
-        <Button type="primary" disabled={buttonValue.facility && buttonValue.facility ? false : true} className={cl.text}>Запуск</Button>
+      <Select options = {listFacilitiesByFactoryId} defaultValue='Выбор установки' onChange={FacilitiesHandle}/>
+      <AppLink to={getFacility(id.factory, id.facility)}>
+        <Button type="primary" disabled={buttonValue.factory && buttonValue.facility ? false : true} className={cl.text}>Запуск</Button>
       </AppLink>
     </nav>
   );

@@ -4,14 +4,21 @@ export interface IFacility {
     description: string,
     enabled?: boolean,
     visible?: boolean,
-    factoryId: number,
+    factoryId: string,
     schemeDarkURL: string,
     schemeLightURL: string,
-    technologicalParameters: []
+}
+
+export interface IFacilityMainInfo {
+    id: string,
+    title: string,
+    factoryId: number,
+    enabled?: boolean,
+    visible?: boolean,
 }
 
 export interface IFacilityState {
-    list: IFacility[],
+    list: IFacilityMainInfo[],
     error: string | null,
     loading: boolean,
     currentFacility?: IFacility,

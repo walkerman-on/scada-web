@@ -10,12 +10,12 @@ interface LinksProps {
 
 export const NavigationMenu = () => {
   const {currentFacility} = useAppSelector(state => state.facility)
-  const {key} = useAppSelector(state => state.factory.currentFactory)
+  // const {key} = useAppSelector(state => state.factory.currentFactory)
 
   const Links: LinksProps[] = [
-    { to: getFacility(key, currentFacility?.id), name: 'Установка' },
-    { to: getInfographics(key, currentFacility?.id), name: 'Инфографика ТП' },
-    { to: getTest(key, currentFacility?.id), name: 'Описание ТП' },
+    // { to: getFacility(key, currentFacility?.id), name: 'Установка' },
+    // { to: getInfographics(key, currentFacility?.id), name: 'Инфографика ТП' },
+    // { to: getTest(key, currentFacility?.id), name: 'Описание ТП' },
   ];
 
   return (

@@ -7,5 +7,5 @@ export type AppRoutesProps = RouteProps & {
 };
 
 export interface IGetPath {
-  (factoryKey: string, facilityId: number): string;
+  (factoryKey: string, facilityId: string): string;
 }

@@ -17,10 +17,10 @@ export enum AppRoutes {
 }
 
 export const RoutePath: Record<AppRoutes, string> = {
-  [AppRoutes.INFOGRAPHICS]: ':factoryKey/facility_ID/:facilityId/infographics',
+  [AppRoutes.INFOGRAPHICS]: '/:factoryKey/facility/:facilityId/infographics',
   [AppRoutes.ACCOUNT]: 'user/:userId',
-  [AppRoutes.FACILITY]: ':factoryKey/facility_ID/:facilityId',
-  [AppRoutes.TEST]: ':factoryKey/facility_ID/:facilityId/description',
+  [AppRoutes.FACILITY]: '/:factoryKey/facility/:facilityId',
+  [AppRoutes.TEST]: '/:factoryKey/facility/:facilityId/description',
   [AppRoutes.MAIN]: getMain(),
   [AppRoutes.NOT_FOUND]: getNotFound(),
 };

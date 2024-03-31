@@ -6,11 +6,12 @@ import { Button } from 'shared/ui/Button';
 import { Input } from 'shared/ui/Input';
 import { Modal } from 'shared/ui/Modal';
 import { getMain } from 'app/providers/router/routeConfig/routes';
-import { Link } from 'react-router-dom';
+import { Link, useParams, useSearchParams } from 'react-router-dom';
 import TurnLeftArrow from 'shared/assets/icons/TurnLeftArrow';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector/useAppSelector';
 import { Message } from 'shared/ui/Message';
+import { fetchFacilitiesByFactoryId } from 'entities/Facility';
 
 interface SidebarProps {
   children?: React.ReactNode;
@@ -36,11 +37,22 @@ export const Sidebar: FC<SidebarProps> = () => {
   const searchFacilitiesHandler = (e:any) => {
     setSearchFacility(e.target.value)
   }
+  
+  const dispatch = useAppDispatch()
+
+  const URL = useParams()
+  const value = URL["*"];
+  const parts = value.split('/');
+  const factoryKey = parts[0];
+
+  useEffect(() => {
+    !list.length && dispatch(fetchFacilitiesByFactoryId(factoryKey))
+  }, [list])
 
   const filteredFacilities = list?.filter((elem) => elem.enabled).filter(item =>
     item.title.toLowerCase().includes(searchFacility.toLowerCase())
   );
-
+  
   return (
     <aside className={cl.Sidebar}>
       <div className={cl.sidebarMenu}>
@@ -83,3 +95,4 @@ export const Sidebar: FC<SidebarProps> = () => {
     </aside>
   );
 };
+

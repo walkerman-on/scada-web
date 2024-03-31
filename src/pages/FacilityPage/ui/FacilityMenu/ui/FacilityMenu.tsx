@@ -1,31 +1,33 @@
 import { getFacility } from 'app/providers/router/routeConfig/routes';
 import cl from './FacilityMenu.module.scss';
 import { FC } from 'react';
-import { NavLink as Link } from 'react-router-dom';
+import { NavLink as Link, useParams } from 'react-router-dom';
 import LabelIcon from 'shared/assets/icons/LabelIcon';
-import { useAppSelector } from 'shared/lib/hooks/useAppSelector/useAppSelector';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { fetchFacilitiesById } from 'entities/Facility/api/fetchFacilitiesById';
 
 import React from 'react';
-import { IFacility } from 'entities/Facility/types/types';
+import { IFacilityMainInfo } from 'entities/Facility/types/types';
 
 interface FacilityMenuProps {
   className?: string;
   children?: React.ReactNode;
   activeClassName?: string;
-  filteredFacilities?: IFacility[]
+  filteredFacilities?: IFacilityMainInfo[]
 }
 
 export const FacilityMenu: FC<FacilityMenuProps> = ({filteredFacilities}) => {
-  const {key} = useAppSelector(state => state.factory.currentFactory)
-
+  const URL = useParams()
+  const value = URL["*"];
+  const parts = value.split('/');
+  const factoryKey = parts[0];
+ 
   const dispatch = useAppDispatch()
   
-  const FacilitiesHandle = (id:number) => {
+  const FacilitiesHandle = (id:string) => {
     dispatch(fetchFacilitiesById(id))
   }
-
+  
   return (
     <div className={cl.ObjectMenu}>
       <div className={cl.objectCountMenu}>
@@ -37,7 +39,7 @@ export const FacilityMenu: FC<FacilityMenuProps> = ({filteredFacilities}) => {
           filteredFacilities.map((item) => (
           <Link
             key={item.id}
-            to={getFacility(key, item?.id)}
+            to={getFacility(factoryKey, item?.id)}
             className={({ isActive }) => `${cl.objectLink} ${isActive ? cl.objectLinkActive : ''}`}
             onClick={() => FacilitiesHandle(item?.id)}
           >

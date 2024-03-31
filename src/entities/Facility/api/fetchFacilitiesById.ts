@@ -3,7 +3,7 @@ import { IFacility } from "../types/types"
 import { collection, getDocs, query, where } from "firebase/firestore"; 
 import { db } from "shared/services/firebase/firebase";
 
-export const fetchFacilitiesById = createAsyncThunk<IFacility, number, {rejectValue: string}>(
+export const fetchFacilitiesById = createAsyncThunk<IFacility, string, {rejectValue: string}>(
 	"fetchFacilitiesById",
 	async (facilityId, { rejectWithValue }) => {
 		try {
@@ -15,7 +15,7 @@ export const fetchFacilitiesById = createAsyncThunk<IFacility, number, {rejectVa
 				const facilityData = querySnapshot.docs[0].data() as IFacility;
        			return facilityData;		
 			} else {
-				throw new Error("Server Error! Can not GET facilities by ID")
+				throw new Error("Server Error! Can not GET facility")
 			}
 
 		} catch (error) {
