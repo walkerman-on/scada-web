@@ -2,6 +2,7 @@ import { getInfographics, getTest, getFacility } from 'app/providers/router/rout
 import cl from './NavigationMenu.module.scss';
 import AppLink, { AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector/useAppSelector';
+import { useParams } from 'react-router-dom';
 
 interface LinksProps {
   to: string;
@@ -10,12 +11,16 @@ interface LinksProps {
 
 export const NavigationMenu = () => {
   const {currentFacility} = useAppSelector(state => state.facility)
-  // const {key} = useAppSelector(state => state.factory.currentFactory)
+  const URL = useParams()
+  const value = URL["*"];
+  const parts = value.split('/');
+  const factoryKey = parts[0];
+  const facilityId= parts[2];
 
   const Links: LinksProps[] = [
-    // { to: getFacility(key, currentFacility?.id), name: 'Установка' },
-    // { to: getInfographics(key, currentFacility?.id), name: 'Инфографика ТП' },
-    // { to: getTest(key, currentFacility?.id), name: 'Описание ТП' },
+    { to: getFacility(factoryKey, facilityId), name: 'Установка' },
+    { to: getInfographics(factoryKey, facilityId), name: 'Инфографика ТП' },
+    { to: getTest(factoryKey, facilityId), name: 'Описание ТП' },
   ];
 
   return (

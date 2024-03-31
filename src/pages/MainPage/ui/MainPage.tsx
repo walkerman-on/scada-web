@@ -56,7 +56,6 @@ const MainPage = () => {
   const [id, setId] = useState({factory: null, facility: null})
 
   const FactoriesHandle = (factoryId: string) => {
-    // fetchFacilitiesByFactoryId - загрузка установок конкретного завода по (его ключу) factoryId 
     dispatch(fetchFacilitiesByFactoryId(factoryId))
     setId({...id, factory: factoryId})
     setButtonValue({...buttonValue, factory: true})
