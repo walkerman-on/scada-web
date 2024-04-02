@@ -7,7 +7,13 @@ import { useEffect } from "react";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { fetchFacilitiesById } from "entities/Facility/api/fetchFacilitiesById";
 import { useParams } from "react-router-dom";
-
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "shared/services/firebase/firebase";
+import { IParameter } from "entities/TechnologicalParameters/types/types";
+import { fetchParametersByTitle } from "entities/TechnologicalParameters";
+import { Button } from "shared/ui/Button";
+import { fetchValves } from "entities/Valve";
+import { fetchValvesById } from "entities/Valve/api/fetchValvesById";
 
 const FacilityPage = () => {
   const {theme} = useTheme()
@@ -22,11 +28,25 @@ const FacilityPage = () => {
   useEffect(() => {
     !currentFacility && dispatch(fetchFacilitiesById(facilityId))
   }, [facilityId])
+
+  const valveList = useAppSelector(state => state.valve.list)
+
+   useEffect(() => {
+    // dispatch(fetchParametersByTitle("temperature"))
+    dispatch(fetchValves())
+  }, [])
+
+  const buttonHandler = (id:string) => {
+    console.log(id)
+    dispatch(fetchValvesById(id))
+  }
   
   if (!currentFacility || factoryKey != currentFacility?.factoryId) 
     return (
       <h1>Ой! Такой установки не существует</h1>
     );
+    
+
   
   return (
     <div className={cl.FacilityPage}>
@@ -36,6 +56,9 @@ const FacilityPage = () => {
       <div className={cl.schemePage}>
         <SchemeSidebar/>
         <div className={cl.scheme} style={{backgroundImage: `url(${schemeURL || null})`}}>
+          {valveList?.map(valve => {
+            return (<Button onClick={() => dispatch(fetchValvesById(valve?.id))}>Клапан {valve?.title}</Button>)
+          })}
           {/* <span title="Клапан 23ESV1084" className={cl.clapan}>clapan</span> */}
         </div>
       </div>    
