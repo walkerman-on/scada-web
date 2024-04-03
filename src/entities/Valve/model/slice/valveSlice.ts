@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+// import { fetchParametersByValveId } from "entities/Valve/api/fetchParametersByValveId";
 import { fetchValves } from "entities/Valve/api/fetchValves";
 import { fetchValvesById } from "entities/Valve/api/fetchValvesById";
 import { IValveState } from "entities/Valve/types/types";
@@ -7,7 +8,7 @@ const initialState:IValveState = {
     list: [],
     error: null,
     loading: false,
-    currentValve: null,
+    currentValve: null
 }
 
 export const valveSlice = createSlice({
@@ -31,7 +32,7 @@ export const valveSlice = createSlice({
             })
 
             .addCase(fetchValvesById.fulfilled, (state, action) => {
-                state.currentValve = state?.list.find(item => item.id === action.payload.id)
+                state.currentValve = action.payload
                 state.loading = false
                 state.error = null
             })
@@ -43,6 +44,19 @@ export const valveSlice = createSlice({
                 state.loading = false
                 state.error = action.payload
             })
+
+            // .addCase(fetchParametersByValveId.fulfilled, (state, action) => {
+            //     state.loading = false
+            //     state.error = null
+            // })
+            // .addCase(fetchParametersByValveId.pending, (state) => {
+            //     state.loading = true
+            //     state.error = null
+            // })
+            // .addCase(fetchParametersByValveId.rejected, (state, action) => {
+            //     state.loading = false
+            //     state.error = action.payload
+            // })
     }
 })
 

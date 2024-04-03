@@ -1,0 +1,51 @@
+.ValveParameters {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.param {
+    display: flex;
+    width: max-content;
+    flex-direction: column;
+    gap: 20px
+}
+
+.paramBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.paramInfoText {
+    display: flex;
+    align-items: center;
+    gap: 5px
+}
+
+.paramValue {
+    display: flex;
+    align-items: center;
+    gap: 5px
+}
+
+.paramUnit {
+    background: var(--color-accent-800);
+    border-radius: 5px;
+    padding: 4px 10px;
+    font-weight: 600;
+}
+
+.textSecond {
+    font-weight: 800;
+    font-size: 16px;
+}
+
+.block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px
+}
+
+

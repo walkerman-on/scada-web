@@ -23,7 +23,3 @@ export interface IFacilityState {
     loading: boolean,
     currentFacility?: IFacility,
 }
-
-export interface IParametrs {
-
-}

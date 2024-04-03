@@ -1,24 +1,23 @@
-import React, { useState } from 'react';
+import { FC } from 'react';
 import cl from "./SchemeSidebar.module.scss"
-import { Input } from 'shared/ui/Input';
 import { classNames } from 'shared/lib/classNames/classNames';
 import SidebarToggleIconLeft from 'shared/assets/icons/SidebarToggleIconLeft';
 import SidebarToggleIconRight from 'shared/assets/icons/SidebarToggleIconRight';
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector/useAppSelector';
+import { ValveParametrs } from 'widgets/ValveParametrs';
 
 export interface IProps {
-    collapsed: boolean
+    collapsed: boolean,
+    setCollapsed: (prev: boolean) => void
 }
 
-export const SchemeSidebar = () => {
-    const [collapsed, setCollapsed] = useState(false);
-    
+export const SchemeSidebar:FC<IProps> = ({collapsed, setCollapsed}) => {
     const onToggle = () => {
-        setCollapsed(prev => !prev)
+        setCollapsed(!collapsed)
     }
 
-  const valve = useAppSelector(state => state.valve.currentValve)
-
+    const valveData = useAppSelector(state => state.valve?.currentValve)
+    const valveParameter = valveData?.map( item => item?.parameters)
 
     return (
         <div className={classNames(cl.SchemeSidebar, {[cl.collapsed]: collapsed})}>
@@ -28,32 +27,9 @@ export const SchemeSidebar = () => {
                 </div>
             </div>
             <div className={cl.sidebarMain}>
-                <div className={cl.features}>
-                    <span className={cl.textFirst}>
-                        <span className={cl.textFeatures}>Свойства: </span>{valve?.title}</span>
-                        <div className={cl.featuresParams}>
-                            <span>μ =</span>
-                            <Input text='значение μ'/>
-                        </div>
-                </div>
-                <div className={cl.features}>
-                    <span className={cl.textSecond}>Расчетные параметры</span>
-                    <div className={cl.inputValue}>
-                        <Input/>
-                        <Input/>
-                        <Input/>
-                    </div>
-                    
-                </div>
-                <div className={cl.features}>
-                    <span className={cl.textSecond}>Геометрические параметры</span>
-                    <div className={cl.inputValue}>
-                        <Input/>
-                        <Input/>
-                        <Input/>
-                    </div>
-                </div>
+                {/* <span className={cl.textFeatures}>Свойства: </span>{valveInfo} */}
+                 <ValveParametrs parameters={valveParameter} />
             </div>
         </div>
     );
-};
+}

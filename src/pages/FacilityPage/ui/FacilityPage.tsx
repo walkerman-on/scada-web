@@ -3,14 +3,10 @@ import { SchemeSidebar } from 'widgets/SchemeSidebar/ui/SchemeSidebar';
 import { useTheme } from 'app/providers/ThemeProvider';
 import {Theme} from "app/providers/ThemeProvider/lib/ThemeContext"
 import cl from "./FacilityPage.module.scss"
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { fetchFacilitiesById } from "entities/Facility/api/fetchFacilitiesById";
 import { useParams } from "react-router-dom";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "shared/services/firebase/firebase";
-import { IParameter } from "entities/TechnologicalParameters/types/types";
-import { fetchParametersByTitle } from "entities/TechnologicalParameters";
 import { Button } from "shared/ui/Button";
 import { fetchValves } from "entities/Valve";
 import { fetchValvesById } from "entities/Valve/api/fetchValvesById";
@@ -32,32 +28,32 @@ const FacilityPage = () => {
   const valveList = useAppSelector(state => state.valve.list)
 
    useEffect(() => {
-    // dispatch(fetchParametersByTitle("temperature"))
     dispatch(fetchValves())
   }, [])
 
+  const [collapsed, setCollapsed] = useState<boolean>(false);
+
   const buttonHandler = (id:string) => {
-    console.log(id)
     dispatch(fetchValvesById(id))
+    setCollapsed(!collapsed)
   }
+
   
   if (!currentFacility || factoryKey != currentFacility?.factoryId) 
     return (
       <h1>Ой! Такой установки не существует</h1>
     );
     
-
-  
   return (
     <div className={cl.FacilityPage}>
       <p style={{ fontWeight: "700" }}>
         {currentFacility?.title} 
       </p>
       <div className={cl.schemePage}>
-        <SchemeSidebar/>
+        <SchemeSidebar collapsed={collapsed} setCollapsed={setCollapsed}/>
         <div className={cl.scheme} style={{backgroundImage: `url(${schemeURL || null})`}}>
           {valveList?.map(valve => {
-            return (<Button onClick={() => dispatch(fetchValvesById(valve?.id))}>Клапан {valve?.title}</Button>)
+            return (<Button key={valve?.id} onClick={() => buttonHandler(valve?.id)}>Клапан {valve?.title}</Button>)
           })}
           {/* <span title="Клапан 23ESV1084" className={cl.clapan}>clapan</span> */}
         </div>

@@ -2,7 +2,8 @@ export interface IParameter {
     title: string,
     id: string,
     unit: string,
-    value: number
+    value: number,
+    name: string
 }
 
 export interface IParameterState {
