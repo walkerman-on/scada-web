@@ -11,23 +11,31 @@ interface IProps {
         temperature?: IParameter;
         valveOpening: IParameter;
     }[];
+    valveInfo?: {
+        title?: string
+        facilityId?: string,
+        id?: string,
+        name?: string
+    }[]
 }
 
-export const ValveParametrs: FC<IProps> = ({ parameters }) => {
+export const ValveParametrs: FC<IProps> = ({ parameters, valveInfo }) => {
     return (
         <div>
             {parameters?.map((parameter, index) => (
-                <div key={index} className={cl.param}>
-                        <div className={cl.paramBlock}>
-                            <p className={cl.paramInfoText}>
-                                <span>{parameter.valveOpening.name}</span>
-                                <span>[{parameter.valveOpening.unit}]</span>
-                            </p>
-                            <div className={cl.paramValue}>
-                                <span className={cl.paramUnit}>{parameter.valveOpening.title}</span>
-                                <Input defaultValue={parameter.valveOpening.value}/>
+                <div key={index} className={cl.container} >
+                    <span className={cl.textObject}>{valveInfo?.map(item => item.name)} {valveInfo?.map(item => item.title)}</span>
+                        <div className={cl.param}>
+                             <div className={cl.paramBlock}>
+                                <p className={cl.paramInfoText}>
+                                    <span>{parameter.valveOpening.name}</span>
+                                    <span>[{parameter.valveOpening.unit}]</span>
+                                </p>
+                                <div className={cl.paramValue}>
+                                    <span className={cl.paramUnit}>{parameter.valveOpening.title}</span>
+                                    <Input defaultValue={parameter.valveOpening.value}/>
+                                </div>
                             </div>
-                        </div>
                         <div className={cl.block}>
                             <span className={cl.textSecond}>Расчетные параметры</span>
                             <div className={cl.ValveParameters}>
@@ -84,6 +92,9 @@ export const ValveParametrs: FC<IProps> = ({ parameters }) => {
                                 )}
                             </div>
                         </div>
+                        </div>
+
+                       
                     </div>))}
         </div>);
 };

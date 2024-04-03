@@ -17,6 +17,7 @@ export const SchemeSidebar:FC<IProps> = ({collapsed, setCollapsed}) => {
     }
 
     const valveData = useAppSelector(state => state.valve?.currentValve)
+    const valveInfo = valveData?.map( item => item?.valve)
     const valveParameter = valveData?.map( item => item?.parameters)
 
     return (
@@ -28,7 +29,7 @@ export const SchemeSidebar:FC<IProps> = ({collapsed, setCollapsed}) => {
             </div>
             <div className={cl.sidebarMain}>
                 {/* <span className={cl.textFeatures}>Свойства: </span>{valveInfo} */}
-                 <ValveParametrs parameters={valveParameter} />
+                 <ValveParametrs parameters={valveParameter} valveInfo={valveInfo}/>
             </div>
         </div>
     );

@@ -3,6 +3,7 @@ export interface IValve {
         title: string
         facilityId: string,
         id: string,
+        name: string
     }
     parameters: {
         pressure?: IParameter;
