@@ -3,7 +3,11 @@ export interface IValve {
         title: string
         facilityId: string,
         id: string,
-        name: string
+        name: string,
+        collapsedPositionX: number,
+        collapsedPositionY: number,
+        expandedPositionX: number,
+        expandedPositionY: number,
     }
     parameters: {
         pressure?: IParameter;
@@ -18,6 +22,10 @@ export interface IValveMainInfo {
     title: string
     facilityId: string,
     id: string,
+    collapsedPositionX: number,
+    collapsedPositionY: number,
+    expandedPositionX: number,
+    expandedPositionY: number,
 }
 
 interface IParameter {

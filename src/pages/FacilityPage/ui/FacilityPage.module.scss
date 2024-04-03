@@ -15,25 +15,28 @@
 }
 
 .scheme {
+    position: relative;
+    // background: blue;
     height: 100%;
     width: 100%;
     background-repeat: no-repeat;
 }
 
 .clapan {
-    //высчитывать в абсолютных пискелях
-    position: relative;
-    left: 35%;
-    top: 70%;
+    position: absolute;
     cursor: pointer;
-    width: 100px;
-    height: 70px;
-    background: red
+    width: 55px;
+    height: 40px;
+    // background: red;
+    opacity: 0.5;
 }
+
+// .clapan:hover {
+//     opacity: 0.5;
+// }
 
 [data-title]::after {
     content: attr(data-title);
-    /* Выводим текст из атрибута data-title */
     position: absolute;
     /* Абсолютное позиционирование */
     left: 0;

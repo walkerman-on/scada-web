@@ -11,8 +11,8 @@ export const fetchValves = createAsyncThunk<IValveMainInfo[] | null, void, { rej
             
             if (!querySnapshot.empty) {
                 const valvesData = querySnapshot.docs.map(doc => {
-                    const { facilityId, id, title } = doc.data().valve as IValveMainInfo;
-                    return { facilityId, id, title }
+                    const { facilityId, id, title, collapsedPositionX, collapsedPositionY, expandedPositionX, expandedPositionY } = doc.data().valve as IValveMainInfo;
+                    return { facilityId, id, title, collapsedPositionX, collapsedPositionY, expandedPositionX, expandedPositionY}
                 });
                 
                 return valvesData;

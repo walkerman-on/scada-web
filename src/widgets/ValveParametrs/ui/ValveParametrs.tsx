@@ -33,7 +33,7 @@ export const ValveParametrs: FC<IProps> = ({ parameters, valveInfo }) => {
                                 </p>
                                 <div className={cl.paramValue}>
                                     <span className={cl.paramUnit}>{parameter.valveOpening.title}</span>
-                                    <Input defaultValue={parameter.valveOpening.value}/>
+                                    <Input value={parameter.valveOpening.value}/>
                                 </div>
                             </div>
                         <div className={cl.block}>
@@ -47,7 +47,7 @@ export const ValveParametrs: FC<IProps> = ({ parameters, valveInfo }) => {
                                         </p>
                                         <div className={cl.paramValue}>
                                             <span className={cl.paramUnit}>{parameter.pressure.title}</span>
-                                            <Input defaultValue={parameter.pressure.value}/>
+                                            <Input value={parameter.pressure.value}/>
                                         </div>
                                     </div>
                                 )}
@@ -60,7 +60,7 @@ export const ValveParametrs: FC<IProps> = ({ parameters, valveInfo }) => {
                                         </p>
                                         <div className={cl.paramValue}>
                                             <span className={cl.paramUnit}>{parameter.flow.title}</span>
-                                            <Input defaultValue={parameter.flow.value}/>
+                                            <Input value={parameter.flow.value}/>
                                         </div>
                                     </div>
                                 )}
@@ -73,7 +73,7 @@ export const ValveParametrs: FC<IProps> = ({ parameters, valveInfo }) => {
                                         </p>
                                         <div className={cl.paramValue}>
                                             <span className={cl.paramUnit}>{parameter.pressureDrop.title}</span>
-                                            <Input defaultValue={parameter.pressureDrop.value}/>
+                                            <Input value={parameter.pressureDrop.value}/>
                                         </div>
                                     </div>
                                 )}
@@ -86,7 +86,7 @@ export const ValveParametrs: FC<IProps> = ({ parameters, valveInfo }) => {
                                         </p>
                                         <div className={cl.paramValue}>
                                             <span className={cl.paramUnit}>{parameter.temperature.title}</span>
-                                            <Input defaultValue={parameter.temperature.value}/>
+                                            <Input value={parameter.temperature.value}/>
                                         </div>
                                     </div>
                                 )}

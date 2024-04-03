@@ -26,16 +26,21 @@ const FacilityPage = () => {
   }, [facilityId])
 
   const valveList = useAppSelector(state => state.valve.list)
+  // console.log(currentValve?.map(item => item?.valve.collapsedPositionX))
 
    useEffect(() => {
     dispatch(fetchValves())
   }, [])
 
-  const [collapsed, setCollapsed] = useState<boolean>(false);
+  const [collapsed, setCollapsed] = useState<boolean>(true);
 
+  const positionX = collapsed ? valveList?.map(item => item?.collapsedPositionX) : valveList?.map(item => item?.expandedPositionX)
+  const positionY = collapsed ? valveList?.map(item => item?.collapsedPositionY) : valveList?.map(item => item?.expandedPositionY)
+  console.log("position - ", positionX[0], positionY[0])
+  
   const buttonHandler = (id:string) => {
     dispatch(fetchValvesById(id))
-    setCollapsed(!collapsed)
+    collapsed && setCollapsed(!collapsed)
   }
 
   
@@ -52,10 +57,9 @@ const FacilityPage = () => {
       <div className={cl.schemePage}>
         <SchemeSidebar collapsed={collapsed} setCollapsed={setCollapsed}/>
         <div className={cl.scheme} style={{backgroundImage: `url(${schemeURL || null})`}}>
-          {valveList?.map(valve => {
-            return (<Button key={valve?.id} onClick={() => buttonHandler(valve?.id)}>Клапан {valve?.title}</Button>)
+          {valveList?.map((valve, index) => {
+            return (<span title={`Клапан ${valve?.title}`} className={cl.clapan} style={{position: "absolute", top:`${positionY[index]}%`, left:`${positionX[index]}%`}} key={valve?.id} onClick={() => buttonHandler(valve?.id)}></span>)
           })}
-          {/* <span title="Клапан 23ESV1084" className={cl.clapan}>clapan</span> */}
         </div>
       </div>    
     </div>
