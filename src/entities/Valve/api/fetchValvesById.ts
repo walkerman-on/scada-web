@@ -13,7 +13,7 @@ export const fetchValvesById = createAsyncThunk<IValve[], string, {rejectValue: 
                 const valvesData = querySnapshot.docs
                     .filter(doc => doc.data().valve.id === valveId)
                     .map(doc => {
-						const {valve, parameters} = doc.data()
+						const {valve, parameters} = doc.data() as IValve
 						return {valve, parameters}
 					});
 

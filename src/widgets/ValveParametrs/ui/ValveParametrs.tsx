@@ -1,22 +1,11 @@
 import { FC } from 'react';
 import { Input } from 'shared/ui/Input';
 import cl from "./ValveParametrs.module.scss"
-import { IParameter } from 'entities/TechnologicalParameters/types/types';
+import { IParameterInfo, IParameters } from 'entities/TechnologicalParameters/types/types';
 
 interface IProps {
-    parameters?: {
-        pressure?: IParameter;
-        flow?: IParameter;
-        pressureDrop?: IParameter;
-        temperature?: IParameter;
-        valveOpening: IParameter;
-    }[];
-    valveInfo?: {
-        title?: string
-        facilityId?: string,
-        id?: string,
-        name?: string
-    }[]
+    parameters?: IParameters[];
+    valveInfo?: IParameterInfo[]
 }
 
 export const ValveParametrs: FC<IProps> = ({ parameters, valveInfo }) => {

@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-// import { fetchParametersByValveId } from "entities/Valve/api/fetchParametersByValveId";
 import { fetchValves } from "entities/Valve/api/fetchValves";
+import { fetchValvesByFacilityId } from "entities/Valve/api/fetchValvesByFacilityId";
 import { fetchValvesById } from "entities/Valve/api/fetchValvesById";
 import { IValveState } from "entities/Valve/types/types";
 
@@ -45,18 +45,19 @@ export const valveSlice = createSlice({
                 state.error = action.payload
             })
 
-            // .addCase(fetchParametersByValveId.fulfilled, (state, action) => {
-            //     state.loading = false
-            //     state.error = null
-            // })
-            // .addCase(fetchParametersByValveId.pending, (state) => {
-            //     state.loading = true
-            //     state.error = null
-            // })
-            // .addCase(fetchParametersByValveId.rejected, (state, action) => {
-            //     state.loading = false
-            //     state.error = action.payload
-            // })
+            .addCase(fetchValvesByFacilityId.fulfilled, (state, action) => {
+                state.list = action.payload
+                state.loading = false
+                state.error = null
+            })
+            .addCase(fetchValvesByFacilityId.pending, (state) => {
+                state.loading = true
+                state.error = null
+            })
+            .addCase(fetchValvesByFacilityId.rejected, (state, action) => {
+                state.loading = false
+                state.error = action.payload
+            })
     }
 })
 

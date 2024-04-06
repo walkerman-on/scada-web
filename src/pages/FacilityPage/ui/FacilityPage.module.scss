@@ -16,7 +16,6 @@
 
 .scheme {
     position: relative;
-    // background: blue;
     height: 100%;
     width: 100%;
     background-repeat: no-repeat;
@@ -31,6 +30,11 @@
     opacity: 0.5;
 }
 
+
+.mainText {
+    font-weight: 700;
+}
+
 // .clapan:hover {
 //     opacity: 0.5;
 // }
@@ -38,16 +42,12 @@
 [data-title]::after {
     content: attr(data-title);
     position: absolute;
-    /* Абсолютное позиционирование */
     left: 0;
     top: 1em;
-    /* Положение подсказки */
     transition: 0.5s;
     opacity: 0;
-    /* Скрываем подсказку, делая её прозрачной */
 }
 
 [data-title]:hover::after {
     opacity: 1;
-    /* Показываем подсказку */
 }

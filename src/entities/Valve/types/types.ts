@@ -22,10 +22,10 @@ export interface IValveMainInfo {
     title: string
     facilityId: string,
     id: string,
-    collapsedPositionX: number,
-    collapsedPositionY: number,
-    expandedPositionX: number,
-    expandedPositionY: number,
+    collapsedPositionX?: number,
+    collapsedPositionY?: number,
+    expandedPositionX?: number,
+    expandedPositionY?: number,
 }
 
 interface IParameter {
