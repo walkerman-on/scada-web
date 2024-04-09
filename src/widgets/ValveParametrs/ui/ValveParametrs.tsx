@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { Input } from 'shared/ui/Input';
 import cl from "./ValveParametrs.module.scss"
 import { IParameterInfo, IParameters } from 'entities/TechnologicalParameters/types/types';
@@ -8,7 +8,20 @@ interface IProps {
     valveInfo?: IParameterInfo[]
 }
 
+interface InputData {
+  id: string;
+  value: number;
+}
+
 export const ValveParametrs: FC<IProps> = ({ parameters, valveInfo }) => {
+    const [inputValue, setInputValue] = useState<number>(null);
+    const handleChange = (e:any) => {
+        const {value} = e.target
+        if (/^\d*$/.test(value)) {
+            setInputValue(value);
+        }
+    }
+
     return (
         <div>
             {parameters?.map((parameter, index) => (
@@ -22,7 +35,9 @@ export const ValveParametrs: FC<IProps> = ({ parameters, valveInfo }) => {
                                 </p>
                                 <div className={cl.paramValue}>
                                     <span className={cl.paramUnit}>{parameter.valveOpening.title}</span>
-                                    <Input value={parameter.valveOpening.value}/>
+                                    <Input 
+                                        value={parameter.valveOpening.value}
+                                    />
                                 </div>
                             </div>
                         <div className={cl.block}>
@@ -36,7 +51,19 @@ export const ValveParametrs: FC<IProps> = ({ parameters, valveInfo }) => {
                                         </p>
                                         <div className={cl.paramValue}>
                                             <span className={cl.paramUnit}>{parameter.pressure.title}</span>
-                                            <Input value={parameter.pressure.value}/>
+                                            <div className={cl.values}>
+                                                <Input 
+                                                id={parameter.pressure.id} 
+                                                  value={parameter.pressure.value}
+                                                  className={cl.asdc}
+                                                  />
+                                                <Input 
+                                                    text={"новое значение"}
+                                                    // value={inputData.pressureInput}
+                                                    // onChange={(e) => handleInputPressureChange(e)}
+                                                    className={cl.aaa}
+                                                />
+                                            </div>
                                         </div>
                                     </div>
                                 )}
@@ -49,7 +76,19 @@ export const ValveParametrs: FC<IProps> = ({ parameters, valveInfo }) => {
                                         </p>
                                         <div className={cl.paramValue}>
                                             <span className={cl.paramUnit}>{parameter.flow.title}</span>
-                                            <Input value={parameter.flow.value}/>
+                                                 <div className={cl.values}>
+                                                 <Input 
+                                                      value={parameter.flow.value}
+                                                      className={cl.asdc}
+                                                      />
+                                                <Input
+                                                    id={parameter.flow.id} 
+                                                    text={"новое значение"}
+                                                    // value={inputData.flowInput}
+                                                    // onChange={(e) => handleInputFlowChange(e)}
+                                                />
+                                                  
+                                            </div>
                                         </div>
                                     </div>
                                 )}
@@ -62,7 +101,17 @@ export const ValveParametrs: FC<IProps> = ({ parameters, valveInfo }) => {
                                         </p>
                                         <div className={cl.paramValue}>
                                             <span className={cl.paramUnit}>{parameter.pressureDrop.title}</span>
-                                            <Input value={parameter.pressureDrop.value}/>
+                                                 <div className={cl.values}>
+                                                 <Input 
+                                                      value={parameter.pressureDrop.value}
+                                                      className={cl.asdc}
+                                                      />
+                                                <Input 
+                                                    text={"новое значение"}
+                                                    value={inputValue}
+                                                    onChange={(e) => handleChange(e)}
+                                                />
+                                            </div>
                                         </div>
                                     </div>
                                 )}
@@ -75,7 +124,17 @@ export const ValveParametrs: FC<IProps> = ({ parameters, valveInfo }) => {
                                         </p>
                                         <div className={cl.paramValue}>
                                             <span className={cl.paramUnit}>{parameter.temperature.title}</span>
-                                            <Input value={parameter.temperature.value}/>
+                                                 <div className={cl.values}>
+                                                 <Input 
+                                                      value={parameter.temperature.value}
+                                                      className={cl.asdc}
+                                                      />
+                                                <Input 
+                                                    text={"новое значение"}
+                                                    value={inputValue}
+                                                    onChange={(e) => handleChange(e)}
+                                                />
+                                            </div>
                                         </div>
                                     </div>
                                 )}

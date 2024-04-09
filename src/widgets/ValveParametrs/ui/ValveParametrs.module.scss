@@ -1,7 +1,6 @@
 .container {
     display: flex;
     flex-direction: column;
-    // align-items: center;
     gap: 5px;
 }
 
@@ -16,11 +15,24 @@
     gap: 15px;
 }
 
+.values {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.unitValue {
+    background: var(--color-primary-600);
+    border-radius: 5px;
+    padding: 3.7px 10px;
+    font-weight: 600;
+}
+
+
 .param {
     display: flex;
-    width: max-content;
     flex-direction: column;
-    gap: 20px
+    gap: 20px;
 }
 
 .paramBlock {
@@ -44,7 +56,7 @@
 .paramUnit {
     background: var(--color-accent-800);
     border-radius: 5px;
-    padding: 4px 10px;
+    padding: 3.7px 10px;
     font-weight: 600;
 }
 
