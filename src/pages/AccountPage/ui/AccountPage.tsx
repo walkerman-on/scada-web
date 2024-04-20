@@ -34,9 +34,9 @@ const AccountPage = () => {
               <DefaultUserIcon height={140} width={140}/>
             </div>
             <div className={cl.infoBlock}>
-              <span className={cl.mainText}>Абрамов</span>
-              <span className={cl.mainText}>Виктор</span>
-              <span className={cl.mainText}>Иванович</span>
+              <span className={cl.mainText}>Грошев</span>
+              <span className={cl.mainText}>Алексей</span>
+              <span className={cl.mainText}>Игоревич</span>
             </div>
             <span className={cl.infoText}>ID: <span className={cl.mainText}>{user?.id}</span></span>
           <span>Время в системе: с 15:12 - сейчас</span>
