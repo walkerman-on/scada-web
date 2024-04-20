@@ -7,6 +7,6 @@ export const getNotFound = () => '*';
 
 export const getFacility: IGetPath = (factoryKey, facilityId) => `/${factoryKey}/facility/${facilityId}`;
 
-export const getAccount = (userId: string) => `/user/${userId}`;
+export const getAccount = (userId: string) => `account/user/${userId}`;
 export const getInfographics: IGetPath = (factoryKey, facilityId) => `${getFacility(factoryKey, facilityId)}/infographics`;
 export const getTest: IGetPath = (factoryKey, facilityId) => `${getFacility(factoryKey, facilityId)}/description`;

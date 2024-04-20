@@ -1,7 +1,7 @@
 import { Button } from 'shared/ui/Button/Button';
 import { useLogout } from 'entities/Auth/hooks/useLogout';
 import AppLink from 'shared/ui/AppLink/AppLink';
-import { getFacility } from 'app/providers/router/routeConfig/routes';
+import { getAccount, getFacility } from 'app/providers/router/routeConfig/routes';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTheme } from 'app/providers/ThemeProvider';
 import { Select } from 'shared/ui/Select/index';
@@ -15,6 +15,8 @@ import { fetchFacilities, fetchFacilitiesById, fetchFacilitiesByFactoryId } from
 import { useEffect, useMemo, useState } from 'react';
 import { ISelectProps } from 'shared/ui/Select/IProps';
 import { Message } from 'shared/ui/Message';
+import { Link } from 'react-router-dom';
+import { Navigation } from 'widgets/Header/Navigation';
 
 const MainPage = () => {
   const { logout, user } = useLogout();
@@ -68,17 +70,8 @@ const MainPage = () => {
   }
 
   return (
-    <nav className={classNames('app', {}, [theme])}>
-      <header className={cl.header}>
-        <div onClick={logout} className={cl.logout}>
-          <LogoutIcon/>
-          <span className={cl.logoutText}>Выйти</span>
-        </div>
-        <div className={cl.account}>
-          <ThemeSwitcher />
-          <span className={cl.accountText}>{user?.email}</span>
-        </div>
-      </header>
+      <div className={classNames('app', {}, [theme])}>
+      <Navigation />
       <p style={{ fontWeight: '700' }}>Выбор завода</p>
       {facility.error && <Message content={facility.error}></Message>}
       <Select options = {listFactories} defaultValue='Выбор завода/предприятия' onChange={FactoriesHandle}/>
@@ -86,7 +79,8 @@ const MainPage = () => {
       <AppLink to={getFacility(id.factory, id.facility)}>
         <Button type="primary" disabled={buttonValue.factory && buttonValue.facility ? false : true} className={cl.text}>Запуск</Button>
       </AppLink>
-    </nav>
+
+    </div>
   );
 };
 

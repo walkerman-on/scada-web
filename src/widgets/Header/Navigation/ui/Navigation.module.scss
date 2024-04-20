@@ -1,0 +1,45 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logout {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    color: var(--color-accent-800);
+}
+
+.logout:hover {
+    transition: background-color 0.2s;
+    color: var(--color-accent-600);
+}
+
+.logoutText {
+    font-weight: 600;
+}
+
+.account {
+    display: flex;
+    align-items: center;
+    gap: 15px
+}
+
+.accountText {
+    padding: 8px 20px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--color-primary-900);
+    border-radius: 40px;
+    cursor: pointer;
+}
+
+.accountText:hover {
+    background: var(--color-primary-600);
+    transition: background-color 0.2s;
+}

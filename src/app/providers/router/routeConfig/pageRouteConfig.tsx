@@ -9,7 +9,7 @@ import { getMain, getNotFound } from 'app/providers/router/routeConfig/routes';
 
 export enum AppRoutes {
   INFOGRAPHICS = 'infographics',
-  ACCOUNT = 'user',
+  ACCOUNT = 'account',
   FACILITY = 'facility',
   TEST = 'description',
   MAIN = 'main',
@@ -18,7 +18,7 @@ export enum AppRoutes {
 
 export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.INFOGRAPHICS]: '/:factoryKey/facility/:facilityId/infographics',
-  [AppRoutes.ACCOUNT]: 'user/:userId',
+  [AppRoutes.ACCOUNT]: 'account/user/:userId',
   [AppRoutes.FACILITY]: '/:factoryKey/facility/:facilityId',
   [AppRoutes.TEST]: '/:factoryKey/facility/:facilityId/description',
   [AppRoutes.MAIN]: getMain(),
@@ -27,7 +27,7 @@ export const RoutePath: Record<AppRoutes, string> = {
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   [AppRoutes.ACCOUNT]: {
-    path: RoutePath.user,
+    path: RoutePath.account,
     element: <AccountPage />,
   },
   [AppRoutes.INFOGRAPHICS]: {

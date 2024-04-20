@@ -57,7 +57,7 @@ export const Sidebar: FC<SidebarProps> = () => {
     <aside className={cl.Sidebar}>
       <div className={cl.sidebarMenu}>
         <div className={cl.inputMenu}>
-            <Link to={getMain()}>
+          <Link to={getMain()}>
           <p className={cl.scadaBlock}>
               <TurnLeftArrow/>
               <span className={cl.scadaBlockText}>Главная</span>

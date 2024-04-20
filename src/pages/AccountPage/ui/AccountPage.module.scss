@@ -1,0 +1,78 @@
+.AccountPage {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.account {
+    padding: 8px;
+    height: 150px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--color-primary-900);
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.infoText {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.mainText {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+}
+
+.info {
+    padding: 40px 60px;
+    background: var(--color-primary-500);
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    width: 400px;
+}
+
+.infoBlock {
+    display: flex;
+    gap: 10px;
+}
+
+.scadaBlock {
+    display: flex;
+    gap: 1px;
+}
+
+.scadaBlockText {
+    padding-top: 5px;
+    color: var(--color-accent-800);
+    font-weight: 600;
+}
+
+.scadaBlockText:hover {
+    transition: background-color 0.2s;
+    color: var(--color-accent-600);
+    cursor: pointer;
+}
+
+
+.textBack {
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.textBack:hover {
+    color: var(--color-accent-600);
+    transition: color 0.2s;
+
+}
