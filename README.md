@@ -1,5 +1,9 @@
 ## Демо
 
+
+https://github.com/walkerman-on/scada-web/assets/82907949/7c1c443e-e781-4de5-9204-d37c6b0f3ecf
+
+
 ---
 
 ## Запуск проекта
@@ -24,7 +28,6 @@ FIREBASE_API_APP_ID = "appId"
 ```
 npm install - устанавливаем зависимости
 npm start - запуск UI
-
 ```
 
 ---
