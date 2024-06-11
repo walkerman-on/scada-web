@@ -80,3 +80,8 @@ npm start - запуск UI
 - [ ] Ссылка на документацию - [Cloud Storage for Firebase](https://firebase.google.com/docs/storage)
 
 ---
+
+## Технологии
+React, React Router, TypeScript, Redux Toolkit, SCSS module, Webpack, Ant Design, Google Firebase (Authentication, Realtime Database, Cloud Storage)
+
+---
