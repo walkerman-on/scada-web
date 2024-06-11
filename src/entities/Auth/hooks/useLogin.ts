@@ -5,7 +5,6 @@ import { setUser } from '../model/slice/userSlice';
 import { IUseLoginReturn } from './types';
 import { message } from 'antd';
 import { getMain } from 'app/providers/router/routeConfig/routes';
-import { login } from '../api/login';
 
 export const useLogin = (): IUseLoginReturn => {
   const dispatch = useAppDispatch();
@@ -25,11 +24,5 @@ export const useLogin = (): IUseLoginReturn => {
       })
       .catch(() => message.error('Введены некорректные данные!'));
   };
-
-
-  // const handleLogin = (email: string, password: string) => {
-  //   dispatch(login({login: email, password: password }))
-  // };
-
   return { login: handleLogin };
 };

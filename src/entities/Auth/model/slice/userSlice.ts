@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { User, UserState } from '../types/user';
-import { login } from 'entities/Auth/api/login';
 
 const initialState: UserState = {
   isAuthorized: false,

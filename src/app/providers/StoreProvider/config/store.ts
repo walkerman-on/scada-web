@@ -1,5 +1,5 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
-import { userReducer, loginReducer } from 'entities/Auth/index';
+import { userReducer } from 'entities/Auth/index';
 import {factoryReducer} from "entities/Factory/index"
 import { facilityReducer } from 'entities/Facility';
 import { parameterReducer } from 'entities/TechnologicalParameters';
@@ -12,6 +12,5 @@ export const store = configureStore({
     facility: facilityReducer,
     parameter: parameterReducer,
     valve: valveReducer,
-    login: loginReducer
   },
 });
