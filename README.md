@@ -1,5 +1,5 @@
 ## Демо
-https://github.com/walkerman-on/scada-web/assets/82907949/7c1c443e-e781-4de5-9204-d37c6b0f3ecf
+https://github.com/walkerman-on/scada-web/assets/82907949/72dc2d6d-1db0-4750-9ad2-b9d5f8a9ac3a
 
 ---
 
@@ -70,14 +70,99 @@ npm start - запуск UI
 
 Взаимодействие с данными осуществляется с помощью Redux Toolkit
 
-В качестве авторизации используется сервис Firebase Authentication
+📈 В качестве авторизации используется сервис Firebase Authentication
 - [ ] Ссылка на документацию - [Firebase Authentication](https://firebase.google.com/docs/auth)
 
-В качестве базы данных предприятий / установок используется сервис Firebase Realtime Database
+📈 В качестве базы данных предприятий / установок используется сервис Firebase Realtime Database
 - [ ] Ссылка на документацию - [Firebase Realtime Database](https://firebase.google.com/docs/database)
 
-В качестве базы данных статичных файлов используется сервис Cloud Storage for Firebase
+Для корректной работы приложения необходимо создать такую конфигурацию базы данных в [Firebase Realtime Database](https://firebase.google.com/docs/database):
+```
+📦 Database
+┣ 📂 factories
+┃ ┣ 📂 factory_1
+┃ ┃ ┣ 📜 title: string,
+┃ ┃ ┣ 📜 id: number,
+┃ ┃ ┣ 📜 key: string,
+┃ ┃ ┣ 📜 enabled: boolean,
+┃ ┃ ┗ 📜 visible: boolean,
+┃ ┗ ...
+┣ 📂 facilities
+┃ ┣ 📂 facility_1
+┃ ┃ ┣ 📜 title: string,
+┃ ┃ ┣ 📜 description: string,
+┃ ┃ ┣ 📜 id: string,
+┃ ┃ ┣ 📜 factoryId: string,
+┃ ┃ ┣ 📜 schemeDarkURL: string,
+┃ ┃ ┣ 📜 schemeLightURL: string,
+┃ ┃ ┣ 📜 enabled: boolean,
+┃ ┃ ┗ 📜 visible: boolean,
+┃ ┗ ...
+┣ 📂 valves
+┃ ┣ 📂 valve_1
+┃ ┃ ┣ 📂 parameters
+┃ ┃ ┃ ┣ 📜 collapsedPositionX: number,
+┃ ┃ ┃ ┣ 📜 collapsedPositionY: number,
+┃ ┃ ┃ ┣ 📜 expandedPositionX: number,
+┃ ┃ ┃ ┗ 📜 expandedPositionY: number,
+┃ ┃ ┃ ┣ 📂 flow
+┃ ┃ ┃ ┃ ┣ 📜 id: string,
+┃ ┃ ┃ ┃ ┣ 📜 name: string,
+┃ ┃ ┃ ┃ ┣ 📜 title: string,
+┃ ┃ ┃ ┃ ┣ 📜 unit: string,
+┃ ┃ ┃ ┃ ┗ 📜 value: number,
+┃ ┃ ┃ ┣ 📂 pressure
+┃ ┃ ┃ ┃ ┣ 📜 id: string,
+┃ ┃ ┃ ┃ ┣ 📜 name: string,
+┃ ┃ ┃ ┃ ┣ 📜 title: string,
+┃ ┃ ┃ ┃ ┣ 📜 unit: string,
+┃ ┃ ┃ ┃ ┗ 📜 value: number,
+┃ ┃ ┃ ┣ 📂 pressureDrop
+┃ ┃ ┃ ┃ ┣ 📜 id: string,
+┃ ┃ ┃ ┃ ┣ 📜 name: string,
+┃ ┃ ┃ ┃ ┣ 📜 title: string,
+┃ ┃ ┃ ┃ ┣ 📜 unit: string,
+┃ ┃ ┃ ┃ ┗ 📜 value: number,
+┃ ┃ ┃ ┣ 📂 temperature
+┃ ┃ ┃ ┃ ┣ 📜 id: string,
+┃ ┃ ┃ ┃ ┣ 📜 name: string,
+┃ ┃ ┃ ┃ ┣ 📜 title: string,
+┃ ┃ ┃ ┃ ┣ 📜 unit: string,
+┃ ┃ ┃ ┃ ┗ 📜 value: number,
+┃ ┃ ┃ ┣ 📂 valveOpening
+┃ ┃ ┃ ┃ ┣ 📜 id: string,
+┃ ┃ ┃ ┃ ┣ 📜 name: string,
+┃ ┃ ┃ ┃ ┣ 📜 title: string,
+┃ ┃ ┃ ┃ ┣ 📜 unit: string,
+┃ ┃ ┃ ┃ ┗ 📜 value: number,
+┃ ┃ ┗ 📂 valve
+┃ ┃ ┃ ┣ 📜 collapsedPositionX: number,
+┃ ┃ ┃ ┣ 📜 collapsedPositionY: number,
+┃ ┃ ┃ ┣ 📜 expandedPositionX: number,
+┃ ┃ ┃ ┣ 📜 expandedPositionY: number,
+┃ ┃ ┃ ┣ 📜 facilityId: string,
+┃ ┃ ┃ ┣ 📜 id: string,
+┃ ┃ ┃ ┣ 📜 name: string,
+┃ ┃ ┃ ┗ 📜 title: string,
+┃ ┗ ...
+┗ 
+```
+
+🖼️ В качестве хранения статичных файлов используется сервис Cloud Storage for Firebase
 - [ ] Ссылка на документацию - [Cloud Storage for Firebase](https://firebase.google.com/docs/storage)
+
+Для корректной работы приложения необходимо создать такую конфигурацию хранения статичных файлов в [Cloud Storage for Firebase](https://firebase.google.com/docs/storage):
+```
+📦 Storage
+┣ 📂 factories
+┃ ┣ 📂 factory_1
+┃ ┃ ┣ 📂 facility_1
+┃ ┃ ┃ ┣ 🖼️ SchemeDark.svg
+┃ ┃ ┗ ┗ 🖼️ SchemeLight.svg
+┃ ┗ ...
+┗
+
+```
 
 ---
 
