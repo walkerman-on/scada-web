@@ -24,6 +24,8 @@
     "css-loader": "^6.6.0",
     "dotenv-webpack": "^8.0.1",
     "file-loader": "^6.2.0",
+    "gojs": "^3.0.21",
+    "gojs-react": "^1.1.2",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.5.3",
     "sass": "^1.49.9",

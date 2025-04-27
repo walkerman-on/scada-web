@@ -13,8 +13,9 @@ import { fetchValvesById } from "entities/Valve/api/fetchValvesById";
 import { fetchValvesByFacilityId } from "entities/Valve/api/fetchValvesByFacilityId";
 import { fetchParametersByFacilityId } from "entities/TechnologicalParameters";
 import { FacilityParameters } from "widgets/FacilityParameters";
+import {ScadaApp} from "features/facility/ui/diagram/ScadaApp"
 
-const FacilityPage = () => {
+export const FacilityPage = () => {
   const {theme} = useTheme()
   const dispatch = useAppDispatch()
   
@@ -57,24 +58,24 @@ const FacilityPage = () => {
         {currentFacility?.title} 
       </p>
       <div className={cl.schemePage}>
-        <SchemeSidebar collapsed={collapsed} setCollapsed={setCollapsed}/>
-        <div className={cl.scheme} style={{backgroundImage: `url(${schemeURL || null})`}}>
-          <FacilityParameters parameters={facilityParameters} collapsed={collapsed}/>
-          {valveList?.map((valve, index) => {
-            return (
-              <div key={valve?.id} >
-                <span 
-                    title={`Клапан ${valve?.title}`} 
-                    className={cl.clapan} 
-                    style={{position: "absolute", top:`${positionY[index]}%`, left:`${positionX[index]}%`}} 
-                    onClick={() => buttonHandler(valve?.id)}></span>
-              </div>
-            )
-          })}
-        </div>
+        {/*<SchemeSidebar collapsed={collapsed} setCollapsed={setCollapsed}/>*/}
+        {/*<div className={cl.scheme} style={{backgroundImage: `url(${schemeURL || null})`}}>*/}
+        {/*  <FacilityParameters parameters={facilityParameters} collapsed={collapsed}/>*/}
+        {/*  {valveList?.map((valve, index) => {*/}
+        {/*    return (*/}
+        {/*      <div key={valve?.id} >*/}
+        {/*        <span */}
+        {/*            title={`Клапан ${valve?.title}`} */}
+        {/*            className={cl.clapan} */}
+        {/*            style={{position: "absolute", top:`${positionY[index]}%`, left:`${positionX[index]}%`}} */}
+        {/*            onClick={() => buttonHandler(valve?.id)}></span>*/}
+        {/*      </div>*/}
+        {/*    )*/}
+        {/*  })}*/}
+        {/*</div>*/}
+          <ScadaApp/>
       </div>    
     </div>
   );
 };
 
-export default FacilityPage;

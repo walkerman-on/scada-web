@@ -1,1 +1,2 @@
-export { FacilityPageAsync as FacilityPage } from './ui/FacilityPage.async';
+// export { FacilityPageAsync as FacilityPage } from './ui/FacilityPage.async';
+export {FacilityPage} from "./ui/FacilityPage"
