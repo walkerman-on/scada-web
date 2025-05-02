@@ -5,26 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="78679332-cf12-4776-aed1-6edf1428ae00" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/auth/hooks/types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/auth/hooks/useAuth.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/auth/hooks/useLogin.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/auth/hooks/useLogout.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/auth/hooks/useSignUp.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/auth/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/auth/model/selectors/userSelector.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/auth/model/slice/userSlice.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/auth/model/types/login.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/auth/model/types/user.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/styles/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/styles/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/FacilityPage/ui/FacilityPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/FacilityPage/ui/FacilityPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/LoginPage/ui/LoginPage.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/LoginPage/ui/LoginPage.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/LoginPage/ui/LoginPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/LoginPage/ui/LoginPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/MainPage/ui/MainPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MainPage/ui/MainPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/facility/ui/diagram/Diagram.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/facility/ui/diagram/ScadaApp.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/facility/ui/diagram/ScadaApp.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/facility/ui/diagram/colors.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/facility/ui/diagram/diagramConfig.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/facility/ui/diagram/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/facility/ui/diagram/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/facility/ui/diagram/shapes.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/facility/ui/diagram/simulation.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/facility/ui/diagram/templates.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/facility/ui/diagram/test.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/facility/ui/diagram/test.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/facility/ui/diagram/test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/facility/ui/diagram/types.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/facility/ui/diagram/useDiagram.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,25 +52,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "develop",
-    "last_opened_file_path": "/Users/walkerman-on/Documents/FRONTEND DEV/GitHub/scada-web/src/shared/assets/img",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "yarn",
-    "npm.start.executor": "Run",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/walkerman-on/Documents/FRONTEND DEV/GitHub/scada-web/src/shared/assets/img&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;npm.start.executor&quot;: &quot;Run&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/walkerman-on/Documents/FRONTEND DEV/GitHub/scada-web/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/shared/assets/img" />
@@ -132,6 +127,10 @@
       <workItem from="1744121387267" duration="7000" />
       <workItem from="1745605139188" duration="405000" />
       <workItem from="1745754508644" duration="441000" />
+      <workItem from="1745754955689" duration="13178000" />
+      <workItem from="1745921271061" duration="151000" />
+      <workItem from="1745933552383" duration="2715000" />
+      <workItem from="1746175468713" duration="760000" />
     </task>
     <servers />
   </component>
