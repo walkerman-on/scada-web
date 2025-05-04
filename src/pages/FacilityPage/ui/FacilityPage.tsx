@@ -14,9 +14,10 @@ import { fetchValvesByFacilityId } from "entities/Valve/api/fetchValvesByFacilit
 import { fetchParametersByFacilityId } from "entities/TechnologicalParameters";
 import { FacilityParameters } from "widgets/FacilityParameters";
 import {ScadaApp} from "features/facility/ui/diagram/ScadaApp"
+import { useWebSocket } from 'shared/api/ws/hooks/useWebSocket'
 
 export const FacilityPage = () => {
-  const {theme} = useTheme()
+    const {theme} = useTheme()
   const dispatch = useAppDispatch()
   
   const currentFacility = useAppSelector(state => state.facility.currentFacility)

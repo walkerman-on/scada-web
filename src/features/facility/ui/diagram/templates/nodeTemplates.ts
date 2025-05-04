@@ -4,19 +4,10 @@ import { COLORS, GEOMETRY, TEXT_DEFAULTS } from '../utils/constants';
 export const createNodeTemplates = ($: typeof go.GraphObject.make) => {
     const templates = new go.Map<string, go.Node>();
 
-    // Base tank template
     templates.add('', createTankTemplate($));
-
-    // Label template
     templates.add('label', createLabelTemplate($));
-
-    // Valve template
     templates.add('valve', createValveTemplate($));
-
-    // Monitor template
     templates.add('monitor', createMonitorTemplate($));
-
-    // Sensor template
     templates.add('sensor', createSensorTemplate($));
 
     return templates;
@@ -73,8 +64,8 @@ const createLabelTemplate = ($: typeof go.GraphObject.make) => {
                 fromSpot: go.Spot.Right,
                 toSpot: go.Spot.LeftRightSides,
                 geometryString: GEOMETRY.labelRight,
-                strokeWidth: 4,
-                fill: COLORS.black,
+                strokeWidth: 0,
+                fill: COLORS.gray,
             })
                 .bind('width')
                 .bind('height')
@@ -104,11 +95,11 @@ const createValveTemplate = ($: typeof go.GraphObject.make) => {
         .bindTwoWay('location', 'pos', go.Point.parse, go.Point.stringify)
         .add(
             $(go.TextBlock, {
-                background: COLORS.black,
+                background: COLORS.red,
                 alignment: go.Spot.Center,
                 textAlign: 'center',
                 margin: 2,
-                editable: true,
+                // editable: true,
             })
                 .set(TEXT_DEFAULTS)
                 .bind('text', 'key')
@@ -137,17 +128,41 @@ const createMonitorTemplate = ($: typeof go.GraphObject.make) => {
                 width: 40,
                 height: 15,
             }),
-            $(go.TextBlock, '', {}).set(TEXT_DEFAULTS).bind('text', 'value')
+            $(go.TextBlock, '', {
+                editable: true,
+                isMultiline: false, // запрещаем многострочный ввод
+            }).set(TEXT_DEFAULTS).bind('text', 'value')
         ),
         $(go.TextBlock, '', { column: 2, alignment: go.Spot.Left })
             .set(TEXT_DEFAULTS)
-            .bind('text', 'unit')
+            .bind('text', 'unit'),
+        $(go.Panel, 'Spot', {
+            column: 3,
+            visible: false
+        })
+            .bind('visible', '', (_, obj) => {
+                const panel = obj.panel;
+                return panel?.data?.editable === true;
+            })
+            .add(
+                $(go.Shape, 'Rectangle', {
+                    fill: COLORS.green,
+                    width: 20,
+                    height: 15,
+                    margin: 2,
+                    cursor: 'pointer'
+                }),
+                $(go.TextBlock, 'OK', {
+                    font: 'bold 10px sans-serif',
+                    stroke: COLORS.white
+                })
+            )
     );
 
-    const valuesTable = $(go.Panel, 'Table', { itemTemplate: valuesTableItem }).bind(
-        'itemArray',
-        'values'
-    );
+    const valuesTable = $(go.Panel, 'Table', {
+        itemTemplate: valuesTableItem,
+        defaultAlignment: go.Spot.Left // выравнивание по левому краю
+    }).bind('itemArray', 'values');
 
     const statusPanelTemplate = $(go.Panel, 'Spot').add(
         $(go.Shape, { width: 18, height: 18, fill: COLORS.white }).bind('fill'),

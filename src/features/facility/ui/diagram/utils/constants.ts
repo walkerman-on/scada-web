@@ -8,6 +8,7 @@ export const COLORS = {
     yellow: '#f9c66a',
     orange: '#e48042',
     red: '#ed2d44',
+    bg: 'var(--color-primary-200)'
 };
 
 export const GEOMETRY = {

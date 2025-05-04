@@ -1,5 +1,4 @@
 import * as go from 'gojs';
-import { COLORS, TEXT_DEFAULTS } from './constants';
 import { createNodeTemplates } from '../templates/nodeTemplates';
 import { createLinkTemplates } from '../templates/linkTemplates';
 
@@ -13,11 +12,8 @@ export const setupDiagram = (divElement: HTMLDivElement) => {
         'rotatingTool.snapAngleEpsilon': 45,
     });
 
-    const nodeTemplates = createNodeTemplates($);
-    const linkTemplates = createLinkTemplates($);
-
-    diagram.nodeTemplateMap = nodeTemplates;
-    diagram.linkTemplateMap = linkTemplates;
+    diagram.nodeTemplateMap = createNodeTemplates($);
+    diagram.linkTemplateMap = createLinkTemplates($);
 
     return diagram;
 };
